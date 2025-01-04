@@ -1,0 +1,135 @@
+body {
+    font-family: 'Microsoft YaHei', sans-serif;
+    background: url('../images/bg-surface.png') center center/cover no-repeat fixed;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #82404a;
+}
+
+.intro-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #930c1b;
+    z-index: 1000;
+}
+
+.login-page {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+}
+
+h1 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.input-group {
+    margin-bottom: 1rem;
+}
+
+input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+    box-sizing: border-box;
+}
+
+button {
+    background: #8ec5fc;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #7ab4eb;
+}
+
+.message {
+    color: #ff4444;
+    margin-top: 1rem;
+    display: none;
+}
+
+/* 添加动画相关样式 */
+.intro-container.exploding {
+    animation: fadeOut 0.5s forwards;
+}
+
+.intro-container .shatter-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shatter-piece {
+    position: absolute;
+    background-image: url('../images/20200125200224.png');
+    background-size: 100vw 100vh;
+    opacity: 1;
+    transform-origin: center;
+    clip-path: polygon(
+        calc(50% + var(--x1)) calc(0% + var(--y1)), 
+        calc(100% + var(--x2)) calc(50% + var(--y2)), 
+        calc(50% + var(--x3)) calc(100% + var(--y3)), 
+        calc(0% + var(--x4)) calc(50% + var(--y4))
+    );
+}
+
+.exploding .shatter-piece {
+    animation: shatterAnimation 2s cubic-bezier(0.36, 0, 0.66, -0.56) forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes shatterAnimation {
+    0% {
+        transform: translate(0, 0) rotate(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--tx), var(--ty)) rotate(var(--rot));
+        opacity: 0;
+    }
+}
