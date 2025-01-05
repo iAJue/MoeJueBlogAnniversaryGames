@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +12,11 @@
         body {
             background: url('./images/bg-surface.png') center center/cover no-repeat fixed;
         }
+
         .skip-btn {
             margin-right: auto;
         }
+
         .action-btn {
             display: flex;
             align-items: center;
@@ -26,12 +29,14 @@
             border-radius: 50%;
             transition: all 0.3s;
         }
+
         .action-btn:hover {
             background: rgba(0, 0, 0, 0.05);
             color: #4285f4;
         }
     </style>
 </head>
+
 <body>
     <div id="login-page" class="login-page">
         <div class="login-container">
@@ -68,17 +73,19 @@
                 <div class="captcha-footer">
                     <button class="action-btn refresh-btn" onclick="refreshCaptcha()">
                         <svg viewBox="0 0 24 24" width="24" height="24">
-                            <path fill="currentColor" d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                            <path fill="currentColor"
+                                d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
                         </svg>
                     </button>
                     <button class="action-btn about-btn" onclick="showAbout()">
                         <svg viewBox="0 0 24 24" width="24" height="24">
-                            <path fill="currentColor" d="M11 17h2v-6h-2v6zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM11 9h2V7h-2v2z"/>
+                            <path fill="currentColor"
+                                d="M11 17h2v-6h-2v6zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM11 9h2V7h-2v2z" />
                         </svg>
                     </button>
                     <button class="action-btn skip-btn" onclick="skipCaptcha()">
                         <svg viewBox="0 0 24 24" width="24" height="24">
-                            <path fill="currentColor" d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/>
+                            <path fill="currentColor" d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z" />
                         </svg>
                     </button>
                     <button class="verify-btn" onclick="verifyCaptcha()">验证</button>
@@ -87,32 +94,43 @@
             <div class="verify-result">
                 <div class="icon">
                     <svg class="success-icon" viewBox="0 0 24 24" style="display: none;">
-                        <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        <path fill="currentColor"
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                     </svg>
                     <svg class="error-icon" viewBox="0 0 24 24" style="display: none;">
-                        <path fill="currentColor" d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/>
+                        <path fill="currentColor"
+                            d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z" />
                     </svg>
                 </div>
                 <div class="message"></div>
             </div>
         </div>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script>
         const validUsername = "blog10years";
         let currentCaptchaData = null;
         let selectedImages = new Set();
-        let currentCaptchaIndex = 0;
+        let currentCaptchaIndex = Math.floor(Math.random() * 3);
 
         function checkLogin() {
-            const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-            
-            if (!username || !password) {
-                showMessage("请输入用户名和密码", false);
+
+            if (!password) {
+                showMessage("请输入密码", false);
                 return;
             }
+
+            // 重置验证结果
+            const resultEl = document.querySelector('.verify-result');
+            const successIcon = resultEl.querySelector('.success-icon');
+            const errorIcon = resultEl.querySelector('.error-icon');
             
+            resultEl.classList.remove('show', 'success', 'error');
+            successIcon.style.display = 'none';
+            errorIcon.style.display = 'none';
+            resultEl.querySelector('.message').textContent = '';
+
             // 显示验证码
             document.getElementById('captcha-container').classList.remove('hidden');
             initCaptcha();
@@ -122,17 +140,17 @@
             try {
                 const response = await fetch(`captcha.php?action=get&index=${currentCaptchaIndex}`);
                 const result = await response.json();
-                
+
                 if (!result.success) {
                     throw new Error(result.message || '获取验证码失败');
                 }
 
                 currentCaptchaData = result.data;
-                
+
                 // 更新头部图标和文字
                 document.querySelector('.captcha-header .icon img').src = currentCaptchaData.cover;
                 document.querySelector('.header-desc .desc-text').textContent = currentCaptchaData.title;
-                
+
                 // 更新图片网格
                 const imageGrid = document.querySelector('.image-grid');
                 imageGrid.innerHTML = '';
@@ -176,9 +194,9 @@
                         images: currentCaptchaData.images
                     })
                 });
-                
+
                 const result = await response.json();
-                
+
                 if (!result.success) {
                     throw new Error(result.message || '验证失败');
                 }
@@ -191,13 +209,13 @@
                 // 重置图标显示
                 successIcon.style.display = 'none';
                 errorIcon.style.display = 'none';
-                
+
                 if (result.valid) {
                     // 显示成功提示
                     successIcon.style.display = 'block';
                     messageEl.textContent = currentCaptchaData.rightTip;
                     resultEl.className = 'verify-result show success';
-                    
+
                     // 延迟后关闭验证码
                     setTimeout(() => {
                         document.getElementById('captcha-container').classList.add('hidden');
@@ -208,7 +226,7 @@
                     errorIcon.style.display = 'block';
                     messageEl.textContent = currentCaptchaData.wrongTip;
                     resultEl.className = 'verify-result show error';
-                    
+
                     // 延迟后重置验证码
                     setTimeout(() => {
                         resultEl.classList.remove('show');
@@ -231,19 +249,47 @@
             });
         }
 
-        function proceedWithLogin() {
+        async function proceedWithLogin() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            if (username === validUsername && password === md5(validUsername)) {
-                showMessage("登录成功！", true);
-                setTimeout(() => {
-                    alert("恭喜你找到正确的密码！");
-                }, 1000);
+            const key = String.fromCharCode(0x1f31f) + String.fromCharCode(0x1f308) + "🍎🍌🎮💻"; // 🌟🌈🍎🍌🎮💻
+            const validNameHash = CryptoJS.SHA256(validUsername).toString();
+            const obfuscatedKey = key.split('').map(c => String.fromCharCode(c.charCodeAt(0) ^ 42)).join('');
+            const reversedName = validUsername.split('').reverse().join('');
+            const salted = reversedName + obfuscatedKey + validNameHash;
+            const finalHash = CryptoJS.MD5(CryptoJS.SHA256(salted).toString()).toString();
+
+            if (username === validUsername && password === finalHash) {
+                try {
+                    const response = await fetch('login.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            password: finalHash
+                        })
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        showMessage("登录成功！", true);
+                        setTimeout(() => {
+                            window.location.href = result.redirect;
+                        }, 1000);
+                    } else {
+                        showMessage(result.message, false);
+                    }
+                } catch (error) {
+                    showMessage("登录失败，请重试", false);
+                }
             } else {
                 showMessage("用户名或密码错误，请重试！", false);
             }
         }
+
 
         function showMessage(text, isSuccess) {
             const message = document.getElementById('message');
@@ -257,7 +303,7 @@
         }
 
         function skipCaptcha() {
-            currentCaptchaIndex = (currentCaptchaIndex + 1) % 3; 
+            currentCaptchaIndex = (currentCaptchaIndex + 1) % 3;
             const refreshBtn = document.querySelector('.refresh-btn');
             refreshBtn.classList.add('rotating');
             initCaptcha().then(() => {
@@ -268,5 +314,5 @@
         }
     </script>
 </body>
-</html>
 
+</html>
