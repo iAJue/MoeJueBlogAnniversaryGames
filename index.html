@@ -6,114 +6,97 @@
     <title>阿珏酱Blog十周年庆解密游戏</title>
     <meta name="description" content="阿珏酱Blog十周年庆解密游戏，参与解密游戏，赢取神秘大奖！">
     <meta name="keywords" content="阿珏酱Blog十周年庆解密游戏, 解密游戏, 神秘大奖">
-    <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .intro-container img {
+            transition: filter 1.5s ease-out, brightness 0.1s linear;
+        }
+        .darken {
+            filter: brightness(0);
+        }
+        .message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+            z-index: 10000;
+            font-family: 'Microsoft YaHei', sans-serif;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            pointer-events: none;
+            display: block;
+        }
+        .message.show {
+            opacity: 1;
+        }
+        .char {
+            display: inline-block;
+            transition: all 0.5s ease-out;
+        }
+        .char.explode {
+            transform: translate(var(--tx), var(--ty)) rotate(var(--rot));
+            opacity: 0;
+            filter: blur(10px);
+        }
+    </style>
 </head>
 <body>
+    <div class="message">好戏开始咯!</div>
     <div id="intro-image" class="intro-container">
-        <div class="shatter-container">
-            <img src="images/20200125200224.png" alt="intro" usemap="#intromap" style="z-index: 99999;">
-            <div id="shatter-pieces"></div>
-        </div>
+        <img src="images/20200125200224.png" alt="intro" usemap="#intromap">
         <map name="intromap">
-            <area shape="rect" 
-                  coords="1085,889,1117,932" 
-                  title="立即参与" 
-                  href="javascript:void(0)" 
-                  onclick="showLoginForm()" 
-                  class="clickable-area">
+            <area shape="rect" coords="1085,889,1117,932" href="login.html" class="clickable-area" onclick="return handleTransition(event)">
         </map>
     </div>
-
-    <div id="login-page" class="login-page hidden">
-        <div class="login-container">
-            <div class="input-group">
-                <input type="text" id="username" placeholder="请输入用户名">
-            </div>
-            <div class="input-group">
-                <input type="password" id="password" placeholder="请输入密码">
-            </div>
-            <button onclick="checkLogin()">登录</button>
-            <div id="message" class="message"></div>
-        </div>
-    </div>
-
     <script>
-        const validUsername = "ajuejang";
-        const validPassword = "blog10years";
-
-
-        function createShatterPieces() {
-            const container = document.getElementById('shatter-pieces');
-            const pieces = 12;
-            const rows = 8;  
+        function splitText() {
+            const message = document.querySelector('.message');
+            const text = message.textContent;
+            message.textContent = '';
             
-            for (let y = 0; y < rows; y++) {
-                for (let x = 0; x < pieces; x++) {
-                    const piece = document.createElement('div');
-                    piece.className = 'shatter-piece';
-                    
-                    const width = 100 / pieces;
-                    const height = 100 / rows;
-                    piece.style.width = width + 'vw';
-                    piece.style.height = height + 'vh';
-                    piece.style.left = (x * width) + 'vw';
-                    piece.style.top = (y * height) + 'vh';
-                    piece.style.backgroundPosition = `${-x * width}vw ${-y * height}vh`;
-                    
-                    for (let i = 1; i <= 4; i++) {
-                        const randomX = (Math.random() - 0.5) * 30;
-                        const randomY = (Math.random() - 0.5) * 30;
-                        piece.style.setProperty(`--x${i}`, `${randomX}%`);
-                        piece.style.setProperty(`--y${i}`, `${randomY}%`);
-                    }
-                    
-                    const tx = (Math.random() - 0.5) * 300;
-                    const ty = (Math.random() - 0.5) * 300;
-                    const rot = (Math.random() - 0.5) * 720;
-                    piece.style.setProperty('--tx', `${tx}vw`);
-                    piece.style.setProperty('--ty', `${ty}vh`);
-                    piece.style.setProperty('--rot', `${rot}deg`);
-                    
-                    container.appendChild(piece);
-                }
+            for (let char of text) {
+                const span = document.createElement('span');
+                span.className = 'char';
+                span.textContent = char;
+                message.appendChild(span);
             }
         }
-        window.addEventListener('load', createShatterPieces);
 
-        function showLoginForm() {
-            const introImage = document.getElementById('intro-image');
-            const mainImg = introImage.querySelector('img');
-            
-            mainImg.style.zIndex = '0';
-            
-            setTimeout(() => {
-                introImage.classList.add('exploding');
+        function explodeText() {
+            const chars = document.querySelectorAll('.char');
+            chars.forEach(char => {
+                const tx = (Math.random() - 0.5) * 500;
+                const ty = (Math.random() - 0.5) * 500;
+                const rot = (Math.random() - 0.5) * 720;
                 
-                setTimeout(() => {
-                    introImage.classList.add('hidden');
-                    document.getElementById('login-page').classList.remove('hidden');
-                }, 800); 
-            }, 500);
+                char.style.setProperty('--tx', `${tx}px`);
+                char.style.setProperty('--ty', `${ty}px`);
+                char.style.setProperty('--rot', `${rot}deg`);
+                char.classList.add('explode');
+            });
         }
 
-        function checkLogin() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const message = document.getElementById('message');
-
-            if (username === validUsername && password === validPassword) {
-                message.style.color = "#4CAF50";
-                message.style.display = "block";
-                message.textContent = "登录成功！";
+        function handleTransition(event) {
+            event.preventDefault();
+            const href = event.target.getAttribute('href');
+            const image = document.querySelector('.intro-container img');
+            const message = document.querySelector('.message');
+            splitText();
+            image.classList.add('darken');
+            setTimeout(() => {
+                message.classList.add('show');
                 setTimeout(() => {
-                    alert("恭喜你找到正确的密码！");
-                }, 1000);
-            } else {
-                message.style.color = "#ff4444";
-                message.style.display = "block";
-                message.textContent = "用户名或密码错误，请重试！";
-            }
+                    explodeText();
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 800);
+                }, 1500);
+            }, 1500);
+            return false;
         }
     </script>
 </body>
