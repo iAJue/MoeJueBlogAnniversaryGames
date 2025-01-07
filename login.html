@@ -142,9 +142,10 @@
 
         function checkLogin() {
             const password = document.getElementById('password').value;
+            const username = document.getElementById('username').value;
 
-            if (!password) {
-                showMessage("请输入密码", false);
+            if (!password || !username) {
+                showMessage("请输入密码和用户名", false);
                 return;
             }
 
