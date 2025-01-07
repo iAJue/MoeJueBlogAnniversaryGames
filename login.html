@@ -11,6 +11,12 @@
     <style>
         body {
             background: url('./images/bg-surface.png') center center/cover no-repeat fixed;
+            background-color: #82404a;
+            overflow: hidden;
+        }
+
+        html {
+            overflow: hidden;
         }
 
         .skip-btn {
@@ -40,13 +46,27 @@
 <body>
     <div id="login-page" class="login-page">
         <div class="login-container">
-            <div class="input-group">
-                <input type="text" id="username" placeholder="请输入用户名">
+            <div class="login-header">
+                <h1>阿珏酱Blog十周年庆</h1>
+                <div class="login-subtitle">登录你的唯一身份赢取神秘大奖</div>
             </div>
-            <div class="input-group">
-                <input type="password" id="password" placeholder="请输入密码">
+            <div class="login-form">
+                <div class="input-group">
+                    <label for="username">用户名</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="username" placeholder="请输入用户名">
+                        <div class="input-border"></div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="password">密码</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" placeholder="请输入密码">
+                        <div class="input-border"></div>
+                    </div>
+                </div>
+                <button class="login-btn" onclick="checkLogin()">进入游戏</button>
             </div>
-            <button onclick="checkLogin()">登录</button>
             <div id="message" class="message"></div>
         </div>
     </div>
