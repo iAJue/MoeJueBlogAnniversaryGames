@@ -107,11 +107,18 @@
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/2.1.4/fingerprint2.min.js"></script>
     <script>
         const validUsername = "blog10years";
         let currentCaptchaData = null;
         let selectedImages = new Set();
         let currentCaptchaIndex = Math.floor(Math.random() * 3);
+        let browserFingerprint = null;
+
+        Fingerprint2.get(function (components) {
+            const values = components.map(function (component) { return component.value });
+            browserFingerprint = Fingerprint2.x64hash128(values.join(''), 31);
+        });
 
         function checkLogin() {
             const password = document.getElementById('password').value;
@@ -253,6 +260,11 @@
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
+            if (!browserFingerprint) {
+                showMessage("环境验证失败，请刷新页面重试", false);
+                return;
+            }
+
             const key = String.fromCharCode(0x1f31f) + String.fromCharCode(0x1f308) + "🍎🍌🎮💻"; // 🌟🌈🍎🍌🎮💻
             const validNameHash = CryptoJS.SHA256(validUsername).toString();
             const obfuscatedKey = key.split('').map(c => String.fromCharCode(c.charCodeAt(0) ^ 42)).join('');
@@ -268,7 +280,13 @@
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            password: finalHash
+                            password: finalHash,
+                            captchaData: {
+                                selectedIndices: Array.from(selectedImages),
+                                images: currentCaptchaData.images,
+                                index: currentCaptchaIndex
+                            },
+                            fingerprint: browserFingerprint
                         })
                     });
 
