@@ -127,11 +127,14 @@ footer{margin-top:14px;font-size:12px;color:var(--muted);text-align:center}
         innerSafe.classList.add('show');
         renderDisplay();
         
-        // 添加图片点击事件
         const safeImage = document.getElementById('safeImage');
         safeImage.addEventListener('click', function() {
-          // 全屏打开note.html页面，传递优惠券码
-          window.open('note.html?code=' + encodeURIComponent(code));
+          document.body.style.transition = 'opacity 600ms ease';
+          document.body.style.opacity = '0';
+          
+          setTimeout(function() {
+            window.location.href = 'note.html?code=' + encodeURIComponent(code);
+          }, 600);
         });
       }
 
