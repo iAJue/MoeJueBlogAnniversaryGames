@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>阿珏酱Blog十周年庆解密游戏</title>
+  <meta name="description" content="阿珏酱Blog十周年庆解密游戏，参与解密游戏，赢取神秘大奖！">
+  <meta name="keywords" content="阿珏酱Blog十周年庆解密游戏, 解密游戏, 神秘大奖">
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#22c55e;--muted:#94a3b8;--glass:rgba(255,255,255,0.04)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:grid;place-items:center;background:linear-gradient(180deg,#071029 0%,#081826 100%);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial}
+.container{width:360px;padding:28px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));box-shadow:0 10px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+h1{font-size:18px;color:#e6eef8;margin:0 0 12px}
+p.desc{color:var(--muted);font-size:13px;margin:0 0 20px}
+.safe{height:160px;background:linear-gradient(180deg,#0c1420,#081021);border-radius:12px;padding:16px;display:flex;gap:12px;align-items:center;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.03);perspective:800px}
+.door{width:120px;height:120px;border-radius:8px;background:linear-gradient(180deg,#0b1622,#031123);display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;transition:transform 600ms cubic-bezier(.2,.9,.3,1);box-shadow:inset 0 -6px 18px rgba(0,0,0,0.6),0 8px 20px rgba(2,6,23,0.6);z-index:10}
+.door.open{transform:translateX(-72px) rotate(-8deg)}
+.dial{width:70px;height:70px;border-radius:50%;background:radial-gradient(circle at 30% 20%,#202a36,#06121a);border:3px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:600;font-size:14px;position:relative;box-shadow:inset 0 6px 12px rgba(255,255,255,0.02)}
+.indicator{position:absolute;right:12px;top:-20px;color:var(--muted);font-size:12px}
+.inner-safe{position:absolute;left:16px;top:50%;transform:translateY(-50%) rotateY(5deg);width:100px;height:100px;background:linear-gradient(135deg,#0a1219,#050a0f);border-radius:4px;display:flex;align-items:center;justify-content:center;box-shadow:inset 4px 0 12px rgba(0,0,0,0.8),inset 0 4px 12px rgba(0,0,0,0.6),inset -4px 0 8px rgba(0,0,0,0.4);opacity:0;transition:opacity 400ms ease 300ms;z-index:0;transform-style:preserve-3d}
+.inner-safe.show{opacity:1}
+.coupon-paper{width:85px;padding:10px 8px;background:linear-gradient(180deg,#fefefe 0%,#f8f8f8 100%);border-radius:3px;box-shadow:0 2px 8px rgba(0,0,0,0.3),0 1px 2px rgba(0,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.8);position:relative;transform:translateZ(10px) rotateX(2deg);border:1px solid rgba(0,0,0,0.05)}
+.coupon-paper::before{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,0,0,0.03) 20%,rgba(0,0,0,0.03) 80%,transparent);transform:translateY(-50%)}
+.coupon-code{font-family:'Courier New',monospace;font-size:11px;font-weight:700;color:#1a1a1a;text-align:center;line-height:1.6;letter-spacing:0.5px;position:relative;z-index:1}
+.coupon-label{font-size:9px;color:#666;font-weight:600;margin-bottom:4px;text-transform:uppercase;letter-spacing:1px}
+.display{flex:1;color:#e6eef8;padding:8px 12px;background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.005));border-radius:8px;height:96px;display:flex;flex-direction:column;justify-content:center;gap:6px;z-index:1;position:relative}
+.pwd{font-family:monospace;font-size:20px;letter-spacing:6px;color:#cfeee0}
+.hint{font-size:12px;color:var(--muted)}
+.pad{margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.btn{background:var(--glass);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px;color:#e6eef8;font-weight:700;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:center;transition:transform 140ms ease,box-shadow 140ms ease}
+.btn:active{transform:translateY(2px)}
+.btn.secondary{background:transparent;color:var(--muted);font-weight:600;border:1px dashed rgba(255,255,255,0.03)}
+.btn.red{background:linear-gradient(180deg,#5b1414,#3a0d0d);color:#ffd7d7}
+.shake{animation:shake 400ms ease}
+@keyframes shake{0%{transform:translateX(0)}
+20%{transform:translateX(-6px)}
+40%{transform:translateX(6px)}
+60%{transform:translateX(-4px)}
+80%{transform:translateX(4px)}
+100%{transform:translateX(0)}
+}.success-glow{box-shadow:0 10px 30px rgba(34,197,94,0.15),0 6px 20px rgba(34,197,94,0.08) inset}
+footer{margin-top:14px;font-size:12px;color:var(--muted);text-align:center}
+  </style>
+</head>
+
+<body>
+  <div class="container" role="application" aria-label="阿珏的保险箱">
+    <h1>阿珏的保险箱</h1>
+    <p class="desc">感谢游玩(还是让人过来了,啧),点击数字输入正确密码，领取你的神秘福袋。</p>
+
+    <div class="safe" id="safe">
+      <div class="inner-safe" id="innerSafe">
+        <div class="coupon-paper">
+          <div class="coupon-label">优惠券码</div>
+          <div class="coupon-code" id="couponCode"></div>
+        </div>
+      </div>
+
+      <div class="door" id="door" aria-hidden="false">
+        <div class="dial" id="dial">●</div>
+      </div>
+
+      <div class="display" aria-live="polite">
+        <div class="indicator">状态: <span id="state">已锁定</span></div>
+        <div class="pwd" id="pwdDisplay">------</div>
+        <div class="hint">点击下方按键输入，清除或提交</div>
+      </div>
+    </div>
+
+    <div class="pad" role="group" aria-label="数字键盘">
+      <!-- 数字键 -->
+      <button class="btn" data-key="1">1</button>
+      <button class="btn" data-key="2">2</button>
+      <button class="btn" data-key="3">3</button>
+
+      <button class="btn" data-key="4">4</button>
+      <button class="btn" data-key="5">5</button>
+      <button class="btn" data-key="6">6</button>
+
+      <button class="btn" data-key="7">7</button>
+      <button class="btn" data-key="8">8</button>
+      <button class="btn" data-key="9">9</button>
+
+      <button class="btn secondary" id="clear">清除</button>
+      <button class="btn" data-key="0">0</button>
+      <button class="btn red" id="enter">确认</button>
+    </div>
+
+    <footer>阿珏酱Blog十周年庆解密游戏</footer>
+  </div>
+
+  <script>
+    (function () {
+      const MAX_LEN = 6;
+
+      const pwdDisplay = document.getElementById('pwdDisplay');
+      const state = document.getElementById('state');
+      const door = document.getElementById('door');
+      const dial = document.getElementById('dial');
+      const safe = document.getElementById('safe');
+      const innerSafe = document.getElementById('innerSafe');
+      const couponCodeEl = document.getElementById('couponCode');
+
+      let input = '';
+      let locked = true;
+      let couponCode = null;
+
+      function renderDisplay() {
+        if (locked) {
+          if (input.length === 0) {
+            pwdDisplay.textContent = '------';
+          } else {
+            pwdDisplay.textContent = '•'.repeat(input.length).padEnd(6, '-');
+          }
+        } else {
+          pwdDisplay.textContent = '------';
+        }
+      }
+
+      function setStatus(text, ok) {
+        state.textContent = text;
+        if (ok === true) {
+          safe.classList.add('success-glow');
+          setTimeout(() => safe.classList.remove('success-glow'), 1200);
+        }
+      }
+
+      function wrongAttempt() {
+        safe.classList.add('shake');
+        setTimeout(() => safe.classList.remove('shake'), 420);
+      }
+
+      function openDoor(code) {
+        locked = false;
+        couponCode = code;
+        door.classList.add('open');
+        setStatus('已打开', true);
+        couponCodeEl.textContent = code;
+        innerSafe.classList.add('show');
+        renderDisplay();
+      }
+
+      async function verifyPassword(password) {
+        try {
+          const response = await fetch('/verify-password.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ password: password })
+          });
+
+          const data = await response.json();
+
+          if (data.success) {
+            openDoor(data.couponCode);
+          } else {
+            wrongAttempt();
+          }
+        } catch (error) {
+          console.error('验证失败:', error);
+          safe.classList.add('shake');
+          setTimeout(() => safe.classList.remove('shake'), 420);
+        }
+      }
+
+      // 按键事件
+      document.querySelectorAll('.btn[data-key]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (!locked) return; 
+          if (input.length >= MAX_LEN) return; 
+          input += btn.dataset.key;
+          renderDisplay();
+        });
+      });
+
+      document.getElementById('clear').addEventListener('click', () => {
+        if (!locked) return;
+        input = '';
+        renderDisplay();
+      });
+
+      document.getElementById('enter').addEventListener('click', () => {
+        if (!locked) return; 
+        if (input.length === 0) {
+          return;
+        }
+
+        // 调用后端验证
+        verifyPassword(input);
+
+        // 提交后清空输入
+        input = '';
+        setTimeout(renderDisplay, 300);
+      });
+
+      // 初始渲染
+      renderDisplay();
+      setStatus('已锁定');
+
+    })();
+  </script>
+</body>
+</html>
