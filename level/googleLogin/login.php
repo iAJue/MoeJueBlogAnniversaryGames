@@ -31,7 +31,7 @@ try {
     }
 
     // 获取验证码数据
-    $dataPath = './data/';
+    $dataPath = '/data/';
     $captchaFiles = ['kumiko.json', 'male.json', 'moejue.json'];
     $index = $captchaData['index'];
     
@@ -86,7 +86,7 @@ try {
         echo json_encode([
             'success' => true,
             'message' => '登录成功',
-            'redirect' => 'top2.php'
+            'redirect' => '/level/three/start.html'
         ]);
     } else {
         echo json_encode([

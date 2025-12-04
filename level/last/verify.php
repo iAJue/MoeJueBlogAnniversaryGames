@@ -46,7 +46,8 @@ if ($password === CORRECT_PASSWORD) {
     echo json_encode([
         'success' => true,
         'message' => '密码正确！',
-        'couponCode' => $couponCode
+        'couponCode' => $couponCode,
+        'url' => '/level/last/note.html'
     ]);
 } else {
     // 密码错误

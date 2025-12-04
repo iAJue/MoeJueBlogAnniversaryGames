@@ -8,7 +8,7 @@
   <meta name="description" content="阿珏酱Blog十周年庆解密游戏，参与解密游戏，赢取神秘大奖！">
   <meta name="keywords" content="阿珏酱Blog十周年庆解密游戏, 解密游戏, 神秘大奖">
   <style>
-    :root{--bg:#0f1724;--card:#0b1220;--accent:#22c55e;--muted:#94a3b8;--glass:rgba(255,255,255,0.04)}
+:root{--bg:#0f1724;--card:#0b1220;--accent:#010a04;--muted:#94a3b8;--glass:rgba(255,255,255,0.04)}
 *{box-sizing:border-box}
 body{margin:0;min-height:100vh;display:grid;place-items:center;background:linear-gradient(180deg,#071029 0%,#081826 100%);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial}
 .container{width:360px;padding:28px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));box-shadow:0 10px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
@@ -21,7 +21,7 @@ p.desc{color:var(--muted);font-size:13px;margin:0 0 20px}
 .indicator{position:absolute;right:12px;top:-20px;color:var(--muted);font-size:12px}
 .inner-safe{position:absolute;left:16px;top:50%;transform:translateY(-50%) rotateY(5deg);width:100px;height:100px;background:linear-gradient(135deg,#0a1219,#050a0f);border-radius:4px;display:flex;align-items:center;justify-content:center;box-shadow:inset 4px 0 12px rgba(0,0,0,0.8),inset 0 4px 12px rgba(0,0,0,0.6),inset -4px 0 8px rgba(0,0,0,0.4);opacity:0;transition:opacity 400ms ease 300ms;z-index:0;transform-style:preserve-3d}
 .inner-safe.show{opacity:1}
-.safe-image{width:90px;height:90px;object-fit:contain;border-radius:4px;transform:translateZ(10px);box-shadow:0 2px 8px rgba(0,0,0,0.3);cursor:pointer;transition:transform 200ms ease,box-shadow 200ms ease}
+.safe-image{width:60px;height:60px;object-fit:contain;border-radius:4px;transform:translateZ(10px);box-shadow:0 2px 8px rgba(0,0,0,0.3);cursor:pointer;transition:transform 200ms ease,box-shadow 200ms ease}
 .safe-image:hover{transform:translateZ(10px) scale(1.1);box-shadow:0 4px 12px rgba(0,0,0,0.4)}
 .safe-image:active{transform:translateZ(10px) scale(0.95)}
 .display{flex:1;color:#e6eef8;padding:8px 12px;background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.005));border-radius:8px;height:96px;display:flex;flex-direction:column;justify-content:center;gap:6px;z-index:1;position:relative}
@@ -47,11 +47,11 @@ footer{margin-top:14px;font-size:12px;color:var(--muted);text-align:center}
 <body>
   <div class="container" role="application" aria-label="阿珏的保险箱">
     <h1>阿珏的保险箱</h1>
-    <p class="desc">感谢游玩(还是让人过来了,啧),点击数字输入正确密码，领取你的神秘福袋。</p>
+    <p class="desc">感谢游玩<span style=" text-decoration: line-through;">(还是让人过来了,啧)</span>,点击数字输入正确密码，领取你的神秘福袋。</p>
 
     <div class="safe" id="safe">
       <div class="inner-safe" id="innerSafe">
-        <img src="images/Paperballs.png" alt="Paperballs" class="safe-image" id="safeImage">
+        <img src="/images/Paperballs.png" alt="Paperballs" class="safe-image" id="safeImage">
       </div>
       <div class="door" id="door" aria-hidden="false">
         <div class="dial" id="dial">●</div>
@@ -92,7 +92,6 @@ footer{margin-top:14px;font-size:12px;color:var(--muted);text-align:center}
 
       let input = '';
       let locked = true;
-      let couponCode = null;
 
       function renderDisplay() {
         if (locked) {
@@ -119,9 +118,8 @@ footer{margin-top:14px;font-size:12px;color:var(--muted);text-align:center}
         setTimeout(() => safe.classList.remove('shake'), 420);
       }
 
-      function openDoor(code) {
+      function openDoor(data) {
         locked = false;
-        couponCode = code;
         door.classList.add('open');
         setStatus('已打开', true);
         innerSafe.classList.add('show');
@@ -133,14 +131,14 @@ footer{margin-top:14px;font-size:12px;color:var(--muted);text-align:center}
           document.body.style.opacity = '0';
           
           setTimeout(function() {
-            window.location.href = 'note.html?code=' + encodeURIComponent(code);
+            window.location.href = data.url + '?code=' + encodeURIComponent(data.couponCode);
           }, 600);
         });
       }
 
       async function verifyPassword(password) {
         try {
-          const response = await fetch('/verify-password.php', {
+          const response = await fetch('/level/last/verify.php', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -151,7 +149,7 @@ footer{margin-top:14px;font-size:12px;color:var(--muted);text-align:center}
           const data = await response.json();
 
           if (data.success) {
-            openDoor(data.couponCode);
+            openDoor(data);
           } else {
             wrongAttempt();
           }
