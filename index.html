@@ -85,6 +85,7 @@
             const href = event.target.getAttribute('href');
             const image = document.querySelector('.intro-container img');
             const message = document.querySelector('.message');
+            document.querySelector('.intro-container').style.backgroundColor = 'black';
             splitText();
             image.classList.add('darken');
             setTimeout(() => {
