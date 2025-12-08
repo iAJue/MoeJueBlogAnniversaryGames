@@ -450,7 +450,10 @@
         }
 
         // 处理年龄确认
+        let isAdultVersion = false;
+        
         function handleAgeConfirm(isAdult) {
+            isAdultVersion = isAdult;
             const ageGate = document.getElementById('ageGate');
             
             // 隐藏年龄验证界面
@@ -507,11 +510,8 @@
             document.body.style.opacity = '0';
             
             setTimeout(() => {
-                // TODO: 跳转到第四关
-                // window.location.href = 'level4.html';
-                alert('恭喜通过第三关！\n\n第四关正在开发中...\n敬请期待！');
-                // 临时返回首页
-                window.location.href = 'index.html';
+                // 跳转到 GalGame 页面，传递是否成人版本参数
+                window.location.href = 'GalGame.html?adult=' + isAdultVersion;
             }, 500);
         }
 

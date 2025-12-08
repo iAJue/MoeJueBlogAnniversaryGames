@@ -1,0 +1,169 @@
+{
+  "version": "adult",
+  "title": "恋爱冒险游戏",
+  "description": "18+ 成人版 - 充满激情和刺激的故事",
+  "scenes": [
+    {
+      "id": 0,
+      "characterName": "游戏开始",
+      "text": "欢迎来到恋爱冒险游戏（18+版）！这是一个充满激情和刺激的故事。准备好深入一段深刻的关系了吗？",
+      "sprite": "",
+      "background": "adult",
+      "choices": [
+        {
+          "text": "开始游戏",
+          "nextIndex": 1
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "characterName": "女主角 - 李思",
+      "text": "你终于来了...我在咖啡馆等了你很久。你看起来今天很疲惫呢。来，让我帮你放松一下...要不我们找个更私密的地方？",
+      "sprite": "",
+      "background": "adult",
+      "choices": [
+        {
+          "text": "好主意，我们去你的公寓吧。",
+          "nextIndex": 2
+        },
+        {
+          "text": "这里就很好，让我们慢慢聊天。",
+          "nextIndex": 3
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "characterName": "李思",
+      "text": "（走进公寓，门在身后关上）你一直都是我想要的人...我很想你。（靠近你，眼神火热）我们不用再浪费时间了...",
+      "sprite": "",
+      "background": "adult",
+      "choices": [
+        {
+          "text": "我也想你，来吧...",
+          "nextIndex": 4
+        },
+        {
+          "text": "我们先坐下来好好谈话，可以吗？",
+          "nextIndex": 5
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "characterName": "李思",
+      "text": "你的犹豫让我有点失望。但也许我太急了。告诉我，你对我们有什么看法？",
+      "sprite": "",
+      "background": "adult",
+      "choices": [
+        {
+          "text": "我很在乎你，但我想慢慢来。",
+          "nextIndex": 6
+        },
+        {
+          "text": "我需要时间考虑我们的关系。",
+          "nextIndex": 7
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "characterName": "李思",
+      "text": "（在你耳边低声说）你让我失去了理智...（接吻变得更深）我需要你，现在就需要...（不断靠近）",
+      "sprite": "",
+      "background": "adult",
+      "choices": [
+        {
+          "text": "[***]（互相陷入深吻）",
+          "nextIndex": 8
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "characterName": "李思",
+      "text": "好吧...（有些失望地退后）如果这就是你的感觉的话。那么至少，让我们在这个夜晚陪伴彼此，什么都不做，就只是彼此怀抱...?",
+      "sprite": "",
+      "background": "adult",
+      "choices": [
+        {
+          "text": "好的，我想要那样。",
+          "nextIndex": 9
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "characterName": "李思",
+      "text": "我理解...也许你对这一切都太害怕了。但我想让你知道，我对你的爱是真实的。无论你需要多长时间。",
+      "sprite": "",
+      "background": "adult",
+      "choices": [
+        {
+          "text": "结束游戏",
+          "nextIndex": -1
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "characterName": "李思",
+      "text": "我知道了。那也许我们不应该继续了。如果你不确定，那对我们都不公平。",
+      "sprite": "",
+      "background": "adult",
+      "choices": [
+        {
+          "text": "结束游戏",
+          "nextIndex": -1
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "characterName": "李思",
+      "text": "（清晨的阳光透过窗帘洒下来）昨晚...真的很棒。你让我感到从未有过的满足。（在你的胸口画圈）我爱你...",
+      "sprite": "",
+      "background": "adult",
+      "choices": [
+        {
+          "text": "我也爱你。",
+          "nextIndex": 10
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "characterName": "李思",
+      "text": "（在你怀里打了个哈欠，微笑）真希望每一个早晨都能这样...和你在一起，什么都不想。也许...我们应该开始认真考虑未来了？",
+      "sprite": "",
+      "background": "adult",
+      "choices": [
+        {
+          "text": "是的，我愿意为你们的未来而努力。",
+          "nextIndex": 11
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "characterName": "李思",
+      "text": "（亲吻你的额头）那么，这就是承诺了。无论发生什么，我们都会一起面对。这是最美好的开始...",
+      "sprite": "",
+      "background": "adult",
+      "choices": [
+        {
+          "text": "结束游戏",
+          "nextIndex": -1
+        }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": 0,
+      "title": "激情的承诺",
+      "text": "你和李思之间的关系变得更加深刻和亲密。在这个充满激情的夜晚之后，你们决定共同面对未来。这是一个充满爱和欲望的故事结局..."
+    }
+  ]
+}

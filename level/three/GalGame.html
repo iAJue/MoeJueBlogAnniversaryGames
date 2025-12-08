@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GalGame - 恋爱冒险游戏</title>
+    <link rel="stylesheet" href="/css/galgame.css">
+</head>
+<body>
+    <!-- 加载屏幕 -->
+    <div id="loadingScreen">
+        <div class="loading-container">
+            <div class="loading-spinner"></div>
+            <h2>游戏加载中...</h2>
+            <p>准备开始你的冒险</p>
+        </div>
+    </div>
+
+    <!-- 游戏主界面 -->
+    <div id="gameContainer">
+        <!-- 顶部UI -->
+        <div class="game-ui-top">
+            <div class="game-title">恋爱冒险游戏</div>
+            <div class="version-badge" id="versionBadge">普通版</div>
+            <div class="ui-buttons">
+                <button class="skip-btn" onclick="skipToEnding()" title="快速跳转到结局">跳过</button>
+                <button class="menu-btn" onclick="returnToMenu()" title="返回主菜单">菜单</button>
+            </div>
+        </div>
+
+        <!-- 背景 -->
+        <div class="game-background" id="gameBackground"></div>
+        <div class="background-overlay"></div>
+
+        <!-- 角色容器 -->
+        <div class="character-container" id="characterContainer"></div>
+
+        <!-- 对话框 -->
+        <div class="dialog-container">
+            <div class="dialog-background"></div>
+            <div class="dialog-content">
+                <div class="character-name" id="characterName">角色</div>
+                <div class="dialog-text-wrapper">
+                    <div class="dialog-text" id="dialogText">游戏加载中...</div>
+                </div>
+                <div class="choices-container" id="choicesContainer"></div>
+                <button class="next-btn" id="nextBtn" onclick="nextDialog()" style="display: none;">继续 →</button>
+            </div>
+        </div>
+
+        <!-- 游戏结束界面 -->
+        <div class="ending-screen" id="endingScreen">
+            <div class="ending-content">
+                <h2 id="endingTitle">游戏结束</h2>
+                <p id="endingText">感谢你的游玩！</p>
+                <div class="ending-image" id="endingImage">[结局图片 - 预留]</div>
+                <button class="restart-btn" id="restartBtn" onclick="restartGame()">重新开始</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentGame = {
+            version: 'normal',
+            currentSceneIndex: 0,
+            currentChoices: [],
+            playerChoices: [],
+            scriptData: null
+        };
+
+        // 游戏脚本内容（从JSON文件加载）
+        const gameScripts = {};
+
+        // 从JSON文件加载游戏脚本
+        async function loadGameScripts() {
+            try {
+                // 加载普通版
+                const normalResponse = await fetch('./data/galgame_normal.json');
+                const normalData = await normalResponse.json();
+                gameScripts.normal = normalData.scenes;
+
+                // 加载成人版
+                const adultResponse = await fetch('./data/galgame_adult.json');
+                const adultData = await adultResponse.json();
+                gameScripts.adult = adultData.scenes;
+
+                // 脚本加载完成，初始化游戏
+                initGame();
+            } catch (error) {
+                console.error('加载游戏脚本失败:', error);
+                alert('游戏加载失败，请检查JSON文件是否存在！');
+            }
+        }
+
+        // 获取URL参数
+        function getUrlParam(paramName) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(paramName);
+        }
+
+        // 初始化游戏
+        function initGame() {
+            // 隐藏加载屏幕
+            setTimeout(() => {
+                document.getElementById('loadingScreen').style.display = 'none';
+
+                // 检查URL参数
+                const adultParam = getUrlParam('adult');
+                const version = adultParam === 'true' ? 'adult' : 'normal';
+                
+                startGame(version);
+            }, 1000);
+        }
+
+        // 开始游戏
+        function startGame(version) {
+            currentGame.version = version;
+            currentGame.currentSceneIndex = 0;
+            currentGame.playerChoices = [];
+
+            // 更新版本标签
+            const badge = document.getElementById('versionBadge');
+            if (version === 'adult') {
+                badge.textContent = '18+ 成人版';
+                badge.classList.add('adult');
+            } else {
+                badge.textContent = '普通版';
+                badge.classList.remove('adult');
+            }
+
+            // 设置背景
+            const background = document.getElementById('gameBackground');
+            background.classList.remove('normal', 'adult');
+            background.classList.add(version);
+
+            // 显示第一个对话
+            showDialog(0);
+        }
+
+        // 显示对话
+        function showDialog(sceneIndex) {
+            const scripts = gameScripts[currentGame.version];
+            
+            if (sceneIndex < 0 || sceneIndex >= scripts.length) {
+                showEnding();
+                return;
+            }
+
+            const scene = scripts[sceneIndex];
+            currentGame.currentSceneIndex = sceneIndex;
+            currentGame.currentChoices = scene.choices;
+
+            // 更新角色名字和对话文本
+            const characterName = document.getElementById('characterName');
+            characterName.textContent = scene.characterName;
+            if (currentGame.version === 'adult') {
+                characterName.classList.add('adult');
+            } else {
+                characterName.classList.remove('adult');
+            }
+            
+            document.getElementById('dialogText').textContent = scene.text;
+
+            // 更新背景
+            const background = document.getElementById('gameBackground');
+            background.classList.remove('normal', 'adult');
+            background.classList.add(scene.background);
+
+            // 更新立绘
+            updateCharacterSprite(scene.sprite);
+
+            // 显示选择按钮
+            showChoices(scene.choices);
+        }
+
+        // 显示选择按钮
+        function showChoices(choices) {
+            const choicesContainer = document.getElementById('choicesContainer');
+            choicesContainer.innerHTML = '';
+
+            if (choices.length === 0) {
+                document.getElementById('nextBtn').style.display = 'block';
+                return;
+            }
+
+            choices.forEach((choice, index) => {
+                const button = document.createElement('button');
+                button.className = 'choice-btn';
+                button.textContent = choice.text;
+                
+                // 如果是18+版本，添加标记
+                if (choice.text.includes('***')) {
+                    button.classList.add('adult-only');
+                }
+                
+                button.onclick = () => {
+                    currentGame.playerChoices.push(choice.text);
+                    showDialog(choice.nextIndex);
+                };
+                choicesContainer.appendChild(button);
+            });
+
+            document.getElementById('nextBtn').style.display = 'none';
+        }
+
+        // 下一个对话（当没有选择时）
+        function nextDialog() {
+            // 这个函数在有选择按钮时不会被用到
+            // 选择已经在 showChoices 中处理了
+        }
+
+        // 更新角色立绘
+        function updateCharacterSprite(spriteUrl) {
+            const container = document.getElementById('characterContainer');
+            container.innerHTML = '';
+            
+            if (spriteUrl) {
+                const sprite = document.createElement('div');
+                sprite.className = 'character-sprite';
+                sprite.style.backgroundImage = `url('${spriteUrl}')`;
+                container.appendChild(sprite);
+            }
+        }
+
+        // 显示游戏结局
+        function showEnding() {
+            const endingScreen = document.getElementById('endingScreen');
+            const endingContent = endingScreen.querySelector('.ending-content');
+            const endingTitle = document.getElementById('endingTitle');
+            const endingText = document.getElementById('endingText');
+            const endingImage = document.getElementById('endingImage');
+            const restartBtn = document.getElementById('restartBtn');
+
+            if (currentGame.version === 'normal') {
+                endingContent.classList.remove('adult');
+                endingTitle.textContent = '美好的结局';
+                endingText.textContent = '你和小雨开始了一段美好的恋爱。在彼此的陪伴下，生活变得更加充满色彩。这是一个温暖而幸福的故事结局...';
+                restartBtn.classList.remove('adult');
+                endingImage.classList.remove('adult');
+            } else {
+                endingContent.classList.add('adult');
+                endingTitle.textContent = '激情的承诺';
+                endingText.textContent = '你和李思之间的关系变得更加深刻和亲密。在这个充满激情的夜晚之后，你们决定共同面对未来。这是一个充满爱和欲望的故事结局...';
+                restartBtn.classList.add('adult');
+                endingImage.classList.add('adult');
+            }
+
+            endingScreen.classList.add('show');
+        }
+
+        // 重新开始
+        function restartGame() {
+            document.getElementById('endingScreen').classList.remove('show');
+            // 刷新页面保留URL参数
+            location.reload();
+        }
+
+        // 返回菜单
+        function returnToMenu() {
+            if (confirm('确定要返回菜单吗？进度将丢失。')) {
+                // 返回到上一级菜单
+                window.history.back();
+            }
+        }
+
+        // 跳过到结局
+        function skipToEnding() {
+            if (confirm('确定要跳过到结局吗？')) {
+                showEnding();
+            }
+        }
+
+        // 页面加载时的初始化
+        window.addEventListener('load', loadGameScripts);
+    </script>
+</body>
+</html>
