@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面加载中.......................................................................................... - 阿珏酱Blog十周年庆解密游戏</title>
+    <meta name="description" content="阿珏酱Blog十周年庆解密游戏，参与解密游戏，赢取神秘大奖！">
+    <meta name="keywords" content="阿珏酱Blog十周年庆解密游戏, 解密游戏, 神秘大奖">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            background-color: #000000;
+            overflow: hidden;
+            position: relative;
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .randomImage {
+            position: absolute;
+            max-width: 200px;
+            max-height: 200px;
+            cursor: default;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <img id="randomImage" src="" alt="Random Image">
+    <img id="randomImage2" class="randomImage" src="" alt="Random Image 2">
+    <script>
+        const imageBase64_1 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAACoAQMAAAAitRgDAAAACXBIWXMAAAsTAAALEwEAmpwYAAAABlBMVEUAAAAEBATBbxAOAAAEoElEQVR42u3YPW/bRhzH8e9RhMUCQszRg2Fx6NDRYwoYNov2hegleGwAJ/q7CZpsfQn1Cymac5IhW9JX0HOmjOfAA9Me7groIIpExFQS+rDcZxCke9BPR+J/JEWSJEmSJEmSJEmSJEmSJEmSJEmSJMnuzr+nNRbGAL2WNQ736btYNyPrhLAFpem7z7CMIQWfk1UAVCx9t1NI4FNjTZ+jtVGIMvxbMv55ZvOQe3yON/RP9y8My3ZcU6jpe71RCPp/OCeHDNq2tvLOu/9iJQJjC8CchSmMGphqVAPwCFiMie/GhgUP+7rtnwrAGaeDh+tgMjJcKNHAfUzQkz2YHbM39qAuJY5BXYbH5t7BAcrASAnHZ/ZEXV8CzGbTqT7Xci1DIVXmwe1RASjgWIFMKAD2mAHMMvbi4ByACTV17BdwUgKKb6nXhYyBWgEUlADZB6jRIzLKctUsSopXADrOLTnmgQBfUcOIYpH3JdXQSh6UUiJcFoDkbx7WDwu4+Ybp3QsoLwHUxxJ+vRXUbU0GVBmq+bmE/aKC/BoLxZODnIEQ1TQBmlIEsGiNc1VuDKceCPIMoGnqcg7w9gY0hFBk1gLeAdTy4aYOj4Iv14XcA6yrgSmvAAqManxZaCuOCo7iBOuqwLNV8Z7yBKOAOw8EcsAHP1iMmYFCWU8kGTaANEQx27TdFgC3TLMAntjmwlAIeATqdufPoCihJgAny5otj9As5AJCBg2t2NWwNqSCHCrAYXq7tgPKwS2uAUA2q3gHaMgzQ5cE6EUSoM9svUFqokzToSxARfSOuq2tqNhwJTUw9wDjYAAaIYfVlz8NGijoU1ttkA0L73LN0tHADq0Qeqodryc51DVEL/onytKwULLgy/0tQi5VBXxUOSCuuoDoZrJsjl4SeRZCMdsw5JyF20KI/LRxLBhrNUh7VJsTy1IAePpot8NVABaiEqHnqn8uxG0RUtMKZFdXgCjg6CMrimIuLLgYpezrzUKUiXOan8hZyG+ECiDnzwKWzTWEH+gv+bd6i5VUvXoUPDQWdL1qdmBLOgSfweYhPr5kqxvIUoEUvaFVhu8+L+TULO3FSYMhGbHbzbhhKRSZbepSAIjNvsxNRscLLlj6QoDAYAgawmQkgJX7AAjkuaGqyAGQY86CFIWmS6mGim5xFsMhsMdjh3cw18wOYW553OCmz3kZhJmdvwbC2HIbdFtb2nj81NFa3ZDN1oVcE+fegSvBsY+m9ngM59CwIEEaTmhZ3gZGwoqw4MpPQnIBDAJ43hPJ20CQO2Di+CM2X3lgBFFT3aHbX20B0AwZw5RRA8BclP2e8fOg420qXwevDPM40HI0D0KsrZHBo94E27m+7McUZdeE9J2zz9i0H07pOGQq3UfgkSgLw7KhEAg4iARDR8V7unLCbhukUOIhsvQ46E8WdguxDKu3fDhrQ8qdHo23DPGsYYhKKjpeUQhdonY6XMpwy0QTFZz2J5XL2orqzG4fEuljIfpRXdBxI7/T5Y4nht2Mg4foLFg6pqGhS4Ug7EaFZvWtuh9v6QmeXc01RCNPTxB6pjb9J5kkSZIkSZIkSZIkSZL8jb8AqfOYJ+I+LvsAAAAASUVORK5CYII=';
+        const imageBase64_2 = '';
+        const img = document.getElementById('randomImage');
+        img.className = 'randomImage';
+        img.src = imageBase64_1;
+        img.onload = function() {
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            const imgWidth = img.offsetWidth;
+            const imgHeight = img.offsetHeight;
+            const maxX = windowWidth - imgWidth;
+            const maxY = windowHeight - imgHeight;
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+            img.style.left = randomX + 'px';
+            img.style.top = randomY + 'px';
+        };
+
+        const img2 = document.getElementById('randomImage2');
+        img2.src = imageBase64_2;
+        img2.onload = function() {
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            const imgWidth = img2.offsetWidth;
+            const imgHeight = img2.offsetHeight;
+            const maxX = windowWidth - imgWidth;
+            const maxY = windowHeight - imgHeight;
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+            img2.style.left = randomX + 'px';
+            img2.style.top = randomY + 'px';
+        };
+
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        }, true);
+
+        document.addEventListener('keydown', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        }, true);
+
+        document.addEventListener('keyup', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        }, true);
+
+        document.addEventListener('keypress', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        }, true);
+
+        const mouseEvents = ['click', 'dblclick', 'mousedown', 'mouseup', 'mousemove', 'mouseover', 'mouseout', 'mouseenter', 'mouseleave', 'wheel'];
+        mouseEvents.forEach(function(eventType) {
+            document.addEventListener(eventType, function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }, true);
+        });
+
+        const touchEvents = ['touchstart', 'touchmove', 'touchend', 'touchcancel'];
+        touchEvents.forEach(function(eventType) {
+            document.addEventListener(eventType, function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }, true);
+        });
+
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+            return false;
+        }, true);
+
+        document.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+            return false;
+        }, true);
+
+        (function() {
+            let devtoolsOpen = false;
+            const threshold = 160;
+
+            const checkDevTools = function() {
+                const widthThreshold = window.outerWidth - window.innerWidth > threshold;
+                const heightThreshold = window.outerHeight - window.innerHeight > threshold;
+                
+                if (widthThreshold || heightThreshold) {
+                    if (!devtoolsOpen) {
+                        devtoolsOpen = true;
+                        handleDevToolsOpen();
+                    }
+                } else {
+                    devtoolsOpen = false;
+                }
+            };
+
+            const detectDebugger = function() {
+                const start = new Date();
+                debugger;
+                const end = new Date();
+                if (end - start > 100) {
+                    handleDevToolsOpen();
+                }
+            };
+
+            const detectConsole = function() {
+                const element = new Image();
+                Object.defineProperty(element, 'id', {
+                    get: function() {
+                        handleDevToolsOpen();
+                        throw new Error('DevTools detected');
+                    }
+                });
+                console.log(element);
+            };
+
+            function handleDevToolsOpen() {
+                document.body.innerHTML = '';
+                window.location.href = 'about:blank';
+            }
+
+            document.addEventListener('keydown', function(e) {
+                if (e.keyCode === 123) {
+                    e.preventDefault();
+                    handleDevToolsOpen();
+                    return false;
+                }
+                if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+                    e.preventDefault();
+                    handleDevToolsOpen();
+                    return false;
+                }
+                if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+                    e.preventDefault();
+                    handleDevToolsOpen();
+                    return false;
+                }
+                if (e.ctrlKey && e.keyCode === 85) {
+                    e.preventDefault();
+                    handleDevToolsOpen();
+                    return false;
+                }
+                if (e.ctrlKey && e.shiftKey && e.keyCode === 67) {
+                    e.preventDefault();
+                    handleDevToolsOpen();
+                    return false;
+                }
+            }, true);
+
+            setInterval(checkDevTools, 500);
+            setInterval(detectDebugger, 500);
+            
+            window.addEventListener('load', checkDevTools);
+            window.addEventListener('resize', checkDevTools);
+        })();
+    </script>
+</body>
+</html>

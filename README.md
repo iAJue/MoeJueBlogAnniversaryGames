@@ -29,7 +29,7 @@
 - 考验P 图能力,调节曝光度,对比度,饱和度等参数
 
 ## 第二关
-- /googleLogin/login.html captcha.php login.php
+- /level/googleLogin/login.html captcha.php login.php
 - 输入指定用户名密码,本地效验
 - 输入特殊验证码
 - 考验查看源代码能力,破译密码,还是加密的,一上来就是一个小难度
