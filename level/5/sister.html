@@ -134,7 +134,6 @@
             border: 2px solid #4ecca3;
             border-radius: 5px;
             color: white;
-            text-align: center;
             outline: none;
             transition: all 0.3s;
         }
@@ -226,10 +225,10 @@
 
         <div class="images-container">
             <div class="image-box" onclick="showDetail('A')">
-                <img src="/images/Paperballs.png">
+                <img src="/images/高坂桐乃.jpg">
             </div>
             <div class="image-box" onclick="showDetail('B')">
-                <img src="/images/Paperballs.png">
+                <img src="/images/こうさか きりの.jpg">
             </div>
         </div>
 
@@ -284,7 +283,7 @@
             };
 
             try {
-                const response = await fetch('/level/five/submit.php', {
+                const response = await fetch('/level/5/submit.php', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
@@ -299,7 +298,7 @@
                 }
 
             } catch (e) {
-                showModal("回答正确", "虽然网络有点小问题，但我相信你的判断！", true);
+                showModal("不知道", "虽然网络有点小问题，但我相信你的判断！", false);
             }
         }
 
