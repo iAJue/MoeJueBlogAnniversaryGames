@@ -3,7 +3,7 @@ header('Content-Type: application/json; charset=utf-8');
 
 session_start();
 if (isset($_SESSION['password_fragment'])) {
-    define('CORRECT_PASSWORD', $_SESSION['password_fragment']);
+    define('CORRECT_PASSWORD', $_SESSION['password_fragment']. '69');
 }else {
     echo json_encode([
         'success' => false,
@@ -17,7 +17,10 @@ function generateCouponCode() {
     // 生成一个随机的优惠券码，格式：SAFE-XXXX-XXXX
     $part1 = strtoupper(substr(md5(uniqid(rand(), true)), 0, 4));
     $part2 = strtoupper(substr(md5(uniqid(rand(), true)), 0, 4));
-    return "SAFE-{$part1}-{$part2}";
+    // 保存一份到本地文件
+    $couponCode = "SAFE-{$part1}-{$part2}";
+    file_put_contents(__DIR__ . '/coupons.txt', $couponCode . PHP_EOL, FILE_APPEND);
+    return $couponCode;
 }
 
 // 获取POST数据
