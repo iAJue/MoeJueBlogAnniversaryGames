@@ -1,8 +1,16 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
 
-// 设置正确的密码
-define('CORRECT_PASSWORD', '1234');
+session_start();
+if (isset($_SESSION['password_fragment'])) {
+    define('CORRECT_PASSWORD', $_SESSION['password_fragment']);
+}else {
+    echo json_encode([
+        'success' => false,
+        'message' => '未检测到有效的会话，请按顺序完成关卡'
+    ]);
+    exit;
+}
 
 // 生成优惠券码的函数
 function generateCouponCode() {

@@ -1,456 +1,456 @@
 {
     "title": "黄前久美子",
-    "cover": "./data/kumiko_images/b354033048a54cc7a8eeb2d30ddd8295.jpg",
+    "cover": "/data/kumiko_images/b354033048a54cc7a8eeb2d30ddd8295.jpg",
     "images": [
         {
-            "src": "./data/kumiko_images/1f00a0dc30474bb234ccdc19d6239ae9.jpg",
+            "src": "/data/kumiko_images/1f00a0dc30474bb234ccdc19d6239ae9.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/3ab915648c96e35f4deaeb4c540214e4.jpg"
+            "src": "/data/kumiko_images/3ab915648c96e35f4deaeb4c540214e4.jpg"
         },
         {
-            "src": "./data/kumiko_images/7e8e1d02efaca9d5435dd273de4b6b7f.jpg",
+            "src": "/data/kumiko_images/7e8e1d02efaca9d5435dd273de4b6b7f.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/08a3a6edce29575a14e1941f657f4859.jpg",
+            "src": "/data/kumiko_images/08a3a6edce29575a14e1941f657f4859.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/8d0f7103219209fe73f2671a126e4d85.jpg",
+            "src": "/data/kumiko_images/8d0f7103219209fe73f2671a126e4d85.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/9aa7c8469dbf02d92e6b3e8d5433907a.jpg"
+            "src": "/data/kumiko_images/9aa7c8469dbf02d92e6b3e8d5433907a.jpg"
         },
         {
-            "src": "./data/kumiko_images/18ff3f1da7120a1399c2200734ed7f46.jpg"
+            "src": "/data/kumiko_images/18ff3f1da7120a1399c2200734ed7f46.jpg"
         },
         {
-            "src": "./data/kumiko_images/41d559994efd465cd91730906371ea64.jpg",
+            "src": "/data/kumiko_images/41d559994efd465cd91730906371ea64.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/96fc97e71d5f876ac68a95a992b89019.jpg",
+            "src": "/data/kumiko_images/96fc97e71d5f876ac68a95a992b89019.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/245e51e7aeb98b4c9b03d9dd2e5af60e.jpg",
+            "src": "/data/kumiko_images/245e51e7aeb98b4c9b03d9dd2e5af60e.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/444c2ee63b16cfae4b42ccb9e849300e.jpg"
+            "src": "/data/kumiko_images/444c2ee63b16cfae4b42ccb9e849300e.jpg"
         },
         {
-            "src": "./data/kumiko_images/704fe4600ccad183c8980cd034e6ec42.jpg",
+            "src": "/data/kumiko_images/704fe4600ccad183c8980cd034e6ec42.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/94578d9f474d8cb7f0fcdbd45882f35a.jpg"
+            "src": "/data/kumiko_images/94578d9f474d8cb7f0fcdbd45882f35a.jpg"
         },
         {
-            "src": "./data/kumiko_images/348652bed47e54d9a331b1ce8fd50c75.jpg"
+            "src": "/data/kumiko_images/348652bed47e54d9a331b1ce8fd50c75.jpg"
         },
         {
-            "src": "./data/kumiko_images/0708339d5d8aee26eb9e4da5e56def3d.jpg"
+            "src": "/data/kumiko_images/0708339d5d8aee26eb9e4da5e56def3d.jpg"
         },
         {
-            "src": "./data/kumiko_images/4534806638761adf3e4bfdadc1df4812.jpg"
+            "src": "/data/kumiko_images/4534806638761adf3e4bfdadc1df4812.jpg"
         },
         {
-            "src": "./data/kumiko_images/a11c20e899318c6a7702923b3cc254ff.jpg"
+            "src": "/data/kumiko_images/a11c20e899318c6a7702923b3cc254ff.jpg"
         },
         {
-            "src": "./data/kumiko_images/aff50105471a77149de56bbb8fec9fa3.jpg",
+            "src": "/data/kumiko_images/aff50105471a77149de56bbb8fec9fa3.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/b1680996db7612a12ff65c4c2f16a9ed.jpg",
+            "src": "/data/kumiko_images/b1680996db7612a12ff65c4c2f16a9ed.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/b354033048a54cc7a8eeb2d30ddd8295.jpg",
+            "src": "/data/kumiko_images/b354033048a54cc7a8eeb2d30ddd8295.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/bb2ed74dab50f6e475a717f0cbad2540.jpg"
+            "src": "/data/kumiko_images/bb2ed74dab50f6e475a717f0cbad2540.jpg"
         },
         {
-            "src": "./data/kumiko_images/d7eda5b017cb1c5d483c251229e27c07.jpg",
+            "src": "/data/kumiko_images/d7eda5b017cb1c5d483c251229e27c07.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/22a0568b334ca4699d80dd3c327a97e9.jpg"
+            "src": "/data/kumiko_images/22a0568b334ca4699d80dd3c327a97e9.jpg"
         },
         {
-            "src": "./data/kumiko_images/957a4589be5703d193c52287ff1a37f9.jpg"
+            "src": "/data/kumiko_images/957a4589be5703d193c52287ff1a37f9.jpg"
         },
         {
-            "src": "./data/kumiko_images/a97379a52bf6f12e98827467c4183590.jpg",
+            "src": "/data/kumiko_images/a97379a52bf6f12e98827467c4183590.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/04f3030c8cdbfe2f56ce5a8c8afcfb05.jpg",
+            "src": "/data/kumiko_images/04f3030c8cdbfe2f56ce5a8c8afcfb05.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/5fd6731279cb3f152d5c502a90f3ee7e.jpg",
+            "src": "/data/kumiko_images/5fd6731279cb3f152d5c502a90f3ee7e.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/a623c2d57fa39cb3e831106c522fb2ea.jpg",
+            "src": "/data/kumiko_images/a623c2d57fa39cb3e831106c522fb2ea.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/2c369ef051babdc59193de45fd7c0a9f.jpg",
+            "src": "/data/kumiko_images/2c369ef051babdc59193de45fd7c0a9f.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/a84d1a5bd2c878cc38eb867ada76629d.jpg",
+            "src": "/data/kumiko_images/a84d1a5bd2c878cc38eb867ada76629d.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/50d756b396e7a7b4e543d47c60b463c4.jpg",
+            "src": "/data/kumiko_images/50d756b396e7a7b4e543d47c60b463c4.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/249e0285fbd559026ed37c9db6698549.jpg"
+            "src": "/data/kumiko_images/249e0285fbd559026ed37c9db6698549.jpg"
         },
         {
-            "src": "./data/kumiko_images/99638386e91817616ee573bf99529b58.jpg"
+            "src": "/data/kumiko_images/99638386e91817616ee573bf99529b58.jpg"
         },
         {
-            "src": "./data/kumiko_images/9f52f661d8ac0c5aaa7a2c30cd22217c.jpg"
+            "src": "/data/kumiko_images/9f52f661d8ac0c5aaa7a2c30cd22217c.jpg"
         },
         {
-            "src": "./data/kumiko_images/1023053972084c7a3b6100166ec095b8.jpg"
+            "src": "/data/kumiko_images/1023053972084c7a3b6100166ec095b8.jpg"
         },
         {
-            "src": "./data/kumiko_images/25dbb69b0d9e6e53de1df26bf40fb06f.jpg"
+            "src": "/data/kumiko_images/25dbb69b0d9e6e53de1df26bf40fb06f.jpg"
         },
         {
-            "src": "./data/kumiko_images/e393dc00bc0990491e14d0b8d79eae5c.jpg"
+            "src": "/data/kumiko_images/e393dc00bc0990491e14d0b8d79eae5c.jpg"
         },
         {
-            "src": "./data/kumiko_images/c92b743f8b3fceffe7a1a0b19b1e8a01.jpg"
+            "src": "/data/kumiko_images/c92b743f8b3fceffe7a1a0b19b1e8a01.jpg"
         },
         {
-            "src": "./data/kumiko_images/1f29b54d502302cecab89136d5a3fdb3.jpg"
+            "src": "/data/kumiko_images/1f29b54d502302cecab89136d5a3fdb3.jpg"
         },
         {
-            "src": "./data/kumiko_images/a95b607c491e42b3a7726a95812f3cb0.jpg"
+            "src": "/data/kumiko_images/a95b607c491e42b3a7726a95812f3cb0.jpg"
         },
         {
-            "src": "./data/kumiko_images/f058c1d35bfcb6d1dfcd93e395841b97.jpg"
+            "src": "/data/kumiko_images/f058c1d35bfcb6d1dfcd93e395841b97.jpg"
         },
         {
-            "src": "./data/kumiko_images/f3e75b3a124e9d26e6a154ecd4055b6a.jpg"
+            "src": "/data/kumiko_images/f3e75b3a124e9d26e6a154ecd4055b6a.jpg"
         },
         {
-            "src": "./data/kumiko_images/f770bdc2c6b6cd7d1ede8184b4011638.jpg"
+            "src": "/data/kumiko_images/f770bdc2c6b6cd7d1ede8184b4011638.jpg"
         },
         {
-            "src": "./data/kumiko_images/b858de27c0373f4a0200edf4087b88ac.jpg"
+            "src": "/data/kumiko_images/b858de27c0373f4a0200edf4087b88ac.jpg"
         },
         {
-            "src": "./data/kumiko_images/4831c08c97e6b43212223f8e55293157.jpg"
+            "src": "/data/kumiko_images/4831c08c97e6b43212223f8e55293157.jpg"
         },
         {
-            "src": "./data/kumiko_images/3314e2b31d4f53be1120de76a8c76b2d.jpg"
+            "src": "/data/kumiko_images/3314e2b31d4f53be1120de76a8c76b2d.jpg"
         },
         {
-            "src": "./data/kumiko_images/b10e0b0dd6adfb2a435cd1fd29f920c6.jpg"
+            "src": "/data/kumiko_images/b10e0b0dd6adfb2a435cd1fd29f920c6.jpg"
         },
         {
-            "src": "./data/kumiko_images/57c00cb8491b67dfc5b38af6cbd51ee5.jpg"
+            "src": "/data/kumiko_images/57c00cb8491b67dfc5b38af6cbd51ee5.jpg"
         },
         {
-            "src": "./data/kumiko_images/f9ea8fbf9f8a5ed6eccce97b9e1b6131.jpg"
+            "src": "/data/kumiko_images/f9ea8fbf9f8a5ed6eccce97b9e1b6131.jpg"
         },
         {
-            "src": "./data/kumiko_images/908c6030bbb95b9f9ba1664ec71ec23a.jpg"
+            "src": "/data/kumiko_images/908c6030bbb95b9f9ba1664ec71ec23a.jpg"
         },
         {
-            "src": "./data/kumiko_images/28e2d035cd17bf3c5ca51c68557b84ea.jpg"
+            "src": "/data/kumiko_images/28e2d035cd17bf3c5ca51c68557b84ea.jpg"
         },
         {
-            "src": "./data/kumiko_images/825157d6df3e1c76ea58c0d130f0354f.jpg"
+            "src": "/data/kumiko_images/825157d6df3e1c76ea58c0d130f0354f.jpg"
         },
         {
-            "src": "./data/kumiko_images/6259a4ea9a363420a818a13b7d25b3f7.jpg"
+            "src": "/data/kumiko_images/6259a4ea9a363420a818a13b7d25b3f7.jpg"
         },
         {
-            "src": "./data/kumiko_images/43d56f5bf5f696ff18843a6f40cd4505.jpg"
+            "src": "/data/kumiko_images/43d56f5bf5f696ff18843a6f40cd4505.jpg"
         },
         {
-            "src": "./data/kumiko_images/404530cbc1db7bfc0eb4b74e4557f8b7.jpg"
+            "src": "/data/kumiko_images/404530cbc1db7bfc0eb4b74e4557f8b7.jpg"
         },
         {
-            "src": "./data/kumiko_images/43fef66fc99afc896894eebd650d38fb.jpg",
+            "src": "/data/kumiko_images/43fef66fc99afc896894eebd650d38fb.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/986592a5a201e510d0e24b16b37d5a3d.jpg"
+            "src": "/data/kumiko_images/986592a5a201e510d0e24b16b37d5a3d.jpg"
         },
         {
-            "src": "./data/kumiko_images/8440d6d5959882bc27ade9e770423f13.jpg",
+            "src": "/data/kumiko_images/8440d6d5959882bc27ade9e770423f13.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/7a39c151e008d5b83bebfd1e5a8107ce.jpg",
+            "src": "/data/kumiko_images/7a39c151e008d5b83bebfd1e5a8107ce.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/608fa1e2ca214996cfeb1360569f1356.jpg",
+            "src": "/data/kumiko_images/608fa1e2ca214996cfeb1360569f1356.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/f52cef32fecbcf8dcd8cf20055a141bd.jpg",
+            "src": "/data/kumiko_images/f52cef32fecbcf8dcd8cf20055a141bd.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/f10964b00b748deb18ece012c387c98f.jpg",
+            "src": "/data/kumiko_images/f10964b00b748deb18ece012c387c98f.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/b0a888f56cb8faee56ea5ab3f30c96fc.jpg"
+            "src": "/data/kumiko_images/b0a888f56cb8faee56ea5ab3f30c96fc.jpg"
         },
         {
-            "src": "./data/kumiko_images/89e2ecfe3fbd5802bdfee00f6deeb0ff.jpg"
+            "src": "/data/kumiko_images/89e2ecfe3fbd5802bdfee00f6deeb0ff.jpg"
         },
         {
-            "src": "./data/kumiko_images/011dee58896c4444ef4da7df4aa8dc32.jpg"
+            "src": "/data/kumiko_images/011dee58896c4444ef4da7df4aa8dc32.jpg"
         },
         {
-            "src": "./data/kumiko_images/689e74146e4aa29f821808f24fcbdece.jpg",
+            "src": "/data/kumiko_images/689e74146e4aa29f821808f24fcbdece.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/5d4799f4badc6aaf9c17f56167d6c03c.jpg",
+            "src": "/data/kumiko_images/5d4799f4badc6aaf9c17f56167d6c03c.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/50d2305e5c58213a299404db5166acda.jpg",
+            "src": "/data/kumiko_images/50d2305e5c58213a299404db5166acda.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/cc3f5e109162c36c73a85939a721873b.jpg",
+            "src": "/data/kumiko_images/cc3f5e109162c36c73a85939a721873b.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/9e1ec825e01d687f9a96531bef91e444.jpg",
+            "src": "/data/kumiko_images/9e1ec825e01d687f9a96531bef91e444.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/27c3e71d271d78a62c3e24a1237d8a00.jpg"
+            "src": "/data/kumiko_images/27c3e71d271d78a62c3e24a1237d8a00.jpg"
         },
         {
-            "src": "./data/kumiko_images/84aadba3f8d4e5c09e87ba0ee8b4c5f2.jpg"
+            "src": "/data/kumiko_images/84aadba3f8d4e5c09e87ba0ee8b4c5f2.jpg"
         },
         {
-            "src": "./data/kumiko_images/109cd2edeb4ce91ab95b1654538d2756.jpg"
+            "src": "/data/kumiko_images/109cd2edeb4ce91ab95b1654538d2756.jpg"
         },
         {
-            "src": "./data/kumiko_images/1517d87fb118a29c66dbbf273d001649.jpg"
+            "src": "/data/kumiko_images/1517d87fb118a29c66dbbf273d001649.jpg"
         },
         {
-            "src": "./data/kumiko_images/76a8b141ac877a54d6b466d9278d82be.jpg"
+            "src": "/data/kumiko_images/76a8b141ac877a54d6b466d9278d82be.jpg"
         },
         {
-            "src": "./data/kumiko_images/309632082e93192492a7991bfe14116f.jpg"
+            "src": "/data/kumiko_images/309632082e93192492a7991bfe14116f.jpg"
         },
         {
-            "src": "./data/kumiko_images/55086fd180e6879829454c9a774209f0.jpg"
+            "src": "/data/kumiko_images/55086fd180e6879829454c9a774209f0.jpg"
         },
         {
-            "src": "./data/kumiko_images/f15e841d1538ddb3cb736bb976da443c.jpg",
+            "src": "/data/kumiko_images/f15e841d1538ddb3cb736bb976da443c.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/96093dadce80c3cae5c0691c580e6d0a.jpg",
+            "src": "/data/kumiko_images/96093dadce80c3cae5c0691c580e6d0a.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/1f619337b7abe84286831feed96e8c20.jpg",
+            "src": "/data/kumiko_images/1f619337b7abe84286831feed96e8c20.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/729ac2f2a1268bb25157a65fbb853c7b.jpg",
+            "src": "/data/kumiko_images/729ac2f2a1268bb25157a65fbb853c7b.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/5f60700edb03a420c491e19798e081f4.jpg",
+            "src": "/data/kumiko_images/5f60700edb03a420c491e19798e081f4.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/2d4289200bcdb3651f30d086249b41b8.jpg",
+            "src": "/data/kumiko_images/2d4289200bcdb3651f30d086249b41b8.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/8ee69a84f6df2d4571b1bed2be9aafc0.jpg"
+            "src": "/data/kumiko_images/8ee69a84f6df2d4571b1bed2be9aafc0.jpg"
         },
         {
-            "src": "./data/kumiko_images/be39c9e9992929f374ab58f10c44992b.jpg",
+            "src": "/data/kumiko_images/be39c9e9992929f374ab58f10c44992b.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/e7c756ef122b8ae8844af926190e0163.jpg",
+            "src": "/data/kumiko_images/e7c756ef122b8ae8844af926190e0163.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/783200c2629c99bd568bab57428fd875.jpg",
+            "src": "/data/kumiko_images/783200c2629c99bd568bab57428fd875.jpg",
             "correct": false
         },
         {
-            "src": "./data/kumiko_images/3be347f451661ce51e8e842764573a32.jpg",
+            "src": "/data/kumiko_images/3be347f451661ce51e8e842764573a32.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/3c44b034f9ee2e69e85c70bb30f0afdf.jpg",
+            "src": "/data/kumiko_images/3c44b034f9ee2e69e85c70bb30f0afdf.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/c666aae76821093fb2de8131e73dfd76.jpg",
+            "src": "/data/kumiko_images/c666aae76821093fb2de8131e73dfd76.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/52d1777ca2f76b4888388100240340ed.jpg"
+            "src": "/data/kumiko_images/52d1777ca2f76b4888388100240340ed.jpg"
         },
         {
-            "src": "./data/kumiko_images/0bf0a48cbae0a49fba99070c5e7e060f.jpg",
+            "src": "/data/kumiko_images/0bf0a48cbae0a49fba99070c5e7e060f.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/33c9f5b3d26353fb5af4cb6b52aaccc9.jpg",
+            "src": "/data/kumiko_images/33c9f5b3d26353fb5af4cb6b52aaccc9.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/3d6975be06268c53a7ecd168602ef731.jpg",
+            "src": "/data/kumiko_images/3d6975be06268c53a7ecd168602ef731.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/e1c0e313748bbd6f4ea57b13ccb55a9a.jpg",
+            "src": "/data/kumiko_images/e1c0e313748bbd6f4ea57b13ccb55a9a.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/2509270bbd7842d6175d887ceb07058a.jpg",
+            "src": "/data/kumiko_images/2509270bbd7842d6175d887ceb07058a.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/6c87d2b9439058f9d810bf29a05412ef.jpg"
+            "src": "/data/kumiko_images/6c87d2b9439058f9d810bf29a05412ef.jpg"
         },
         {
-            "src": "./data/kumiko_images/d2c7f65b6be25b14d47c0e3daa1dff73.jpg",
+            "src": "/data/kumiko_images/d2c7f65b6be25b14d47c0e3daa1dff73.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/d081364f48e3d6b5f9ab5be6161e6690.jpg",
+            "src": "/data/kumiko_images/d081364f48e3d6b5f9ab5be6161e6690.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/e9bba40624252a7337cf4525abe42b79.jpg",
+            "src": "/data/kumiko_images/e9bba40624252a7337cf4525abe42b79.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/b55909d508883c65219abbf1ce2ac0fa.jpg",
+            "src": "/data/kumiko_images/b55909d508883c65219abbf1ce2ac0fa.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/3365dab2e6281ec3ec4fe39754887f8e.jpg",
+            "src": "/data/kumiko_images/3365dab2e6281ec3ec4fe39754887f8e.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/b3ca0bff5c0f9942ffa828be2dba5bd4.jpg",
+            "src": "/data/kumiko_images/b3ca0bff5c0f9942ffa828be2dba5bd4.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/1d792a7332561cc6999234f19330d55d.jpg",
+            "src": "/data/kumiko_images/1d792a7332561cc6999234f19330d55d.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/76c09d4c1741a4f5c68200ddc271176f.jpg",
+            "src": "/data/kumiko_images/76c09d4c1741a4f5c68200ddc271176f.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/9e6bd811e804b6ceb7cd773b1cf0abf9.jpg",
+            "src": "/data/kumiko_images/9e6bd811e804b6ceb7cd773b1cf0abf9.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/03fa3e1d3ff287daecde5437fc20f5ad.jpg",
+            "src": "/data/kumiko_images/03fa3e1d3ff287daecde5437fc20f5ad.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/55e7ce7d9153cc6f8dceff0a81bbfac1.jpg",
+            "src": "/data/kumiko_images/55e7ce7d9153cc6f8dceff0a81bbfac1.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/618cdc5a9767acb62b89d72d8e279ff9.jpg",
+            "src": "/data/kumiko_images/618cdc5a9767acb62b89d72d8e279ff9.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/d1c18355ae30793b19bd9ff8cba2e9a5.jpg"
+            "src": "/data/kumiko_images/d1c18355ae30793b19bd9ff8cba2e9a5.jpg"
         },
         {
-            "src": "./data/kumiko_images/ca6c6f83d4fe55fb3cafdc89b3f02ca1.jpg",
+            "src": "/data/kumiko_images/ca6c6f83d4fe55fb3cafdc89b3f02ca1.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/0bede94c99982dba05e93c021100c24d.jpg",
+            "src": "/data/kumiko_images/0bede94c99982dba05e93c021100c24d.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/611b90a7c4cf23dcd93263943105c21c.jpg",
+            "src": "/data/kumiko_images/611b90a7c4cf23dcd93263943105c21c.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/167820224972402cb1a9a6efaf47a92b.jpg",
+            "src": "/data/kumiko_images/167820224972402cb1a9a6efaf47a92b.jpg",
             "correct": false
         },
         {
-            "src": "./data/kumiko_images/21a0685c8194b3352c6002f9bdc0aa3c.jpg",
+            "src": "/data/kumiko_images/21a0685c8194b3352c6002f9bdc0aa3c.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/317b7ef71a77c87ea0a73713cb441bb9.jpg",
+            "src": "/data/kumiko_images/317b7ef71a77c87ea0a73713cb441bb9.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/63fe90cae88ddee56620b11d37f0977d.jpg",
+            "src": "/data/kumiko_images/63fe90cae88ddee56620b11d37f0977d.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/8adfa816fcb8a4b963e14ca8639e68b6.jpg",
+            "src": "/data/kumiko_images/8adfa816fcb8a4b963e14ca8639e68b6.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/4819c872ba14a2ff5d8446293bd9597a.jpg",
+            "src": "/data/kumiko_images/4819c872ba14a2ff5d8446293bd9597a.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/b813e9bc40248035cf56566e8e298509.jpg",
+            "src": "/data/kumiko_images/b813e9bc40248035cf56566e8e298509.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/3691cb39f54fc3164240bbf777edbde5.jpg",
+            "src": "/data/kumiko_images/3691cb39f54fc3164240bbf777edbde5.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/4dfc8e971c0b4e1c2da02f967d0e2ad5.jpg"
+            "src": "/data/kumiko_images/4dfc8e971c0b4e1c2da02f967d0e2ad5.jpg"
         },
         {
-            "src": "./data/kumiko_images/5b87e97bfee19561e1da801bade2cc84.jpg"
+            "src": "/data/kumiko_images/5b87e97bfee19561e1da801bade2cc84.jpg"
         },
         {
-            "src": "./data/kumiko_images/c63594a907fd66ac256d1772191f6828.jpg",
+            "src": "/data/kumiko_images/c63594a907fd66ac256d1772191f6828.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/064a189f9b637bcd352122184c0cfb55.jpg",
+            "src": "/data/kumiko_images/064a189f9b637bcd352122184c0cfb55.jpg",
             "correct": true
         },
         {
-            "src": "./data/kumiko_images/cf39841d6b81a91191e33397850388da.jpg"
+            "src": "/data/kumiko_images/cf39841d6b81a91191e33397850388da.jpg"
         }
     ],
     "rightTip": "猜对了！你是爱久美子的",

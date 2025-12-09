@@ -129,12 +129,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/2.1.4/fingerprint2.min.js"></script>
     <script>
-        const validUsername = "blog10years";
         let currentCaptchaData = null;
         let selectedImages = new Set();
         let currentCaptchaIndex = Math.floor(Math.random() * 3);
         let browserFingerprint = null;
-
+        if(typeof Fingerprint2 === 'undefined'){
+            alert('请关闭你的广告拦截插件后刷新页面以继续游戏');
+        }
         Fingerprint2.get(function (components) {
             const values = components.map(function (component) { return component.value });
             browserFingerprint = Fingerprint2.x64hash128(values.join(''), 31);
@@ -234,28 +235,23 @@
                 const errorIcon = resultEl.querySelector('.error-icon');
                 const messageEl = resultEl.querySelector('.message');
 
-                // 重置图标显示
                 successIcon.style.display = 'none';
                 errorIcon.style.display = 'none';
 
                 if (result.valid) {
-                    // 显示成功提示
                     successIcon.style.display = 'block';
                     messageEl.textContent = currentCaptchaData.rightTip;
                     resultEl.className = 'verify-result show success';
 
-                    // 延迟后关闭验证码
                     setTimeout(() => {
                         document.getElementById('captcha-container').classList.add('hidden');
                         proceedWithLogin();
                     }, 1500);
                 } else {
-                    // 显示失败提示
                     errorIcon.style.display = 'block';
                     messageEl.textContent = currentCaptchaData.wrongTip;
                     resultEl.className = 'verify-result show error';
 
-                    // 延迟后重置验证码
                     setTimeout(() => {
                         resultEl.classList.remove('show');
                         initCaptcha();
@@ -286,46 +282,43 @@
                 return;
             }
 
-            const key = String.fromCharCode(0x1f31f) + String.fromCharCode(0x1f308) + "🍎🍌🎮💻"; // 🌟🌈🍎🍌🎮💻
-            const validNameHash = CryptoJS.SHA256(validUsername).toString();
+            const key = String.fromCharCode(0x1f31f) + String.fromCharCode(0x1f308) + "🍎🍌🎮💻";
+            const validNameHash = CryptoJS.SHA256(username).toString();
             const obfuscatedKey = key.split('').map(c => String.fromCharCode(c.charCodeAt(0) ^ 42)).join('');
-            const reversedName = validUsername.split('').reverse().join('');
+            const reversedName = username.split('').reverse().join('');
             const salted = reversedName + obfuscatedKey + validNameHash;
             const finalHash = CryptoJS.MD5(CryptoJS.SHA256(salted).toString()).toString();
 
-            if (username === validUsername && password === finalHash) {
-                try {
-                    const response = await fetch('/level/googleLogin/login.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
+            try {
+                const response = await fetch('/level/googleLogin/login.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        password: finalHash,
+                        captchaData: {
+                            selectedIndices: Array.from(selectedImages),
+                            images: currentCaptchaData.images,
+                            index: currentCaptchaIndex
                         },
-                        body: JSON.stringify({
-                            password: finalHash,
-                            captchaData: {
-                                selectedIndices: Array.from(selectedImages),
-                                images: currentCaptchaData.images,
-                                index: currentCaptchaIndex
-                            },
-                            fingerprint: browserFingerprint
-                        })
-                    });
+                        fingerprint: browserFingerprint
+                    })
+                });
 
-                    const result = await response.json();
+                const result = await response.json();
 
-                    if (result.success) {
-                        showMessage("登录成功！", true);
-                        setTimeout(() => {
-                            window.location.href = result.redirect;
-                        }, 1000);
-                    } else {
-                        showMessage(result.message, false);
-                    }
-                } catch (error) {
-                    showMessage("登录失败，请重试", false);
+                if (result.success) {
+                    showMessage("登录成功！", true);
+                    setTimeout(() => {
+                        window.location.href = result.redirect;
+                    }, 1000);
+                } else {
+                    showMessage(result.message, false);
                 }
-            } else {
-                showMessage("用户名或密码错误，请重试！", false);
+            } catch (error) {
+                showMessage("登录失败，请重试", false);
             }
         }
 

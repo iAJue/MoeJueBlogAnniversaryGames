@@ -1,241 +1,241 @@
 {
     "title": "男性动漫角色",
-    "cover": "./data/MoeJue_images/1736045081765.jpg",
+    "cover": "/data/MoeJue_images/1736045081765.jpg",
     "images": [
         {
-            "src": "./data/male_images/2fbe8efc-30d1-41ce-9774-18bb7ae70768.png",
+            "src": "/data/male_images/2fbe8efc-30d1-41ce-9774-18bb7ae70768.png",
             "correct": true
         },
         {
-            "src": "./data/male_images/4ba0ff97-1ac4-4e15-9f81-09999375b553.png",
+            "src": "/data/male_images/4ba0ff97-1ac4-4e15-9f81-09999375b553.png",
             "correct": true
         },
         {
-            "src": "./data/male_images/06f11c62-d617-4c13-b353-43a99e011933.png",
+            "src": "/data/male_images/06f11c62-d617-4c13-b353-43a99e011933.png",
             "correct": true
         },
         {
-            "src": "./data/male_images/32f9079b-e112-465b-a171-bf1da3bd1709.png",
+            "src": "/data/male_images/32f9079b-e112-465b-a171-bf1da3bd1709.png",
             "correct": true
         },
         {
-            "src": "./data/male_images/89f0454d-cf9a-44c6-91ae-8413472a633e.png",
+            "src": "/data/male_images/89f0454d-cf9a-44c6-91ae-8413472a633e.png",
             "correct": true
         },
         {
-            "src": "./data/male_images/684c422c-f680-4573-a595-d2e79ccc8ac8.png",
+            "src": "/data/male_images/684c422c-f680-4573-a595-d2e79ccc8ac8.png",
             "correct": true
         },
         {
-            "src": "./data/male_images/1926db85-1ff5-4d25-9876-62d2ed1cb0c1.png",
+            "src": "/data/male_images/1926db85-1ff5-4d25-9876-62d2ed1cb0c1.png",
             "correct": true
         },
         {
-            "src": "./data/male_images/75614db9-ba0d-440c-9a3b-744f0da7269e.png",
+            "src": "/data/male_images/75614db9-ba0d-440c-9a3b-744f0da7269e.png",
             "correct": true
         },
         {
-            "src": "./data/male_images/895040e5-ff6d-4518-9225-ad3eb6144748.png",
+            "src": "/data/male_images/895040e5-ff6d-4518-9225-ad3eb6144748.png",
             "correct": true
         },
         {
-            "src": "./data/male_images/6506457a-3d4a-4862-acba-659c24ab754b.png",
+            "src": "/data/male_images/6506457a-3d4a-4862-acba-659c24ab754b.png",
             "correct": true
         },
         {
-            "src": "./data/male_images/8991169e-98b7-4b8f-a151-3c712a33c050.png",
+            "src": "/data/male_images/8991169e-98b7-4b8f-a151-3c712a33c050.png",
             "correct": true
         },
         {
-            "src": "./data/male_images/a4e599a7-cb55-485f-a08e-9a91d7523ae8.png",
+            "src": "/data/male_images/a4e599a7-cb55-485f-a08e-9a91d7523ae8.png",
             "correct": true
         },
         {
-            "src": "./data/male_images/acb4d6c9-7a95-4ec1-9624-7702fc5469f2.png",
+            "src": "/data/male_images/acb4d6c9-7a95-4ec1-9624-7702fc5469f2.png",
             "correct": true
         },
         {
-            "src": "./data/male_images/c86a1cbc-39a8-4781-aa96-48e6ba5b2029.png",
+            "src": "/data/male_images/c86a1cbc-39a8-4781-aa96-48e6ba5b2029.png",
             "correct": true
         },
         {
-            "src": "./data/male_images/dcc26d33-26a2-43a4-9f8c-ae1997dbfbcc.png",
+            "src": "/data/male_images/dcc26d33-26a2-43a4-9f8c-ae1997dbfbcc.png",
             "correct": true
         },
         {
-            "src": "./data/male_images/e2f36078-b00d-4955-8a7a-7b406156545f.png",
+            "src": "/data/male_images/e2f36078-b00d-4955-8a7a-7b406156545f.png",
             "correct": true
         },
         {
-            "src": "./data/error/u=1118938888,3607120109&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=1118938888,3607120109&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=1438791835,2255523805&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=1438791835,2255523805&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=1679978043,1053756688&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=1679978043,1053756688&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=1694095144,2229496006&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=1694095144,2229496006&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=1819539063,3010321080&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=1819539063,3010321080&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=2027581529,1009922374&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=2027581529,1009922374&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=2053522579,3560332644&fm=253&fmt=auto&app=120&f=JPEG.webp"
+            "src": "/data/error/u=2053522579,3560332644&fm=253&fmt=auto&app=120&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=2159856349,3426503781&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=2159856349,3426503781&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=2293582504,1897661443&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=2293582504,1897661443&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=2387584676,974198501&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=2387584676,974198501&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=2436092612,703750123&fm=253&fmt=auto&app=120&f=JPEG.webp"
+            "src": "/data/error/u=2436092612,703750123&fm=253&fmt=auto&app=120&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=2485996200,1211359752&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=2485996200,1211359752&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=2537077299,2430032399&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=2537077299,2430032399&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=2666149479,4257306231&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=2666149479,4257306231&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=2667758178,210036215&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=2667758178,210036215&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=2695626678,1026417705&fm=253&fmt=auto&app=120&f=JPEG.webp"
+            "src": "/data/error/u=2695626678,1026417705&fm=253&fmt=auto&app=120&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=2773234883,644604888&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=2773234883,644604888&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=2805844709,2924429640&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=2805844709,2924429640&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=2894141807,104756100&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=2894141807,104756100&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=2922719257,4037559220&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=2922719257,4037559220&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=2945899547,3561574153&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=2945899547,3561574153&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=3013039039,224716114&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=3013039039,224716114&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=3030652675,3645116300&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=3030652675,3645116300&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=3037388264,1354415284&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=3037388264,1354415284&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=3063059433,37353176&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=3063059433,37353176&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=3146499429,2640343114&fm=253&fmt=auto&app=120&f=JPEG.webp"
+            "src": "/data/error/u=3146499429,2640343114&fm=253&fmt=auto&app=120&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=3147653632,3242061228&fm=253&fmt=auto&app=120&f=JPEG.webp"
+            "src": "/data/error/u=3147653632,3242061228&fm=253&fmt=auto&app=120&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=3151090097,2882530506&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=3151090097,2882530506&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=3284996480,2662030163&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=3284996480,2662030163&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=3298539461,1193400440&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=3298539461,1193400440&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=3304738829,4113522145&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=3304738829,4113522145&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=3322939205,1776891253&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=3322939205,1776891253&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=3464051246,3894161792&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=3464051246,3894161792&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=3491339630,875296477&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=3491339630,875296477&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=3492155128,3225211896&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=3492155128,3225211896&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=3492308359,3926991822&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=3492308359,3926991822&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=3530757158,1463274408&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=3530757158,1463274408&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=3642876909,2233395559&fm=253&fmt=auto.webp"
+            "src": "/data/error/u=3642876909,2233395559&fm=253&fmt=auto.webp"
         },
         {
-            "src": "./data/error/u=3683461883,1387909911&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=3683461883,1387909911&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=3703726168,1546854439&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=3703726168,1546854439&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=3732251958,268769607&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=3732251958,268769607&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=3797827468,1410966679&fm=253&fmt=auto&app=120&f=JPEG.webp"
+            "src": "/data/error/u=3797827468,1410966679&fm=253&fmt=auto&app=120&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=3819866062,1219299799&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=3819866062,1219299799&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=4112542411,3150943019&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=4112542411,3150943019&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=4223953446,2163441461&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=4223953446,2163441461&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=4252663612,3533298123&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=4252663612,3533298123&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=4278546583,2817857068&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=4278546583,2817857068&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=133272111,1196366441&fm=253&fmt=auto&app=120&f=JPEG.webp"
+            "src": "/data/error/u=133272111,1196366441&fm=253&fmt=auto&app=120&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=166769901,1270720235&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=166769901,1270720235&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=316225007,3871350420&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=316225007,3871350420&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=479184405,666569460&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=479184405,666569460&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=531111453,1642946763&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=531111453,1642946763&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=842550659,749123962&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=842550659,749123962&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=844782788,4198136028&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=844782788,4198136028&fm=253&fmt=auto&app=138&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=927301039,3707190960&fm=253&fmt=auto&app=120&f=JPEG.webp"
+            "src": "/data/error/u=927301039,3707190960&fm=253&fmt=auto&app=120&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=1077138223,4000484740&fm=253&fmt=auto&app=120&f=JPEG.webp"
+            "src": "/data/error/u=1077138223,4000484740&fm=253&fmt=auto&app=120&f=JPEG.webp"
         },
         {
-            "src": "./data/error/u=1102151664,2730851575&fm=253&fmt=auto&app=138&f=JPEG.webp"
+            "src": "/data/error/u=1102151664,2730851575&fm=253&fmt=auto&app=138&f=JPEG.webp"
         }
     ],
     "rightTip": "猜对了！你个基佬",

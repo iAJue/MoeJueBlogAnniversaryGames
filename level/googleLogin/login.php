@@ -6,23 +6,24 @@ header('Access-Control-Allow-Headers: Content-Type');
 
 session_start();
 
-// 正确的密码//第一关就固定账户和密码减少难度不随机了
+$validUsername = "blog10years";
 $validPassword = 'a4548011dd44ca756dd5c15e652d6f3b';
 
 try {
     $postData = json_decode(file_get_contents('php://input'), true);
     
-    if (!isset($postData['password']) || !isset($postData['captchaData']) || !isset($postData['fingerprint'])) {
+    if (!isset($postData['username']) || !isset($postData['password']) || !isset($postData['captchaData']) || !isset($postData['fingerprint'])) {
         throw new Exception('请求数据不完整');
     }
     
+    $username = $postData['username'];
     $password = $postData['password'];
     $captchaData = $postData['captchaData'];
     $fingerprint = $postData['fingerprint'];
     
     // 验证指纹格式
     if (!preg_match('/^[a-f0-9]{32}$/', $fingerprint)) {
-        throw new Exception('浏览器指纹格式错误');
+        throw new Exception('指纹数据错误');
     }
     
     // 验证验证码
@@ -31,7 +32,7 @@ try {
     }
 
     // 获取验证码数据
-    $dataPath = '/data/';
+    $dataPath = '../../data/';
     $captchaFiles = ['kumiko.json', 'male.json', 'moejue.json'];
     $index = $captchaData['index'];
     
@@ -76,22 +77,28 @@ try {
         exit;
     }
     
-    // 验证密码
-    if ($password === $validPassword) {
+    // 验证账号密码
+    if ($password === $validPassword && $username === $validUsername) {
         // 设置登录session
         $_SESSION['user_logged_in'] = true;
         $_SESSION['login_time'] = time();
         $_SESSION['fingerprint'] = $fingerprint; // 保存浏览器指纹
+        $_SESSION['username'] = $username; // 保存用户名
+        // 截取浏览器指纹最后两个数字作为密码储存起来
+        preg_match('/(\d{2})\D*$/', $fingerprint, $m);
+        $result = $m[1] ?? '00';
+        $_SESSION['password_fragment'] = $result;
 
         echo json_encode([
             'success' => true,
             'message' => '登录成功',
+            'password_fragment' => $result,
             'redirect' => '/level/three/start.html'
         ]);
     } else {
         echo json_encode([
             'success' => false,
-            'message' => '密码错误'
+            'message' => '用户名或密码错误'
         ]);
     }
     
