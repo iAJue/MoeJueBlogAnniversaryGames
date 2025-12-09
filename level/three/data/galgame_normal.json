@@ -5,19 +5,22 @@
   "scenes": [
     {
       "id": 0,
-      "characterName": "游戏开始",
-      "text": "欢迎来到恋爱冒险游戏！这是一个充满惊喜和浪漫的故事。让我们开始你的冒险之旅吧！",
+      "characterName": "旁白",
+      "text": "欢迎来到恋爱冒险游戏！这是一个充满惊喜和浪漫的故事。",
       "sprite": "",
       "background": "normal",
-      "choices": [
-        {
-          "text": "开始游戏",
-          "nextIndex": 1
-        }
-      ]
+      "choices": []
     },
     {
       "id": 1,
+      "characterName": "旁白",
+      "text": "在这个美丽的春日午后,你漫步在公园里,享受着温暖的阳光...",
+      "sprite": "",
+      "background": "normal",
+      "choices": []
+    },
+    {
+      "id": 2,
       "characterName": "女主角 - 小雨",
       "text": "你好呀！我是小雨。我在这个城市已经生活了三年。今天天气真好，你想一起散步吗？",
       "sprite": "",
@@ -25,27 +28,10 @@
       "choices": [
         {
           "text": "当然可以，我很乐意。",
-          "nextIndex": 2
+          "nextIndex": 3
         },
         {
           "text": "我有点累了，可能不太行。",
-          "nextIndex": 3
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "characterName": "小雨",
-      "text": "太好了！我知道一个很不错的公园。我们一起去那里吧。在散步的过程中，我发现你是个很有趣的人呢。",
-      "sprite": "",
-      "background": "normal",
-      "choices": [
-        {
-          "text": "其实我也觉得和你在一起很开心。",
-          "nextIndex": 4
-        },
-        {
-          "text": "是吗？我也很享受我们的谈话。",
           "nextIndex": 4
         }
       ]
@@ -53,12 +39,16 @@
     {
       "id": 3,
       "characterName": "小雨",
-      "text": "我理解。那么，改天再约吧。这是我的电话号码。",
+      "text": "太好了！我知道一个很不错的公园。我们一起去那里吧。在散步的过程中，我发现你是个很有趣的人呢。",
       "sprite": "",
       "background": "normal",
       "choices": [
         {
-          "text": "好的，谢谢你。",
+          "text": "其实我也觉得和你在一起很开心。",
+          "nextIndex": 5
+        },
+        {
+          "text": "是吗？我也很享受我们的谈话。",
           "nextIndex": 5
         }
       ]
@@ -66,22 +56,35 @@
     {
       "id": 4,
       "characterName": "小雨",
+      "text": "我理解。那么，改天再约吧。这是我的电话号码。",
+      "sprite": "",
+      "background": "normal",
+      "choices": [
+        {
+          "text": "好的，谢谢你。",
+          "nextIndex": 6
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "characterName": "小雨",
       "text": "真的吗？那我很高兴。其实，从见到你的第一眼，我就有一种特别的感觉。你愿意和我交往吗？",
       "sprite": "",
       "background": "normal",
       "choices": [
         {
           "text": "我也有同样的感觉，我愿意。",
-          "nextIndex": 6
+          "nextIndex": 7
         },
         {
           "text": "让我再想想，可以吗？",
-          "nextIndex": 7
+          "nextIndex": 8
         }
       ]
     },
     {
-      "id": 5,
+      "id": 6,
       "characterName": "小雨",
       "text": "太棒了！这是最好的时刻。从现在开始，我们是彼此的特殊的人了。我会好好珍惜我们的这段感情。",
       "sprite": "",
@@ -94,7 +97,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": 7,
       "characterName": "小雨",
       "text": "没关系，我会等你。但是我希望你不要让我等太久。如果你想清楚了，记得告诉我哦。",
       "sprite": "",
@@ -107,7 +110,7 @@
       ]
     },
     {
-      "id": 7,
+      "id": 8,
       "characterName": "小雨",
       "text": "我理解。那么，改天再约吧。这是我的电话号码。",
       "sprite": "",
