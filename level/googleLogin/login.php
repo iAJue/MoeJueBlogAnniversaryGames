@@ -93,7 +93,7 @@ try {
             'success' => true,
             'message' => '登录成功',
             'password_fragment' => $result,
-            'redirect' => '/level/three/start.html'
+            'redirect' => '/level/2.5/cloudflare-error.html'
         ]);
     } else {
         echo json_encode([
