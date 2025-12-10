@@ -132,6 +132,7 @@
     (() => {
       const MIN = 1;
       const MAX = 100;
+      const RESULT_KEY = 'branchGameResult';
 
       const select = document.getElementById('guessSelect');
       const form = document.getElementById('guessForm');
@@ -214,6 +215,22 @@
         select.selectedIndex = 0;
       }
 
+      function persistResult(payload) {
+        try {
+          localStorage.setItem(RESULT_KEY, JSON.stringify(payload));
+        } catch (error) {
+          console.warn('无法缓存支线小游戏结果:', error);
+        }
+      }
+
+      function clearPersistedResult() {
+        try {
+          localStorage.removeItem(RESULT_KEY);
+        } catch (error) {
+          console.warn('无法清理支线小游戏结果:', error);
+        }
+      }
+
       function handleGuess(event) {
         event.preventDefault();
         const guessValue = Number(select.value);
@@ -229,6 +246,12 @@
           updateStatus(`太棒了！第 ${attempts} 次就猜中 ${answer}。`, 'success');
           select.disabled = true;
           guessBtn.disabled = true;
+          persistResult({
+            completed: true,
+            number: answer,
+            attempts,
+            timestamp: Date.now(),
+          });
           return;
         }
 
@@ -245,6 +268,7 @@
         guessBtn.disabled = false;
         resetSelection();
         updateStatus(`我在 ${MIN} - ${MAX} 之间想了一个数字，来猜猜看？`);
+        clearPersistedResult();
         scheduleShuffle();
       }
 

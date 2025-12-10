@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GalGame - 恋爱冒险游戏</title>
+    <title>GalGame - 阿珏酱Blog十周年庆解密游戏</title>
+    <meta name="description" content="阿珏酱Blog十周年庆解密游戏，参与解密游戏，赢取神秘大奖！">
+    <meta name="keywords" content="阿珏酱Blog十周年庆解密游戏, 解密游戏, 神秘大奖">
     <link rel="stylesheet" href="/css/galgame.css">
 </head>
 <body>
@@ -52,6 +54,17 @@
                 <div class="ending-image" id="endingImage">[结局图片 - 预留]</div>
                 <button class="restart-btn" id="restartBtn" onclick="restartGame()">重新开始</button>
             </div>
+    </div>
+    </div>
+
+    <div id="miniGamePrompt" class="mini-game-prompt hidden" role="status" aria-live="polite">
+        <div class="mini-game-box" role="dialog" aria-modal="true">
+            <h3>支线小游戏</h3>
+            <p id="miniGameStatus">已经在后台开启了猜数字挑战，请完成后再回来。</p>
+            <p class="mini-game-tip">完成小游戏才能继续当前剧情。</p>
+            <div class="mini-game-actions">
+                <button id="miniGameReopen" type="button">重新打开小游戏窗口</button>
+            </div>
         </div>
     </div>
 
@@ -65,6 +78,23 @@
         };
 
         const gameScripts = {};
+        const MINI_GAME_STORAGE_KEY = 'branchGameResult';
+        const MINI_GAME_URL = '../3branch/index.html';
+        const miniGamePromptEl = document.getElementById('miniGamePrompt');
+        const miniGameStatusEl = document.getElementById('miniGameStatus');
+        const miniGameReopenBtn = document.getElementById('miniGameReopen');
+        const miniGameState = {
+            active: false,
+            windowRef: null,
+            monitorId: null,
+            listening: false
+        };
+
+        if (miniGameReopenBtn) {
+            miniGameReopenBtn.addEventListener('click', () => {
+                attemptOpenMiniGame(true);
+            });
+        }
 
         async function loadGameScripts() {
             try {
@@ -149,6 +179,7 @@
             updateCharacterSprite(scene.sprite);
 
             showChoices(scene.choices);
+            maybeTriggerMiniGame(scene.text);
         }
 
         function showChoices(choices) {
@@ -240,6 +271,147 @@
                 showEnding();
             }
         }
+
+        function maybeTriggerMiniGame(text = '') {
+            if (!text.includes('来玩个游戏吧')) {
+                return;
+            }
+            if (miniGameState.active) {
+                return;
+            }
+            startMiniGameChallenge();
+        }
+
+        function startMiniGameChallenge() {
+            miniGameState.active = true;
+            showMiniGamePrompt();
+            updateMiniGamePrompt('支线小游戏窗口已打开，请专心完成猜数字挑战。');
+            clearMiniGameResult();
+            attemptOpenMiniGame();
+            startMiniGameWatchers();
+        }
+
+        function updateMiniGamePrompt(message) {
+            if (miniGameStatusEl) {
+                miniGameStatusEl.textContent = message;
+            }
+        }
+
+        function showMiniGamePrompt() {
+            if (miniGamePromptEl) {
+                miniGamePromptEl.classList.remove('hidden');
+            }
+        }
+
+        function hideMiniGamePrompt() {
+            if (miniGamePromptEl) {
+                miniGamePromptEl.classList.add('hidden');
+            }
+        }
+
+        function attemptOpenMiniGame(userTriggered = false) {
+            try {
+                const popupWidth = 760;
+                const popupHeight = 620;
+                const screenLeft = window.screenLeft ?? window.screenX ?? 0;
+                const screenTop = window.screenTop ?? window.screenY ?? 0;
+                const viewportWidth = window.outerWidth || window.innerWidth || window.screen.width;
+                const viewportHeight = window.outerHeight || window.innerHeight || window.screen.height;
+                const left = Math.max(screenLeft + (viewportWidth - popupWidth) / 2, 0);
+                const top = Math.max(screenTop + (viewportHeight - popupHeight) / 2, 0);
+
+                const features = [
+                    'noopener',
+                    'noreferrer',
+                    'resizable=yes',
+                    'scrollbars=yes',
+                    `width=${popupWidth}`,
+                    `height=${popupHeight}`,
+                    `left=${Math.round(left)}`,
+                    `top=${Math.round(top)}`
+                ].join(',');
+
+                miniGameState.windowRef = window.open(MINI_GAME_URL, 'branchGamePopup', features);
+                if (miniGameState.windowRef) {
+                    miniGameState.windowRef.focus();
+                    updateMiniGamePrompt('支线小游戏窗口已居中弹出，请完成猜数字挑战。');
+                } else if (!userTriggered) {
+                    updateMiniGamePrompt('浏览器阻止了自动打开，请点击按钮手动启动小游戏。');
+                }
+            } catch (error) {
+                console.warn('无法打开支线小游戏窗口:', error);
+                updateMiniGamePrompt('自动打开失败，请点击按钮重试。');
+                miniGameState.windowRef = null;
+            }
+        }
+
+        function startMiniGameWatchers() {
+            if (!miniGameState.listening) {
+                window.addEventListener('storage', handleMiniGameStorage);
+                miniGameState.listening = true;
+            }
+            if (miniGameState.monitorId) {
+                clearInterval(miniGameState.monitorId);
+            }
+            miniGameState.monitorId = window.setInterval(checkMiniGameCompletion, 1500);
+        }
+
+        function stopMiniGameWatchers() {
+            if (miniGameState.listening) {
+                window.removeEventListener('storage', handleMiniGameStorage);
+                miniGameState.listening = false;
+            }
+            if (miniGameState.monitorId) {
+                clearInterval(miniGameState.monitorId);
+                miniGameState.monitorId = null;
+            }
+        }
+
+        function handleMiniGameStorage(event) {
+            if (event.key === MINI_GAME_STORAGE_KEY && event.newValue) {
+                checkMiniGameCompletion();
+            }
+        }
+
+        function checkMiniGameCompletion() {
+            const result = readMiniGameResult();
+            if (result && result.completed) {
+                finalizeMiniGame();
+                return true;
+            }
+            return false;
+        }
+
+        function readMiniGameResult() {
+            try {
+                const raw = localStorage.getItem(MINI_GAME_STORAGE_KEY);
+                return raw ? JSON.parse(raw) : null;
+            } catch (error) {
+                console.warn('解析支线小游戏结果失败:', error);
+                return null;
+            }
+        }
+
+        function finalizeMiniGame() {
+            miniGameState.active = false;
+            closeMiniGameWindow();
+            stopMiniGameWatchers();
+            setTimeout(() => {
+                hideMiniGamePrompt();
+            }, 1800);
+        }
+
+        function closeMiniGameWindow() {
+            if (miniGameState.windowRef && !miniGameState.windowRef.closed) {
+                miniGameState.windowRef.close();
+            }
+            miniGameState.windowRef = null;
+        }
+
+        window.addEventListener('beforeunload', () => {
+            closeMiniGameWindow();
+            stopMiniGameWatchers();
+        });
 
         window.addEventListener('load', loadGameScripts);
     </script>
