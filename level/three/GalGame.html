@@ -22,6 +22,7 @@
             <div class="game-title">恋爱冒险游戏</div>
             <div class="version-badge" id="versionBadge">普通版</div>
             <div class="ui-buttons">
+                <button class="fullscreen-btn" onclick="toggleFullscreen()" title="切换全屏">全屏</button>
                 <button class="skip-btn" onclick="skipToEnding()" title="快速跳转到结局">跳过</button>
                 <button class="menu-btn" onclick="returnToMenu()" title="返回主菜单">菜单</button>
             </div>
@@ -286,7 +287,6 @@
             miniGameState.active = true;
             showMiniGamePrompt();
             updateMiniGamePrompt('支线小游戏窗口已打开，请专心完成猜数字挑战。');
-            clearMiniGameResult();
             attemptOpenMiniGame();
             startMiniGameWatchers();
         }
@@ -414,6 +414,16 @@
         });
 
         window.addEventListener('load', loadGameScripts);
+
+        toggleFullscreen = function() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch((err) => {
+                    alert(`无法进入全屏模式: ${err.message} (${err.name})`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        };
     </script>
 </body>
 </html>
