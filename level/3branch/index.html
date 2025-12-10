@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>猜数字 - 阿珏酱Blog十周年庆解密游戏</title>
+  <meta name="description" content="阿珏酱Blog十周年庆解密游戏，参与解密游戏，赢取神秘大奖！">
+  <meta name="keywords" content="阿珏酱Blog十周年庆解密游戏, 解密游戏, 神秘大奖">
+  <style>
+    :root {
+      color-scheme: light;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Segoe UI", "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #ffecd2, #fcb69f);
+      color: #333;
+      padding: 1rem;
+    }
+    .card {
+      width: min(460px, 90vw);
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 18px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin: 0 0 0.5rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    select {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      border: 1px solid #cfcfcf;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08);
+      cursor: pointer;
+      transition: border-color 0.2s ease;
+      background-color: #fff;
+    }
+    select:focus {
+      outline: none;
+      border-color: #ff6f3c;
+      box-shadow: 0 0 0 3px rgba(255, 111, 60, 0.2);
+    }
+    .actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    button {
+      flex: 1 1 120px;
+      border: none;
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+    #guessBtn {
+      background: linear-gradient(120deg, #ff9068, #fd746c);
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(253, 116, 108, 0.4);
+    }
+    #guessBtn:hover:not(:disabled) {
+      transform: translateY(-2px);
+    }
+    #resetBtn {
+      background: #fff;
+      color: #555;
+      border: 1px solid #ddd;
+    }
+    .status {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #444;
+      min-height: 2.4rem;
+    }
+    .status.success {
+      color: #1f9d63;
+      font-weight: 600;
+    }
+    .status.warning {
+      color: #e05d2f;
+    }
+    .attempts {
+      margin-top: 0.4rem;
+      font-size: 0.95rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>猜数字小游戏</h1>
+    <form id="guessForm">
+      <label for="guessSelect" class="sr-only">猜测一个数字</label>
+      <select id="guessSelect">
+        <option value="" disabled selected>选择你猜的数字</option>
+      </select>
+      <div class="actions">
+        <button type="submit" id="guessBtn">提交猜测</button>
+        <button type="button" id="resetBtn">换一局</button>
+      </div>
+    </form>
+    <p id="result" class="status">我在 1 - 100 之间选了一个数字。</p>
+    <p class="attempts">已尝试：<span id="attempts">0</span> 次</p>
+  </main>
+
+  <script>
+    (() => {
+      const MIN = 1;
+      const MAX = 100;
+
+      const select = document.getElementById('guessSelect');
+      const form = document.getElementById('guessForm');
+      const guessBtn = document.getElementById('guessBtn');
+      const resetBtn = document.getElementById('resetBtn');
+      const result = document.getElementById('result');
+      const attemptsEl = document.getElementById('attempts');
+
+      let answer = 0;
+      let attempts = 0;
+
+      const raf =
+        window.requestAnimationFrame ||
+        function (cb) {
+          return setTimeout(cb, 0);
+        };
+
+      const disruptEvents = ['pointerdown', 'focus'];
+
+      function initOptions() {
+        const fragment = document.createDocumentFragment();
+        for (let n = MIN; n <= MAX; n += 1) {
+          const option = document.createElement('option');
+          option.value = String(n);
+          option.textContent = n;
+          option.dataset.shuffle = 'true';
+          fragment.appendChild(option);
+        }
+        select.appendChild(fragment);
+      }
+
+      function shuffleOptions() {
+        const options = Array.from(select.querySelectorAll('option[data-shuffle="true"]'));
+        if (!options.length) {
+          return;
+        }
+        options.forEach((option) => option.remove());
+        for (let i = options.length - 1; i > 0; i -= 1) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [options[i], options[j]] = [options[j], options[i]];
+        }
+        const fragment = document.createDocumentFragment();
+        options.forEach((option) => fragment.appendChild(option));
+        select.appendChild(fragment);
+      }
+
+      let shuffleScheduled = false;
+      function scheduleShuffle() {
+        if (shuffleScheduled) {
+          return;
+        }
+        shuffleScheduled = true;
+        raf(() => {
+          shuffleOptions();
+          shuffleScheduled = false;
+        });
+      }
+
+      function getRandomInt(min, max) {
+        const minCeil = Math.ceil(min);
+        const maxFloor = Math.floor(max);
+        return Math.floor(Math.random() * (maxFloor - minCeil + 1)) + minCeil;
+      }
+
+      function updateStatus(message, type = 'normal') {
+        result.textContent = message;
+        result.classList.remove('success', 'warning');
+        if (type === 'success') {
+          result.classList.add('success');
+        } else if (type === 'warning') {
+          result.classList.add('warning');
+        }
+      }
+
+      function updateAttempts() {
+        attemptsEl.textContent = attempts;
+      }
+
+      function resetSelection() {
+        select.selectedIndex = 0;
+      }
+
+      function handleGuess(event) {
+        event.preventDefault();
+        const guessValue = Number(select.value);
+        if (!guessValue) {
+          updateStatus('先从下拉框挑一个数字吧！', 'warning');
+          scheduleShuffle();
+          return;
+        }
+        attempts += 1;
+        updateAttempts();
+
+        if (guessValue === answer) {
+          updateStatus(`太棒了！第 ${attempts} 次就猜中 ${answer}。`, 'success');
+          select.disabled = true;
+          guessBtn.disabled = true;
+          return;
+        }
+
+        updateStatus(guessValue > answer ? '太大了，再小一点。' : '太小了，再大一点。');
+        resetSelection();
+        scheduleShuffle();
+      }
+
+      function resetGame() {
+        answer = getRandomInt(MIN, MAX);
+        attempts = 0;
+        updateAttempts();
+        select.disabled = false;
+        guessBtn.disabled = false;
+        resetSelection();
+        updateStatus(`我在 ${MIN} - ${MAX} 之间想了一个数字，来猜猜看？`);
+        scheduleShuffle();
+      }
+
+      initOptions();
+      resetGame();
+
+      form.addEventListener('submit', handleGuess);
+      resetBtn.addEventListener('click', resetGame);
+
+      disruptEvents.forEach((evt) => select.addEventListener(evt, scheduleShuffle));
+      select.addEventListener(
+        'touchstart',
+        () => {
+          scheduleShuffle();
+        },
+        { passive: true }
+      );
+      select.addEventListener('keydown', (event) => {
+        if (event.key === ' ' || event.key === 'Enter') {
+          scheduleShuffle();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
