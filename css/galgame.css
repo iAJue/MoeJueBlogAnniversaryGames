@@ -80,6 +80,14 @@ body {
     transition: opacity 0.8s ease;
 }
 
+.game-background.normal {
+    background-image: url('/images/20190204142558.png');
+}
+
+.game-background.adult {
+    background-image: url('/images/up.png');
+}
+
 .game-background::before {
     content: '';
     position: absolute;
@@ -314,20 +322,53 @@ body.showing-start-screen #endingScreen {
     justify-content: space-between;
     align-items: flex-end;
     padding: 0 40px 20px 40px;
+    gap: 24px;
 }
 
 .character-sprite {
     height: 100%;
-    width: auto;
-    max-width: 35%;
+    width: 32%;
+    min-width: 220px;
+    max-width: 420px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom center;
-    animation: fadeIn 0.6s ease-out;
+    flex: 0 0 auto;
+    filter: drop-shadow(0 12px 25px rgba(0, 0, 0, 0.45));
+    transition: filter 0.35s ease, transform 0.35s ease;
+    will-change: filter, transform;
 }
 
 .character-sprite.exit {
     animation: fadeOut 0.4s ease-out forwards;
+}
+
+.character-sprite.sprite-enter {
+    animation: fadeIn 0.55s ease-out;
+}
+
+.character-sprite.pos-left {
+    margin-right: auto;
+}
+
+.character-sprite.pos-right {
+    margin-left: auto;
+}
+
+.character-sprite.pos-center {
+    margin: 0 auto;
+}
+
+.character-sprite.inactive {
+    filter: brightness(0.55) saturate(0.85) drop-shadow(0 12px 25px rgba(0, 0, 0, 0.45));
+}
+
+.character-sprite.active {
+    filter: brightness(1.08) saturate(1.05) drop-shadow(0 16px 32px rgba(0, 0, 0, 0.55));
+}
+
+.character-sprite.talk-bounce {
+    animation: talkHop 0.35s ease-out;
 }
 
 @keyframes fadeIn {
@@ -349,6 +390,21 @@ body.showing-start-screen #endingScreen {
     to {
         opacity: 0;
         transform: translateY(20px);
+    }
+}
+
+@keyframes talkHop {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    30% {
+        transform: translateY(-16px) scale(1.02);
+    }
+    65% {
+        transform: translateY(6px) scale(1);
+    }
+    100% {
+        transform: translateY(0) scale(1);
     }
 }
 
@@ -754,7 +810,9 @@ body.showing-start-screen #endingScreen {
     }
 
     .character-sprite {
-        max-width: 25%;
+        width: 42%;
+        max-width: none;
+        min-width: 140px;
     }
 
     .dialog-content {

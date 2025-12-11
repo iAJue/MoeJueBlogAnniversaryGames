@@ -124,14 +124,14 @@
         <button type="button" id="resetBtn">换一局</button>
       </div>
     </form>
-    <p id="result" class="status">我在 1 - 100 之间选了一个数字。</p>
+    <p id="result" class="status">我在 1 - 99 之间选了一个数字。</p>
     <p class="attempts">已尝试：<span id="attempts">0</span> 次</p>
   </main>
 
   <script>
     (() => {
       const MIN = 1;
-      const MAX = 100;
+      const MAX = 99;
       const RESULT_KEY = 'branchGameResult';
 
       const select = document.getElementById('guessSelect');

@@ -1,106 +1,184 @@
 {
   "version": "normal",
   "title": "恋爱冒险游戏",
-  "description": "普通版 - 温暖浪漫的恋爱故事",
+  "description": "普通版 - 牵起夏晴与澪澪的手，一起完成温柔的周年惊喜。",
   "scenes": [
     {
       "id": 0,
       "characterName": "旁白",
-      "text": "欢迎来到恋爱冒险游戏！这是一个充满惊喜和浪漫的故事。",
-      "sprite": "",
+      "text": "春日的海风安静吹拂，你走上沙滩舞台，等待周年庆彩排的两位女主登场。",
+      "sprites": [
+        {
+          "url": "/images/galgame/沙滩排球/girl/0c.png",
+          "position": "left",
+          "active": true
+        },
+        {
+          "url": "/images/galgame/沙滩排球/girl/bf.png",
+          "position": "right",
+          "active": true
+        }
+      ],
       "background": "normal",
       "choices": []
     },
     {
       "id": 1,
       "characterName": "旁白",
-      "text": "在这个美丽的春日午后,你漫步在公园里,享受着温暖的阳光...",
-      "sprite": "",
+      "text": "夏晴率先挥手，而澪澪抱着吉他冲你露出笑容，你知道今晚得和两人合作。",
+      "sprites": [
+        {
+          "url": "/images/galgame/沙滩排球/girl/0c.png",
+          "position": "left",
+          "active": true
+        },
+        {
+          "url": "/images/galgame/沙滩排球/girl/bf.png",
+          "position": "right",
+          "active": true
+        }
+      ],
       "background": "normal",
       "choices": []
     },
     {
       "id": 2,
-      "characterName": "女主角 - 小雨",
-      "text": "你好呀！我是小雨。我在这个城市已经生活了三年。今天天气真好，你想一起散步吗？",
-      "sprite": "",
-      "background": "normal",
-      "choices": [
+      "characterName": "夏晴",
+      "text": "嘿，策划人先生！我们需要一个完美的开场，能不能把灯光打得像星河一样？",
+      "sprites": [
         {
-          "text": "当然可以，我很乐意。",
-          "nextIndex": 3
+          "url": "/images/galgame/沙滩排球/girl/0c.png",
+          "position": "left",
+          "active": true
         },
         {
-          "text": "我有点累了，可能不太行。",
-          "nextIndex": 4
+          "url": "/images/galgame/沙滩排球/girl/bf.png",
+          "position": "right",
+          "active": false
         }
-      ]
+      ],
+      "background": "normal",
+      "choices": []
     },
     {
       "id": 3,
-      "characterName": "小雨",
-      "text": "太好了！我知道一个很不错的公园。我们一起去那里吧。在散步的过程中，我发现你是个很有趣的人呢。",
-      "sprite": "",
-      "background": "normal",
-      "choices": [
+      "characterName": "澪澪",
+      "text": "别被她的眼神骗了，我更想知道你今晚想站在哪个位置，毕竟我们也是你的舞伴。",
+      "sprites": [
         {
-          "text": "其实我也觉得和你在一起很开心。",
-          "nextIndex": 5
+          "url": "/images/galgame/沙滩排球/girl/0c.png",
+          "position": "left",
+          "active": false
         },
         {
-          "text": "是吗？我也很享受我们的谈话。",
-          "nextIndex": 5
+          "url": "/images/galgame/沙滩排球/girl/bf.png",
+          "position": "right",
+          "active": true
         }
-      ]
+      ],
+      "background": "normal",
+      "choices": []
     },
     {
       "id": 4,
-      "characterName": "小雨",
-      "text": "我理解。那么，改天再约吧。这是我的电话号码。",
-      "sprite": "",
+      "characterName": "夏晴 & 澪澪",
+      "text": "我们两个都想和你一起完成惊喜，你觉得是把舞台打造成三人show还是各自准备独家环节？",
+      "sprites": [
+        {
+          "url": "/images/galgame/沙滩排球/girl/0c.png",
+          "position": "left",
+          "active": true
+        },
+        {
+          "url": "/images/galgame/沙滩排球/girl/bf.png",
+          "position": "right",
+          "active": true
+        }
+      ],
       "background": "normal",
       "choices": [
         {
-          "text": "好的，谢谢你。",
+          "text": "三个人一起打造一场浪漫舞台",
+          "nextIndex": 5
+        },
+        {
+          "text": "分别安排时间，让每个人都被好好看见",
           "nextIndex": 6
         }
       ]
     },
     {
       "id": 5,
-      "characterName": "小雨",
-      "text": "真的吗？那我很高兴。其实，从见到你的第一眼，我就有一种特别的感觉。你愿意和我交往吗？",
-      "sprite": "",
+      "characterName": "夏晴",
+      "text": "一起合作太棒了！我负责灯带，澪澪负责节奏，你就站在中间指挥，怎么样？",
+      "sprites": [
+        {
+          "url": "/images/galgame/沙滩排球/girl/0c.png",
+          "position": "left",
+          "active": true
+        },
+        {
+          "url": "/images/galgame/沙滩排球/girl/bf.png",
+          "position": "right",
+          "active": true
+        }
+      ],
       "background": "normal",
       "choices": [
         {
-          "text": "我也有同样的感觉，我愿意。",
+          "text": "陪夏晴缠绕星光灯",
           "nextIndex": 7
         },
         {
-          "text": "让我再想想，可以吗？",
+          "text": "邀请澪澪设计压轴三人曲",
           "nextIndex": 8
         }
       ]
     },
     {
       "id": 6,
-      "characterName": "小雨",
-      "text": "太棒了！这是最好的时刻。从现在开始，我们是彼此的特殊的人了。我会好好珍惜我们的这段感情。",
-      "sprite": "",
+      "characterName": "澪澪",
+      "text": "各自的惊喜也不错，我可以先练和声，再把舞台交给夏晴。你想先陪谁？",
+      "sprites": [
+        {
+          "url": "/images/galgame/沙滩排球/girl/0c.png",
+          "position": "left",
+          "active": true
+        },
+        {
+          "url": "/images/galgame/沙滩排球/girl/bf.png",
+          "position": "right",
+          "active": true
+        }
+      ],
       "background": "normal",
       "choices": [
         {
-          "text": "结束游戏",
-          "nextIndex": -1
+          "text": "先帮助夏晴完成灯光",
+          "nextIndex": 7
+        },
+        {
+          "text": "和澪澪练习合唱",
+          "nextIndex": 9
         }
       ]
     },
     {
       "id": 7,
-      "characterName": "小雨",
-      "text": "没关系，我会等你。但是我希望你不要让我等太久。如果你想清楚了，记得告诉我哦。",
-      "sprite": "",
+      "characterName": "夏晴",
+      "text": "有你在，我的每一道灯光都有了意义。等灯亮起的瞬间，我们一起宣告庆典开始好吗？",
+      "sprites": [
+        {
+          "url": "/images/galgame/沙滩排球/girl/0c.png",
+          "position": "left",
+          "active": true
+        },
+        {
+          "url": "/images/galgame/沙滩排球/girl/bf.png",
+          "position": "right",
+          "active": false
+        }
+      ],
       "background": "normal",
       "choices": [
         {
@@ -111,9 +189,44 @@
     },
     {
       "id": 8,
-      "characterName": "小雨",
-      "text": "我理解。那么，改天再约吧。这是我的电话号码。",
-      "sprite": "",
+      "characterName": "旁白",
+      "text": "你们三人对着镜头排演，舞台在一呼一吸间亮起，这次庆典因为你的协调而完美。",
+      "sprites": [
+        {
+          "url": "/images/galgame/沙滩排球/girl/0c.png",
+          "position": "left",
+          "active": true
+        },
+        {
+          "url": "/images/galgame/沙滩排球/girl/bf.png",
+          "position": "right",
+          "active": true
+        }
+      ],
+      "background": "normal",
+      "choices": [
+        {
+          "text": "结束游戏",
+          "nextIndex": -1
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "characterName": "澪澪",
+      "text": "谢谢你给我独唱的勇气。今晚我会用歌声告诉所有人，你是我最信赖的指挥。",
+      "sprites": [
+        {
+          "url": "/images/galgame/沙滩排球/girl/0c.png",
+          "position": "left",
+          "active": false
+        },
+        {
+          "url": "/images/galgame/沙滩排球/girl/bf.png",
+          "position": "right",
+          "active": true
+        }
+      ],
       "background": "normal",
       "choices": [
         {
@@ -126,8 +239,18 @@
   "endings": [
     {
       "id": 0,
-      "title": "美好的结局",
-      "text": "你和小雨开始了一段美好的恋爱。在彼此的陪伴下，生活变得更加充满色彩。这是一个温暖而幸福的故事结局..."
+      "title": "星光舞台",
+      "text": "你与两位女主合力完成最耀眼的舞台，庆典在星光中落幕。"
+    },
+    {
+      "id": 1,
+      "title": "夏晴专属",
+      "text": "你和夏晴共同编织灯海，彼此的心意也在灯火间被照亮。"
+    },
+    {
+      "id": 2,
+      "title": "澪澪独唱",
+      "text": "澪澪把你的名字写进旋律，歌声成为三人友情的证明。"
     }
   ]
 }

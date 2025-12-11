@@ -56,10 +56,10 @@
 
         <div class="ending-screen" id="endingScreen">
             <div class="ending-content">
-                <h2 id="endingTitle">游戏结束</h2>
-                <p id="endingText">感谢你的游玩！</p>
-                <div class="ending-image" id="endingImage">[结局图片 - 预留]</div>
-                <button class="restart-btn" id="restartBtn" onclick="restartGame()">重新开始</button>
+                <h2>游戏结束</h2>
+                <p>感谢你的游玩！</p>
+                <div class="ending-image">[结局图片 - 预留]</div>
+                <button class="restart-btn" onclick="restartGame()">重新开始</button>
             </div>
     </div>
     </div>
@@ -203,6 +203,7 @@
             buildStartScreenButtons(config);
             startScreenEl.classList.remove('hidden');
             startScreenEl.setAttribute('aria-hidden', 'false');
+            startScreenEl.removeAttribute('inert');
         }
 
         function buildStartScreenButtons(config) {
@@ -303,8 +304,16 @@
 
         function hideStartScreen() {
             if (startScreenEl) {
+                if (startScreenEl.contains(document.activeElement)) {
+                    document.activeElement.blur();
+                    const fallbackFocus = document.getElementById('nextBtn');
+                    if (fallbackFocus) {
+                        fallbackFocus.focus();
+                    }
+                }
                 startScreenEl.classList.add('hidden');
                 startScreenEl.setAttribute('aria-hidden', 'true');
+                startScreenEl.setAttribute('inert', '');
             }
         }
 
@@ -352,9 +361,14 @@
 
             const background = document.getElementById('gameBackground');
             background.classList.remove('normal', 'adult');
-            background.classList.add(scene.background);
+            if (scene.background) {
+                background.classList.add(scene.background);
+            }
 
-            updateCharacterSprite(scene.sprite);
+            const spritePayload = Object.prototype.hasOwnProperty.call(scene, 'sprites')
+                ? scene.sprites
+                : scene.sprite;
+            updateCharacterSprite(spritePayload, scene.characterName || '');
 
             showChoices(scene.choices);
             maybeTriggerMiniGame(scene.text);
@@ -396,40 +410,107 @@
             showDialog(nextIndex);
         }
 
-        function updateCharacterSprite(spriteUrl) {
+        function updateCharacterSprite(spriteConfig, speakerName = '') {
             const container = document.getElementById('characterContainer');
-            container.innerHTML = '';
-            
-            if (spriteUrl) {
-                const sprite = document.createElement('div');
-                sprite.className = 'character-sprite';
-                sprite.style.backgroundImage = `url('${spriteUrl}')`;
-                container.appendChild(sprite);
+            if (!container) {
+                return;
             }
+
+            if (!spriteConfig) {
+                container.innerHTML = '';
+                return;
+            }
+
+            const sprites = Array.isArray(spriteConfig) ? spriteConfig : [spriteConfig];
+            if (sprites.length === 0) {
+                container.innerHTML = '';
+                return;
+            }
+
+            const narratorMode = typeof speakerName === 'string' && speakerName.includes('旁白');
+
+            const existingSprites = new Map(
+                Array.from(container.children).map((el) => [el.dataset.key, el])
+            );
+            const seenKeys = new Set();
+            const triggerBounce = (element) => {
+                if (typeof element.animate === 'function') {
+                    element.animate(
+                        [
+                            { transform: 'translateY(0)' },
+                            { transform: 'translateY(-16px)' },
+                            { transform: 'translateY(4px)' },
+                            { transform: 'translateY(0)' }
+                        ],
+                        {
+                            duration: 340,
+                            easing: 'cubic-bezier(0.33, 0, 0.3, 1)',
+                            fill: 'none'
+                        }
+                    );
+                } else {
+                    element.classList.remove('talk-bounce');
+                    void element.offsetWidth;
+                    element.classList.add('talk-bounce');
+                }
+            };
+
+            sprites.forEach((entry, index) => {
+                const config = typeof entry === 'string' ? { url: entry } : entry;
+                if (!config || !config.url) {
+                    return;
+                }
+
+                const position = config.position
+                    || (sprites.length === 1 ? 'center' : (index === 0 ? 'left' : 'right'));
+                const spriteKey = config.key || config.id || `${config.url}_${position}`;
+                seenKeys.add(spriteKey);
+                let sprite = existingSprites.get(spriteKey);
+                const isNewSprite = !sprite;
+                if (!sprite) {
+                    sprite = document.createElement('div');
+                    sprite.dataset.key = spriteKey;
+                }
+
+                sprite.className = 'character-sprite';
+                sprite.classList.add(`pos-${position}`);
+                const isActive = !narratorMode && config.active !== false;
+                if (isActive) {
+                    sprite.classList.remove('inactive');
+                    sprite.classList.add('active');
+                    if (!isNewSprite) {
+                        triggerBounce(sprite);
+                    }
+                } else {
+                    sprite.classList.remove('active');
+                    sprite.classList.add('inactive');
+                    sprite.classList.remove('talk-bounce');
+                }
+
+                sprite.style.backgroundImage = `url('${config.url}')`;
+                sprite.dataset.key = spriteKey;
+                if (isNewSprite) {
+                    sprite.classList.add('sprite-enter');
+                    const handleEnterEnd = (event) => {
+                        if (event.animationName === 'fadeIn') {
+                            sprite.classList.remove('sprite-enter');
+                            sprite.removeEventListener('animationend', handleEnterEnd);
+                        }
+                    };
+                    sprite.addEventListener('animationend', handleEnterEnd);
+                }
+                container.appendChild(sprite);
+            });
+
+            Array.from(container.children).forEach((child) => {
+                if (!seenKeys.has(child.dataset.key)) {
+                    child.remove();
+                }
+            });
         }
 
         function showEnding() {
             const endingScreen = document.getElementById('endingScreen');
-            const endingContent = endingScreen.querySelector('.ending-content');
-            const endingTitle = document.getElementById('endingTitle');
-            const endingText = document.getElementById('endingText');
-            const endingImage = document.getElementById('endingImage');
-            const restartBtn = document.getElementById('restartBtn');
-
-            if (currentGame.version === 'normal') {
-                endingContent.classList.remove('adult');
-                endingTitle.textContent = '美好的结局';
-                endingText.textContent = '你和小雨开始了一段美好的恋爱。在彼此的陪伴下，生活变得更加充满色彩。这是一个温暖而幸福的故事结局...';
-                restartBtn.classList.remove('adult');
-                endingImage.classList.remove('adult');
-            } else {
-                endingContent.classList.add('adult');
-                endingTitle.textContent = '激情的承诺';
-                endingText.textContent = '你和李思之间的关系变得更加深刻和亲密。在这个充满激情的夜晚之后，你们决定共同面对未来。这是一个充满爱和欲望的故事结局...';
-                restartBtn.classList.add('adult');
-                endingImage.classList.add('adult');
-            }
-
             endingScreen.classList.add('show');
         }
 
