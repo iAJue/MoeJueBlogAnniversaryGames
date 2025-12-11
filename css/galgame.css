@@ -101,6 +101,136 @@ body {
     z-index: 2;
 }
 
+/* ========== 开始界面 ========== */
+.start-screen {
+    position: absolute;
+    inset: 0;
+    z-index: 500;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.start-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.start-screen-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(9, 1, 16, 0.95) 0%, rgba(25, 3, 32, 0.35) 100%);
+    backdrop-filter: blur(3px);
+    z-index: 1;
+}
+
+.start-screen-layout {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: calc(100% - 140px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: clamp(20px, 6vw, 90px);
+}
+
+.start-screen-thumbs {
+    width: min(200px, 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.start-thumb-slot {
+    width: 100%;
+    min-height: 100px;
+    position: relative;
+    z-index: 0;
+}
+
+.start-thumb-btn {
+    width: 100%;
+    border: none;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.4s ease, left 0.45s ease, top 0.45s ease;
+    opacity: 0;
+    transform: translateX(-14px) scale(0.94);
+    animation: startThumbIn 0.65s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+    animation-delay: var(--enter-delay, 0s);
+}
+
+.start-thumb-btn img,
+.start-thumb-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+}
+
+.start-thumb-btn[data-role="tease"] {
+    cursor: default;
+}
+
+.start-thumb-btn.tease-floating {
+    position: fixed;
+    width: 140px;
+    z-index: 1100;
+}
+
+@keyframes startThumbIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-18px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@media (max-width: 640px) {
+    .start-screen-layout {
+        width: 100%;
+        height: auto;
+        padding: 40px 5%;
+        align-items: center;
+    }
+
+    .start-thumb-btn {
+        width: 120px;
+    }
+
+    .start-screen-thumbs {
+        width: auto;
+        align-items: center;
+    }
+
+    .start-thumb-slot {
+        min-height: 100px;
+        width: 120px;
+    }
+}
+
+body.showing-start-screen .game-ui-top,
+body.showing-start-screen .dialog-container,
+body.showing-start-screen .character-container,
+body.showing-start-screen .choices-center-container,
+body.showing-start-screen #endingScreen {
+    opacity: 0;
+    pointer-events: none;
+}
+
 /* ========== UI 顶部 ========== */
 .game-ui-top {
     position: absolute;
