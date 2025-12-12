@@ -1,237 +1,657 @@
 {
   "version": "adult",
-  "title": "恋爱冒险游戏",
-  "description": "成人版 - 与夏晴和澪澪共享只属于午夜的舞台。",
+  "title": "夏夜海边的秘密嬉戏",
+  "description": "深夜海滩只属于你们三个。潮声掩盖心跳，比基尼被海水浸透，每一次触碰都在试探边界。",
   "scenes": [
     {
       "id": 0,
       "characterName": "旁白",
-      "text": "夜幕降临，成人限定的后夜场只留下你和两位主角，气氛暧昧得仿佛潮湿的海风。",
-      "sprites": [
-        {
-          "url": "/images/galgame/沙滩排球/girl/0c.png",
-          "position": "left",
-          "active": true
-        },
-        {
-          "url": "/images/galgame/沙滩排球/girl/bf.png",
-          "position": "right",
-          "active": true
-        }
-      ],
-      "background": "adult",
+      "text": "深夜的海滩空无一人，只有月光和潮声。远处灯塔的光偶尔扫过，像替你们守着这个秘密。",
       "choices": []
     },
     {
       "id": 1,
-      "characterName": "夏晴",
-      "text": "我们偷偷借了舞台，你得负责让所有灯光只打在我们三个人身上。可以吗？",
-      "sprites": [
-        {
-          "url": "/images/galgame/沙滩排球/girl/0c.png",
-          "position": "left",
-          "active": true
-        },
-        {
-          "url": "/images/galgame/沙滩排球/girl/bf.png",
-          "position": "right",
-          "active": false
-        }
-      ],
-      "background": "adult",
+      "characterName": "旁白",
+      "text": "夏晴穿深蓝比基尼，澪澪是纯白。海水刚没过脚踝，她们回头冲你笑，湿发贴在颈侧，水珠沿着锁骨缓缓滑落。",
       "choices": []
     },
     {
       "id": 2,
-      "characterName": "澪澪",
-      "text": "既然是成人场，就别害羞。今晚的故事由你来写，我们负责把你的心跳唱出来。",
-      "sprites": [
-        {
-          "url": "/images/galgame/沙滩排球/girl/0c.png",
-          "position": "left",
-          "active": false
-        },
-        {
-          "url": "/images/galgame/沙滩排球/girl/bf.png",
-          "position": "right",
-          "active": true
-        }
-      ],
-      "background": "adult",
-      "choices": []
+      "characterName": "夏晴",
+      "text": "海水好凉……快来，不然我可要自己把你拖下来了哦～",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
     },
     {
       "id": 3,
-      "characterName": "夏晴 & 澪澪",
-      "text": "告诉我们，你想要一场热烈的三人舞台，还是分开享受独属于我们的时间？",
-      "sprites": [
-        {
-          "url": "/images/galgame/沙滩排球/girl/0c.png",
-          "position": "left",
-          "active": true
-        },
-        {
-          "url": "/images/galgame/沙滩排球/girl/bf.png",
-          "position": "right",
-          "active": true
-        }
-      ],
-      "background": "adult",
-      "choices": [
-        {
-          "text": "三人舞台，把夜色燃烧",
-          "nextIndex": 4
-        },
-        {
-          "text": "分开来，感受每一次心跳",
-          "nextIndex": 5
-        }
-      ]
+      "characterName": "澪澪",
+      "text": "别害羞嘛，今晚这里只有我们三个……",
+      "choices": [],
+      "activeCharacters": ["linglei"]
     },
     {
       "id": 4,
-      "characterName": "夏晴",
-      "text": "好啊，我们就一起舞动。你站在中央，我贴在你的左臂，澪澪在右侧，我们一起呼吸。",
-      "sprites": [
-        {
-          "url": "/images/galgame/沙滩排球/girl/0c.png",
-          "position": "left",
-          "active": true
-        },
-        {
-          "url": "/images/galgame/沙滩排球/girl/bf.png",
-          "position": "right",
-          "active": true
-        }
-      ],
-      "background": "adult",
-      "choices": [
-        {
-          "text": "带着夏晴旋转",
-          "nextIndex": 6
-        },
-        {
-          "text": "让澪澪主导节奏",
-          "nextIndex": 7
-        }
-      ]
+      "characterName": "旁白",
+      "text": "一个浪头扑来，两人同时惊呼。海水瞬间漫过腰际，薄薄的布料被浸透，紧紧贴住身体，曲线在月光下清晰得令人屏息。",
+      "choices": []
     },
     {
       "id": 5,
-      "characterName": "澪澪",
-      "text": "独处也不赖。先来我的练功室，或者去夏晴的灯光仓库？我们都准备了惊喜。",
-      "sprites": [
-        {
-          "url": "/images/galgame/沙滩排球/girl/0c.png",
-          "position": "left",
-          "active": true
-        },
-        {
-          "url": "/images/galgame/沙滩排球/girl/bf.png",
-          "position": "right",
-          "active": true
-        }
-      ],
-      "background": "adult",
-      "choices": [
-        {
-          "text": "和夏晴一起调整灯光",
-          "nextIndex": 6
-        },
-        {
-          "text": "跟澪澪合唱贴耳曲",
-          "nextIndex": 8
-        }
-      ]
+      "characterName": "夏晴",
+      "text": "呀——好冷！",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
     },
     {
       "id": 6,
-      "characterName": "夏晴",
-      "text": "我喜欢你指挥灯光的样子。靠近一点，让我听见你的指尖在调音台上跳舞。",
-      "sprites": [
-        {
-          "url": "/images/galgame/沙滩排球/girl/0c.png",
-          "position": "left",
-          "active": true
-        },
-        {
-          "url": "/images/galgame/沙滩排球/girl/bf.png",
-          "position": "right",
-          "active": false
-        }
-      ],
-      "background": "adult",
-      "choices": [
-        {
-          "text": "结束游戏",
-          "nextIndex": -1
-        }
-      ]
+      "characterName": "旁白",
+      "text": "她笑着扑过来，整个人贴到你胸前取暖。湿透的比基尼冰凉又滚烫，胸前的柔软毫无遮掩地压着你。",
+      "choices": []
     },
     {
       "id": 7,
       "characterName": "澪澪",
-      "text": "交给我来领拍，我们的身体和旋律会同时加速。别怕，跟上我的节奏。",
-      "sprites": [
-        {
-          "url": "/images/galgame/沙滩排球/girl/0c.png",
-          "position": "left",
-          "active": false
-        },
-        {
-          "url": "/images/galgame/沙滩排球/girl/bf.png",
-          "position": "right",
-          "active": true
-        }
-      ],
-      "background": "adult",
-      "choices": [
-        {
-          "text": "结束游戏",
-          "nextIndex": -1
-        }
-      ]
+      "text": "我、我也冷……",
+      "choices": [],
+      "activeCharacters": ["linglei"]
     },
     {
       "id": 8,
       "characterName": "旁白",
-      "text": "耳语与笑声交织，你们在空无一人的海边舞台写下只属于三人的秘密。",
-      "sprites": [
-        {
-          "url": "/images/galgame/沙滩排球/girl/0c.png",
-          "position": "left",
-          "active": true
-        },
-        {
-          "url": "/images/galgame/沙滩排球/girl/bf.png",
-          "position": "right",
-          "active": true
-        }
-      ],
-      "background": "adult",
-      "choices": [
-        {
-          "text": "结束游戏",
-          "nextIndex": -1
-        }
-      ]
-    }
-  ],
-  "endings": [
-    {
-      "id": 0,
-      "title": "夏晴的灯光",
-      "text": "你在灯海中拥抱夏晴，黑夜和星光都向你们低头。"
+      "text": "澪澪从背后环住你的腰，脸贴在你肩胛骨上。湿发扫过耳后，呼吸带着海盐味，一下一下喷在你颈侧。",
+      "choices": []
     },
     {
-      "id": 1,
-      "title": "澪澪的节奏",
-      "text": "澪澪用歌声把你包围，心跳被她的节拍牵引。"
+      "id": 9,
+      "characterName": "夏晴",
+      "text": "这样是不是暖和多了？",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
     },
     {
-      "id": 2,
-      "title": "三人秘密",
-      "text": "后夜场的舞台只剩你们三人，欢笑被海风永远收藏。"
+      "id": 10,
+      "characterName": "旁白",
+      "text": "她抬眸看你，睫毛上挂着水珠，嘴唇几乎擦过你的下巴，却在最后一毫米停住。",
+      "choices": []
+    },
+    {
+      "id": 11,
+      "characterName": "澪澪",
+      "text": "你的心跳……好吵哦，是我的错觉吗？",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 12,
+      "characterName": "旁白",
+      "text": "她贴得更紧，腿轻轻蹭着你的腿，海水重量让她的肩带微微下滑，露出圆润的肩头和锁骨上闪亮的水痕。",
+      "choices": []
+    },
+    {
+      "id": 13,
+      "characterName": "夏晴",
+      "text": "海风好大……肩带要掉下去了啦。",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 14,
+      "characterName": "旁白",
+      "text": "她故意没拉，只是用手指轻轻勾着那根细带，指尖若有若无地擦过你手臂。",
+      "choices": []
+    },
+    {
+      "id": 15,
+      "characterName": "澪澪",
+      "text": "我帮你拉好……还是你想让它再滑一点？",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 16,
+      "characterName": "旁白",
+      "text": "澪澪笑着绕到前面，指尖沿着夏晴的肩带慢慢往上，却在即将碰到你手背时停住，呼吸拂过你耳廓。",
+      "choices": []
+    },
+    {
+      "id": 17,
+      "characterName": "夏晴",
+      "text": "我们去浅滩坐着吧，水没到这里刚刚好……",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 18,
+      "characterName": "旁白",
+      "text": "你们走到只没过大腿根的地方坐下。她们一左一右，几乎坐在你腿上，湿漉漉的身体紧贴着你。",
+      "choices": []
+    },
+    {
+      "id": 19,
+      "characterName": "夏晴",
+      "text": "这样坐着……会不会太重了？",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 20,
+      "characterName": "旁白",
+      "text": "她轻轻扭了扭腰，臀部在你大腿上蹭了一下，湿透的布料带来清晰的温度。",
+      "choices": []
+    },
+    {
+      "id": 21,
+      "characterName": "澪澪",
+      "text": "我这边也想靠得更近一点……可以吗？",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 22,
+      "characterName": "旁白",
+      "text": "她侧身贴上来，胸口紧贴你侧腹，湿发扫过你的脖子，海水顺着她的锁骨滴到你皮肤上。",
+      "choices": []
+    },
+    {
+      "id": 23,
+      "characterName": "夏晴",
+      "text": "你看，月亮好圆……",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 24,
+      "characterName": "旁白",
+      "text": "她仰头看天，动作让肩带又往下滑了一点，锁骨在月光下像覆了一层银粉。",
+      "choices": []
+    },
+    {
+      "id": 25,
+      "characterName": "澪澪",
+      "text": "我口渴了……",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 26,
+      "characterName": "旁白",
+      "text": "她拿起矿泉水瓶，仰头喝水时喉头滚动，水珠顺着下巴滑到胸口，顺着比基尼边缘消失不见。",
+      "choices": []
+    },
+    {
+      "id": 27,
+      "characterName": "夏晴",
+      "text": "我帮你擦……",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 28,
+      "characterName": "旁白",
+      "text": "她拧干毛巾，慢慢擦着澪澪的锁骨，动作轻得像羽毛，却让对方轻轻颤了一下。",
+      "choices": []
+    },
+    {
+      "id": 29,
+      "characterName": "澪澪",
+      "text": "轮到我帮你了……",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 30,
+      "characterName": "旁白",
+      "text": "她把毛巾递给你，指尖在你掌心停留得比必要的时间长，眼神却看向夏晴，嘴角带着坏笑。",
+      "choices": []
+    },
+    {
+      "id": 31,
+      "characterName": "夏晴",
+      "text": "要不要玩泼水？输的人要答应赢的人一件事哦～",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 32,
+      "characterName": "旁白",
+      "text": "她们突然起身，水花四溅。湿透的布料在动作间紧贴又弹开，月光把每一道水痕都照得晶莹。",
+      "choices": []
+    },
+    {
+      "id": 33,
+      "characterName": "澪澪",
+      "text": "我抓住你了，不许跑～",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 34,
+      "characterName": "旁白",
+      "text": "她从背后抱住你，整个人贴上来，胸前的柔软毫无保留地压在你背上，呼吸急促地喷在耳后。",
+      "choices": []
+    },
+    {
+      "id": 35,
+      "characterName": "夏晴",
+      "text": "我也来——",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 36,
+      "characterName": "旁白",
+      "text": "夏晴正面扑过来，双臂环住你脖子，湿漉漉的身体完全贴合，腿也缠上来，几乎让你站不稳。",
+      "choices": []
+    },
+    {
+      "id": 37,
+      "characterName": "夏晴 & 澪澪",
+      "text": "今晚……还想再玩更刺激的小游戏吗？",
+      "choices": [{ "text": "想", "nextIndex": 38 }],
+      "activeCharacters": ["xiaqing", "linglei"]
+    },
+    {
+      "id": 38,
+      "characterName": "旁白",
+      "text": "【小游戏窗口弹出,认真玩游戏中】",
+      "choices": []
+    },
+    {
+      "id": 39,
+      "characterName": "旁白",
+      "text": "海浪声掩盖了所有心跳。",
+      "choices": []
+    },
+    {
+      "id": 40,
+      "characterName": "夏晴",
+      "text": "呼……好热。",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 41,
+      "characterName": "旁白",
+      "text": "她伸了个懒腰，动作让湿透的比基尼向上微提，又因为海水重量缓缓滑回原位，露出小腹上晶莹的水珠。",
+      "choices": []
+    },
+    {
+      "id": 42,
+      "characterName": "澪澪",
+      "text": "我们躺下看星星吧……",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 43,
+      "characterName": "旁白",
+      "text": "三人并排躺在沙滩上，她们一人一边靠着你的肩，湿发散在你胸前，呼吸渐渐同步。",
+      "choices": []
+    },
+    {
+      "id": 44,
+      "characterName": "夏晴",
+      "text": "如果现在亲下去……你会躲开吗？",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 45,
+      "characterName": "旁白",
+      "text": "她侧过脸，嘴唇几乎贴上你的，却在最后一厘米停住，呼吸烫得惊人。",
+      "choices": []
+    },
+    {
+      "id": 46,
+      "characterName": "澪澪",
+      "text": "我也是哦……",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 47,
+      "characterName": "旁白",
+      "text": "她从另一侧靠近，睫毛扫过你的脸颊，声音低得像海浪。",
+      "choices": []
+    },
+    {
+      "id": 48,
+      "characterName": "夏晴",
+      "text": "今晚的秘密……只能留在这里，好不好？",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 49,
+      "characterName": "澪澪",
+      "text": "海浪会替我们保密的。",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 50,
+      "characterName": "旁白",
+      "text": "她轻轻把手指扣在你指缝里，掌心全是海水的凉意和体温的热。",
+      "choices": []
+    },
+    {
+      "id": 51,
+      "characterName": "夏晴",
+      "text": "刚才那张照片……你扫左右的时候，有没有发现什么？",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 52,
+      "characterName": "旁白",
+      "text": "她笑着用脚尖在你小腿上画圈，海水让触感滑得像丝绸。",
+      "choices": []
+    },
+    {
+      "id": 53,
+      "characterName": "澪澪",
+      "text": "我手机有一张透明图片,在不同模式下会显示完全不同画面呢。",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 54,
+      "characterName": "旁白",
+      "text": "她把手机贴到你胸口让你看，湿发垂下来扫过你的锁骨。",
+      "choices": []
+    },
+    {
+      "id": 55,
+      "characterName": "夏晴",
+      "text": "密码……你应该已经知道了吧？",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 56,
+      "characterName": "旁白",
+      "text": "她用气音在你耳边念出“373520”，热气混着海盐味。",
+      "choices": []
+    },
+    {
+      "id": 57,
+      "characterName": "澪澪",
+      "text": "等天亮前，我们还要一起去开那个保险柜哦……",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 58,
+      "characterName": "旁白",
+      "text": "她把脸埋进你颈窝，湿发蹭得你痒痒的。",
+      "choices": []
+    },
+    {
+      "id": 59,
+      "characterName": "夏晴",
+      "text": "不过现在……我只想再靠近一点。",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 60,
+      "characterName": "旁白",
+      "text": "她整个人翻到你身上，膝盖抵在你腰侧，湿透的比基尼贴着你胸口起伏。",
+      "choices": []
+    },
+    {
+      "id": 61,
+      "characterName": "澪澪",
+      "text": "我也想……",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 62,
+      "characterName": "旁白",
+      "text": "澪澪侧躺过来，把头枕在你肩上，手指沿着你手臂内侧慢慢滑到手腕。",
+      "choices": []
+    },
+    {
+      "id": 63,
+      "characterName": "夏晴",
+      "text": "你的手……可以放在我腰上吗？",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 64,
+      "characterName": "旁白",
+      "text": "她抓住你的手，带着你覆上她湿凉的腰，水珠立刻沾满你的掌心。",
+      "choices": []
+    },
+    {
+      "id": 65,
+      "characterName": "澪澪",
+      "text": "我这边也想被摸……",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 66,
+      "characterName": "旁白",
+      "text": "她把你的另一只手拉到她后腰，掌心贴着她湿透的泳装系带。",
+      "choices": []
+    },
+    {
+      "id": 67,
+      "characterName": "夏晴",
+      "text": "海浪声好吵……盖不住我的心跳了。",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 68,
+      "characterName": "旁白",
+      "text": "她贴着你耳垂轻笑，呼吸烫得你耳尖发麻。",
+      "choices": []
+    },
+    {
+      "id": 69,
+      "characterName": "澪澪",
+      "text": "要不要玩真的接吻游戏？输的人要亲赢的人哦……",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 70,
+      "characterName": "旁白",
+      "text": "她眨眼，睫毛扫过你脸颊，像羽毛又像电流。",
+      "choices": []
+    },
+    {
+      "id": 71,
+      "characterName": "夏晴",
+      "text": "我先来……闭上眼睛。",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 72,
+      "characterName": "旁白",
+      "text": "她俯身靠近，嘴唇几乎贴上你的，却只用鼻尖轻轻蹭了一下。",
+      "choices": []
+    },
+    {
+      "id": 73,
+      "characterName": "澪澪",
+      "text": "轮到我了……",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 74,
+      "characterName": "旁白",
+      "text": "她从另一侧贴上来，湿发垂落遮住你们的脸，呼吸交缠，却始终差那一毫米。",
+      "choices": []
+    },
+    {
+      "id": 75,
+      "characterName": "夏晴",
+      "text": "好痒……你的呼吸。",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 76,
+      "characterName": "旁白",
+      "text": "她轻轻咬了一下自己下唇，眼神像要把你吞进去。",
+      "choices": []
+    },
+    {
+      "id": 77,
+      "characterName": "澪澪",
+      "text": "时间还早……我们再慢慢玩，好不好？",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 78,
+      "characterName": "旁白",
+      "text": "她用手指在你胸口画着看不见的数字，像在写下今晚的密码。",
+      "choices": []
+    },
+    {
+      "id": 79,
+      "characterName": "夏晴",
+      "text": "等天亮前……我们还要一起去开那个保险柜，对吧？",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 80,
+      "characterName": "旁白",
+      "text": "她贴着你耳廓，声音低得只剩气音。",
+      "choices": []
+    },
+    {
+      "id": 81,
+      "characterName": "澪澪",
+      "text": "里面的东西……是我们写给你的信哦。",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 82,
+      "characterName": "旁白",
+      "text": "她把脸埋进你颈窝，湿发蹭得你痒痒的。",
+      "choices": []
+    },
+    {
+      "id": 83,
+      "characterName": "夏晴",
+      "text": "不过现在……我只想再待久一点。",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 84,
+      "characterName": "旁白",
+      "text": "她整个人蜷进你怀里，腿缠着你的腿，海水让肌肤贴得更紧。",
+      "choices": []
+    },
+    {
+      "id": 85,
+      "characterName": "澪澪",
+      "text": "我也想……就这样被你抱着。",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 86,
+      "characterName": "旁白",
+      "text": "她从另一侧抱住你，手指在你背上游走，像在确认你的轮廓。",
+      "choices": []
+    },
+    {
+      "id": 87,
+      "characterName": "夏晴",
+      "text": "海风好舒服……吹得我全身都发烫。",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 88,
+      "characterName": "旁白",
+      "text": "她轻轻拱了拱你，像猫一样蹭着你的胸口。",
+      "choices": []
+    },
+    {
+      "id": 89,
+      "characterName": "澪澪",
+      "text": "你的体温……好高。",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 90,
+      "characterName": "旁白",
+      "text": "她把脸贴在你锁骨上，呼吸一下一下喷在你皮肤上。",
+      "choices": []
+    },
+    {
+      "id": 91,
+      "characterName": "夏晴",
+      "text": "今晚的月亮……是我们三个人的，对吧？",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 92,
+      "characterName": "澪澪",
+      "text": "嗯……谁也不准抢走。",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 93,
+      "characterName": "旁白",
+      "text": "她轻轻咬了一下你肩膀，留下一个湿凉的吻痕，却没有真的用力。",
+      "choices": []
+    },
+    {
+      "id": 94,
+      "characterName": "夏晴",
+      "text": "天快亮了……",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 95,
+      "characterName": "旁白",
+      "text": "她依依不舍地抱紧你，湿发扫过你的脸。",
+      "choices": []
+    },
+    {
+      "id": 96,
+      "characterName": "澪澪",
+      "text": "再抱五分钟……好不好？",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 97,
+      "characterName": "旁白",
+      "text": "海浪一次次涌上来，把你们的脚踝淹没又退去，像在帮你们延长这一刻。",
+      "choices": []
+    },
+    {
+      "id": 98,
+      "characterName": "夏晴 & 澪澪",
+      "text": "今晚……谢谢你。",
+      "choices": [],
+      "activeCharacters": ["xiaqing", "linglei"]
+    },
+    {
+      "id": 99,
+      "characterName": "旁白",
+      "text": "月光渐渐淡去，三人的影子在沙滩上交叠成一个再也分不开的形状。潮声把所有心跳和秘密一起，藏进了夏夜的最深处。",
+      "choices": [{ "text": "结束", "nextIndex": -1 }]
     }
   ]
 }

@@ -13,7 +13,7 @@
         <div class="loading-container">
             <div class="loading-spinner"></div>
             <h2>游戏加载中...</h2>
-            <p>准备开始你的冒险</p>
+            <p>准备开始你的恋爱冒险</p>
         </div>
     </div>
 
@@ -25,8 +25,8 @@
             </div>
         </div>
         <div class="game-ui-top">
-            <div class="game-title">恋爱冒险游戏</div>
-            <div class="version-badge" id="versionBadge">普通版</div>
+            <div class="game-title">解谜企划☆绝密</div>
+            <div class="version-badge" id="versionBadge"></div>
             <div class="ui-buttons">
                 <button class="fullscreen-btn" onclick="toggleFullscreen()" title="切换全屏">全屏</button>
                 <button class="skip-btn" onclick="skipToEnding()" title="快速跳转到结局">跳过</button>
@@ -56,10 +56,13 @@
 
         <div class="ending-screen" id="endingScreen">
             <div class="ending-content">
-                <h2>游戏结束</h2>
-                <p>感谢你的游玩！</p>
-                <div class="ending-image">[结局图片 - 预留]</div>
-                <button class="restart-btn" onclick="restartGame()">重新开始</button>
+                <h2>完结撒花</h2>
+                <p>感谢你的陪伴！</p>
+                <div class="ending-image">
+                    <img id="endingImage" src="" alt="结局图片">
+                </div>
+                <button class="restart-btn" onclick="restartGame()">再来一次</button>
+                <button class="restart-btn" onclick="nextlevel()">去下一关</button>
             </div>
     </div>
     </div>
@@ -91,6 +94,11 @@
         const miniGamePromptEl = document.getElementById('miniGamePrompt');
         const miniGameStatusEl = document.getElementById('miniGameStatus');
         const miniGameReopenBtn = document.getElementById('miniGameReopen');
+        const endingImageEl = document.getElementById('endingImage');
+        const ENDING_IMAGES = [
+            '/images/99CEE870F1A04CE8DBBA902BA255864E.png',
+            '/images/bf.png'
+        ];
         const miniGameState = {
             active: false,
             windowRef: null,
@@ -108,7 +116,21 @@
                     '/images/galgame/千恋万花/5.png'
                 ],
                 startIndex: 0,
-                exitIndex: 4
+                exitIndex: 4,
+                characters: [
+                    {
+                        id: 'xiaqing',
+                        name: '夏晴',
+                        url: '/images/galgame/千恋万花/girl/0c.png',
+                        position: 'left'
+                    },
+                    {
+                        id: 'linglei',
+                        name: '澪澪',
+                        url: '/images/galgame/千恋万花/girl/bf.png',
+                        position: 'right'
+                    }
+                ]
             },
             adult: {
                 background: '/images/galgame/沙滩排球/bg.jpg',
@@ -120,16 +142,70 @@
                     '/images/galgame/沙滩排球/5.png',
                 ],
                 startIndex: 1,
-                exitIndex: 4
+                exitIndex: 4,
+                characters: [
+                    {
+                        id: 'xiaqing',
+                        name: '夏晴',
+                        url: '/images/galgame/沙滩排球/girl/0c.png',
+                        position: 'left'
+                    },
+                    {
+                        id: 'linglei',
+                        name: '澪澪',
+                        url: '/images/galgame/沙滩排球/girl/bf.png',
+                        position: 'right'
+                    }
+                ]
             }
         };
         const startScreenEl = document.getElementById('startScreen');
         const startScreenThumbs = document.getElementById('startScreenThumbs');
+        const characterPresetCache = {};
 
         if (miniGameReopenBtn) {
             miniGameReopenBtn.addEventListener('click', () => {
                 attemptOpenMiniGame(true);
             });
+        }
+
+        function getConfiguredCharacters(version) {
+            const key = version || 'normal';
+            if (!characterPresetCache[key]) {
+                const config = START_SCREEN_CONFIG[key] || START_SCREEN_CONFIG.normal || {};
+                const characters = config.characters || [];
+                characterPresetCache[key] = characters.map((character, index) => ({
+                    id: character.id || `character_${key}_${index}`,
+                    key: character.key || character.id || `character_${key}_${index}`,
+                    name: character.name || '',
+                    url: character.url,
+                    position: character.position || (index === 0 ? 'left' : 'right')
+                }));
+            }
+            return characterPresetCache[key];
+        }
+
+        function buildSceneSprites(scene = null, version = '') {
+            if (scene && scene.sprites) {
+                return scene.sprites;
+            }
+            const targetVersion = version || currentGame.version || 'normal';
+            const presets = getConfiguredCharacters(targetVersion);
+            if (!presets.length) {
+                return null;
+            }
+
+            const activeSet = Array.isArray(scene && scene.activeCharacters)
+                ? new Set(scene.activeCharacters)
+                : null;
+
+            return presets.map((character, index) => ({
+                key: character.key || character.id || `character_${targetVersion}_${index}`,
+                id: character.id,
+                url: character.url,
+                position: character.position || (index === 0 ? 'left' : 'right'),
+                active: activeSet ? activeSet.has(character.id) : undefined
+            }));
         }
 
 
@@ -174,10 +250,10 @@
 
             const badge = document.getElementById('versionBadge');
             if (version === 'adult') {
-                badge.textContent = '18+ 成人版';
+                badge.textContent = '夏夜海边的秘密嬉戏';
                 badge.classList.add('adult');
             } else {
-                badge.textContent = '普通版';
+                badge.textContent = '放学后的教室小秘密';
                 badge.classList.remove('adult');
             }
 
@@ -361,13 +437,9 @@
 
             const background = document.getElementById('gameBackground');
             background.classList.remove('normal', 'adult');
-            if (scene.background) {
-                background.classList.add(scene.background);
-            }
+            background.classList.add(currentGame.version);
 
-            const spritePayload = Object.prototype.hasOwnProperty.call(scene, 'sprites')
-                ? scene.sprites
-                : scene.sprite;
+            const spritePayload = buildSceneSprites(scene, currentGame.version);
             updateCharacterSprite(spritePayload, scene.characterName || '');
 
             showChoices(scene.choices);
@@ -509,14 +581,28 @@
             });
         }
 
+        function setRandomEndingImage() {
+            if (!endingImageEl || !ENDING_IMAGES.length) {
+                return;
+            }
+            const randomIndex = Math.floor(Math.random() * ENDING_IMAGES.length);
+            endingImageEl.src = ENDING_IMAGES[randomIndex];
+        }
+
         function showEnding() {
             const endingScreen = document.getElementById('endingScreen');
+            setRandomEndingImage();
             endingScreen.classList.add('show');
         }
 
         function restartGame() {
             document.getElementById('endingScreen').classList.remove('show');
             location.reload();
+        }
+
+        function nextlevel() {
+            document.getElementById('endingScreen').classList.remove('show');
+            window.location.href = '/level/four/GalGame.html';
         }
 
         function returnToMenu() {
@@ -532,7 +618,7 @@
         }
 
         function maybeTriggerMiniGame(text = '') {
-            if (!text.includes('来玩个游戏吧')) {
+            if (!text.includes('小游戏窗口弹出')) {
                 return;
             }
             if (miniGameState.active) {

@@ -654,7 +654,6 @@ body.showing-start-screen #endingScreen {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(ellipse at center, rgba(10, 14, 39, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%);
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -693,23 +692,25 @@ body.showing-start-screen #endingScreen {
 }
 
 .ending-content p {
-    font-size: 1.2em;
-    line-height: 1.8;
-    margin-bottom: 40px;
     color: #c0c0c0;
 }
 
 .ending-image {
     width: 350px;
-    height: 450px;
+    height: 500px;
     background: linear-gradient(135deg, rgba(255, 182, 217, 0.15) 0%, rgba(255, 182, 217, 0.08) 100%);
     border: 2px dashed #FFB6D9;
-    margin: 40px auto;
+    margin: 25px auto;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.95em;
     color: #999;
+    border-radius: 10px;
+}
+.ending-image #endingImage{
+    height: 100%;
+    width: 100%;
     border-radius: 10px;
 }
 
@@ -719,7 +720,7 @@ body.showing-start-screen #endingScreen {
 }
 
 .restart-btn {
-    padding: 14px 40px;
+    padding: 8px 40px;
     background: linear-gradient(135deg, #FFB6D9 0%, #FF96C8 100%);
     border: 2px solid #FFB6D9;
     color: white;

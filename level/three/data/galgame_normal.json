@@ -1,256 +1,677 @@
 {
   "version": "normal",
-  "title": "恋爱冒险游戏",
-  "description": "普通版 - 牵起夏晴与澪澪的手，一起完成温柔的周年惊喜。",
+  "title": "放学后的教室与小秘密",
+  "description": "只有你们三个人的教室，秘密都藏在最普通的闲聊里。",
   "scenes": [
     {
       "id": 0,
       "characterName": "旁白",
-      "text": "春日的海风安静吹拂，你走上沙滩舞台，等待周年庆彩排的两位女主登场。",
-      "sprites": [
-        {
-          "url": "/images/galgame/沙滩排球/girl/0c.png",
-          "position": "left",
-          "active": true
-        },
-        {
-          "url": "/images/galgame/沙滩排球/girl/bf.png",
-          "position": "right",
-          "active": true
-        }
-      ],
-      "background": "normal",
+      "text": "放学后的教室被夕阳染成橘红色，风把窗帘吹得轻轻鼓动。时钟的秒针滴答作响，操场上的社团喊声渐渐远去。",
       "choices": []
     },
     {
       "id": 1,
       "characterName": "旁白",
-      "text": "夏晴率先挥手，而澪澪抱着吉他冲你露出笑容，你知道今晚得和两人合作。",
-      "sprites": [
-        {
-          "url": "/images/galgame/沙滩排球/girl/0c.png",
-          "position": "left",
-          "active": true
-        },
-        {
-          "url": "/images/galgame/沙滩排球/girl/bf.png",
-          "position": "right",
-          "active": true
-        }
-      ],
-      "background": "normal",
+      "text": "夏晴坐在窗边的课桌上晃着腿，校服外套随意搭在椅背上。澪澪把耳机挂在脖子上，正用手指转着自动铅笔。黑板上还留着今天最后一道数学题的残影。",
       "choices": []
     },
     {
       "id": 2,
       "characterName": "夏晴",
-      "text": "嘿，策划人先生！我们需要一个完美的开场，能不能把灯光打得像星河一样？",
-      "sprites": [
-        {
-          "url": "/images/galgame/沙滩排球/girl/0c.png",
-          "position": "left",
-          "active": true
-        },
-        {
-          "url": "/images/galgame/沙滩排球/girl/bf.png",
-          "position": "right",
-          "active": false
-        }
-      ],
-      "background": "normal",
-      "choices": []
+      "text": "你今天怎么这么慢～我还以为你被数学老师抓去罚站了呢。",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
     },
     {
       "id": 3,
       "characterName": "澪澪",
-      "text": "别被她的眼神骗了，我更想知道你今晚想站在哪个位置，毕竟我们也是你的舞伴。",
-      "sprites": [
-        {
-          "url": "/images/galgame/沙滩排球/girl/0c.png",
-          "position": "left",
-          "active": false
-        },
-        {
-          "url": "/images/galgame/沙滩排球/girl/bf.png",
-          "position": "right",
-          "active": true
-        }
-      ],
-      "background": "normal",
-      "choices": []
+      "text": "他选择题全涂的同一个答案，老师在办公室吼得整层都听见了，我路过的时候还听见他在道歉。",
+      "choices": [],
+      "activeCharacters": ["linglei"]
     },
     {
       "id": 4,
-      "characterName": "夏晴 & 澪澪",
-      "text": "我们两个都想和你一起完成惊喜，你觉得是把舞台打造成三人show还是各自准备独家环节？",
-      "sprites": [
-        {
-          "url": "/images/galgame/沙滩排球/girl/0c.png",
-          "position": "left",
-          "active": true
-        },
-        {
-          "url": "/images/galgame/沙滩排球/girl/bf.png",
-          "position": "right",
-          "active": true
-        }
-      ],
-      "background": "normal",
-      "choices": [
-        {
-          "text": "三个人一起打造一场浪漫舞台",
-          "nextIndex": 5
-        },
-        {
-          "text": "分别安排时间，让每个人都被好好看见",
-          "nextIndex": 6
-        }
-      ]
+      "characterName": "夏晴",
+      "text": "噗——全涂C吗？哈哈哈你也太可爱了吧！是不是偷偷相信C是命运之选？",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
     },
     {
       "id": 5,
-      "characterName": "夏晴",
-      "text": "一起合作太棒了！我负责灯带，澪澪负责节奏，你就站在中间指挥，怎么样？",
-      "sprites": [
-        {
-          "url": "/images/galgame/沙滩排球/girl/0c.png",
-          "position": "left",
-          "active": true
-        },
-        {
-          "url": "/images/galgame/沙滩排球/girl/bf.png",
-          "position": "right",
-          "active": true
-        }
-      ],
-      "background": "normal",
-      "choices": [
-        {
-          "text": "陪夏晴缠绕星光灯",
-          "nextIndex": 7
-        },
-        {
-          "text": "邀请澪澪设计压轴三人曲",
-          "nextIndex": 8
-        }
-      ]
+      "characterName": "澪澪",
+      "text": "换作我才不会全涂C……我会全涂3哦，毕竟3月3号是我生日，感觉能带来好运～",
+      "choices": [],
+      "activeCharacters": ["linglei"]
     },
     {
       "id": 6,
-      "characterName": "澪澪",
-      "text": "各自的惊喜也不错，我可以先练和声，再把舞台交给夏晴。你想先陪谁？",
-      "sprites": [
-        {
-          "url": "/images/galgame/沙滩排球/girl/0c.png",
-          "position": "left",
-          "active": true
-        },
-        {
-          "url": "/images/galgame/沙滩排球/girl/bf.png",
-          "position": "right",
-          "active": true
-        }
-      ],
-      "background": "normal",
-      "choices": [
-        {
-          "text": "先帮助夏晴完成灯光",
-          "nextIndex": 7
-        },
-        {
-          "text": "和澪澪练习合唱",
-          "nextIndex": 9
-        }
-      ]
+      "characterName": "夏晴",
+      "text": "幼稚。我只相信7！7才是宇宙最强的幸运数字！",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
     },
     {
       "id": 7,
-      "characterName": "夏晴",
-      "text": "有你在，我的每一道灯光都有了意义。等灯亮起的瞬间，我们一起宣告庆典开始好吗？",
-      "sprites": [
-        {
-          "url": "/images/galgame/沙滩排球/girl/0c.png",
-          "position": "left",
-          "active": true
-        },
-        {
-          "url": "/images/galgame/沙滩排球/girl/bf.png",
-          "position": "right",
-          "active": false
-        }
-      ],
-      "background": "normal",
-      "choices": [
-        {
-          "text": "结束游戏",
-          "nextIndex": -1
-        }
-      ]
+      "characterName": "旁白",
+      "text": "夏晴说完，还在课桌上用手指认认真真画了个大大的“7”，像在施魔法一样。",
+      "choices": []
     },
     {
       "id": 8,
-      "characterName": "旁白",
-      "text": "你们三人对着镜头排演，舞台在一呼一吸间亮起，这次庆典因为你的协调而完美。",
-      "sprites": [
-        {
-          "url": "/images/galgame/沙滩排球/girl/0c.png",
-          "position": "left",
-          "active": true
-        },
-        {
-          "url": "/images/galgame/沙滩排球/girl/bf.png",
-          "position": "right",
-          "active": true
-        }
-      ],
-      "background": "normal",
-      "choices": [
-        {
-          "text": "结束游戏",
-          "nextIndex": -1
-        }
-      ]
+      "characterName": "澪澪",
+      "text": "说起来……你们有没有想过，两个完全不一样的东西，md5哈希值居然有可能撞在一起？虽然概率低到像中彩票一样。",
+      "choices": [],
+      "activeCharacters": ["linglei"]
     },
     {
       "id": 9,
+      "characterName": "夏晴",
+      "text": "md5是什么好吃的吗？我只知道我妹妹以前拿两张完全不像的照片给大家看，结果大家都以为那是双胞胎，笑死。",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 10,
+      "characterName": "旁白",
+      "text": "夏晴从抽屉里翻出手机，点开相册，屏幕上是两张小学时的照片——左边是扎双马尾的小女孩，右边是短发的小女孩。",
+      "choices": []
+    },
+    {
+      "id": 11,
       "characterName": "澪澪",
-      "text": "谢谢你给我独唱的勇气。今晚我会用歌声告诉所有人，你是我最信赖的指挥。",
-      "sprites": [
-        {
-          "url": "/images/galgame/沙滩排球/girl/0c.png",
-          "position": "left",
-          "active": false
-        },
-        {
-          "url": "/images/galgame/沙滩排球/girl/bf.png",
-          "position": "right",
-          "active": true
-        }
-      ],
-      "background": "normal",
+      "text": "欸？右边那张……好像是我？小学毕业旅行的时候……天啊那时候的刘海真的好丑！",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 12,
+      "characterName": "夏晴",
+      "text": "超可爱的好不好！我看了都嫉妒到想穿越回去抢你的双马尾！",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 13,
+      "characterName": "旁白",
+      "text": "澪澪害羞地把脸埋进臂弯里，耳朵尖都红了，像被夕阳点着一样。",
+      "choices": []
+    },
+    {
+      "id": 14,
+      "characterName": "夏晴",
+      "text": "对了，你知道那种纯白加纯黑做出来的透明图片吗？在不同模式下会显示完全不同画面。",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 15,
+      "characterName": "澪澪",
+      "text": "我手机里就有一张～本来想拿来恶作剧，结果自己老是切来切去看，停不下来。",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 16,
+      "characterName": "夏晴",
+      "text": "因为里面藏了我的照片对吧～我早就发现了！",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 17,
+      "characterName": "澪澪",
+      "text": "才、才没有藏你的照片！……好吧，只有半张脸啦。",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 18,
+      "characterName": "旁白",
+      "text": "窗外的操场传来足球社收队的哨声，风把窗帘吹得鼓起来，夕阳在两人脸上跳动。",
+      "choices": []
+    },
+    {
+      "id": 19,
+      "characterName": "夏晴",
+      "text": "今天食堂的唐扬鸡又涨价了，五块钱一个，气死。",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 20,
+      "characterName": "澪澪",
+      "text": "我妈只给我五十块钱，说自己想吃什么买什么……结果我全买了草莓布丁。",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 21,
+      "characterName": "夏晴",
+      "text": "要不要分你一半？我今天带了超大份的唐扬鸡块～",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 22,
+      "characterName": "澪澪",
+      "text": "真的？！夏晴你今天是天使转世吗！",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 23,
+      "characterName": "夏晴",
+      "text": "才不是～我只是怕你饿到晕在我旁边，太麻烦了而已。",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 24,
+      "characterName": "旁白",
+      "text": "夏晴嘴上这么说，却把便当盒推了过去，还偷偷把最大的那块鸡块夹给了澪澪。",
+      "choices": []
+    },
+    {
+      "id": 25,
+      "characterName": "澪澪",
+      "text": "嘿嘿，谢谢～感觉今天的幸福值直接爆表了。",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 26,
+      "characterName": "夏晴",
+      "text": "对了，上周社团室不是翻出一个老保险柜吗？六位数密码的那种，超复古的。",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 27,
+      "characterName": "澪澪",
+      "text": "我试着乱按了半天都没开，感觉里面说不定是上一个社团留下的遗书什么的……",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 28,
+      "characterName": "夏晴",
+      "text": "才不是遗书啦！搞不好是情书呢～",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 29,
+      "characterName": "旁白",
+      "text": "两人对视一眼，突然笑得像偷到糖的小孩。",
+      "choices": []
+    },
+    {
+      "id": 30,
+      "characterName": "澪澪",
+      "text": "其实……我们想把这个学期剩下的零花钱都锁进去，这样就不会乱花了～",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 31,
+      "characterName": "夏晴",
+      "text": "所以密码要设得超级复杂才行！比如第一位用澪澪生日日，第二位用我最喜欢的数字，后面四位……嗯？好像有人说过5201314来着？",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 32,
+      "characterName": "澪澪",
+      "text": "夏晴你干嘛突然爆料啦！",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 33,
+      "characterName": "夏晴",
+      "text": "我我我只是随便说说嘛！",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 34,
+      "characterName": "旁白",
+      "text": "教室的灯啪地一声自动亮起，夕阳彻底沉了下去，天色暗得只剩路灯的光从窗外透进来。",
+      "choices": []
+    },
+    {
+      "id": 35,
+      "characterName": "澪澪",
+      "text": "……其实我们准备了一个小游戏，就现在，要不要一起玩？",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 36,
+      "characterName": "夏晴",
+      "text": "对对对！我们准备了好久，就差你点头啦～",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 37,
+      "characterName": "夏晴 & 澪澪",
+      "text": "要不要一起玩呀？",
+      "choices": [{ "text": "好啊", "nextIndex": 38 }],
+      "activeCharacters": ["xiaqing", "linglei"]
+    },
+    {
+      "id": 38,
+      "characterName": "旁白",
+      "text": "【小游戏窗口弹出,认真玩游戏中】",
+      "choices": []
+    },
+    {
+      "id": 39,
+      "characterName": "旁白",
+      "text": "几秒后，小游戏结束。你看到手机屏幕上跳出了两张照片。",
+      "choices": []
+    },
+    {
+      "id": 40,
+      "characterName": "夏晴",
+      "text": "怎么样？左边扫和右边扫跳出来的页面完全不一样吧～",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 41,
+      "characterName": "澪澪",
+      "text": "其实右边那张照片里也有我哦～小学时候的我，头发短得像男孩子。",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 42,
+      "characterName": "夏晴",
+      "text": "你们有没有发现两张照片其实有同一个地方藏了点小东西？……我也不知道啦，别问我～",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 43,
+      "characterName": "旁白",
+      "text": "夏晴故意把手机转来转去，像在暗示什么，又像单纯在撒娇。",
+      "choices": []
+    },
+    {
+      "id": 44,
+      "characterName": "澪澪",
+      "text": "明天不是英语小测吗？我单词还没背完……",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 45,
+      "characterName": "夏晴",
+      "text": "我早就背完了～要不要我现在抽你们两个？",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 46,
+      "characterName": "旁白",
+      "text": "澪澪立刻把笔记本翻到单词页，夏晴靠过去，肩膀轻轻碰在一起。",
+      "choices": []
+    },
+    {
+      "id": 47,
+      "characterName": "澪澪",
+      "text": "你英语那么好，上次还帮他改了作文……",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 48,
+      "characterName": "夏晴",
+      "text": "对啊，他那篇作文写得超暧昧，我都怀疑他在写谁了～",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 49,
+      "characterName": "旁白",
+      "text": "夏晴说着，用笔尖轻轻戳了戳澪澪的手臂，两人同时笑出声。",
+      "choices": []
+    },
+    {
+      "id": 50,
+      "characterName": "澪澪",
+      "text": "才不是暧昧！他明明写的是“我们三个人一起走很远很远的路”。",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 51,
+      "characterName": "夏晴",
+      "text": "三人行啊……嘿嘿，这算不算在暗示什么？",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 52,
+      "characterName": "旁白",
+      "text": "澪澪的脸瞬间红了，用课本挡住半张脸假装扇风。",
+      "choices": []
+    },
+    {
+      "id": 53,
+      "characterName": "澪澪",
+      "text": "体育课的时候你踢球真的好帅……我们俩在旁边加油都喊哑了。",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 54,
+      "characterName": "夏晴",
+      "text": "对啊！我还做了小旗子，上面写着你的名字呢～",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 55,
+      "characterName": "旁白",
+      "text": "夏晴说着，从书包侧袋掏出一面手工小旗子，果然用马克笔写着大大的名字。",
+      "choices": []
+    },
+    {
+      "id": 56,
+      "characterName": "澪澪",
+      "text": "周末要不要一起去商场？新开的夹娃娃店好像很好抓。",
       "choices": [
-        {
-          "text": "结束游戏",
-          "nextIndex": -1
-        }
-      ]
-    }
-  ],
-  "endings": [
-    {
-      "id": 0,
-      "title": "星光舞台",
-      "text": "你与两位女主合力完成最耀眼的舞台，庆典在星光中落幕。"
+        { "text": "好啊", "nextIndex": 57 },
+        { "text": "我考虑考虑咯", "nextIndex": 57 }
+      ],
+      "activeCharacters": ["linglei"]
     },
     {
-      "id": 1,
-      "title": "夏晴专属",
-      "text": "你和夏晴共同编织灯海，彼此的心意也在灯火间被照亮。"
+      "id": 57,
+      "characterName": "夏晴",
+      "text": "我想去游乐园！坐摩天轮！到最高点的时候一起许愿～",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
     },
     {
-      "id": 2,
-      "title": "澪澪独唱",
-      "text": "澪澪把你的名字写进旋律，歌声成为三人友情的证明。"
+      "id": 58,
+      "characterName": "旁白",
+      "text": "两人同时看向窗外，眼睛里映着远处游乐园隐约可见的摩天轮灯光。",
+      "choices": []
+    },
+    {
+      "id": 59,
+      "characterName": "澪澪",
+      "text": "摩天轮到顶的时候……会许什么愿呀？",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 60,
+      "characterName": "夏晴",
+      "text": "希望我们三个人永远像现在这样，一直一直在一起。",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 61,
+      "characterName": "旁白",
+      "text": "说完这句，夏晴的手指轻轻碰到了你的袖口，又像不小心似的缩回去。",
+      "choices": []
+    },
+    {
+      "id": 62,
+      "characterName": "夏晴",
+      "text": "老师不是说要组队做报告吗？我们三个一起吧！",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 63,
+      "characterName": "澪澪",
+      "text": "好啊！主题就定「解谜游戏设计」怎么样？",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 64,
+      "characterName": "夏晴",
+      "text": "像我们现在这样，把线索秘密什么的藏在最普通的聊天里～",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 65,
+      "characterName": "旁白",
+      "text": "澪澪笑着点头，眼睛弯成了月牙。",
+      "choices": []
+    },
+    {
+      "id": 66,
+      "characterName": "澪澪",
+      "text": "我昨天晚上做了个梦，梦见我们三个人手牵手走在校园的林荫道上。",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 67,
+      "characterName": "夏晴",
+      "text": "我也是！梦里我们一直走到很远很远，天都黑了还在散步。",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 68,
+      "characterName": "旁白",
+      "text": "两人同时沉默了一秒，然后不约而同地低头笑了。",
+      "choices": []
+    },
+    {
+      "id": 69,
+      "characterName": "夏晴",
+      "text": "来，新出的辣味薯片，分你一片～",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 70,
+      "characterName": "澪澪",
+      "text": "辣味的？！我最爱了！",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 71,
+      "characterName": "旁白",
+      "text": "薯片袋被撕开的声音在安静的教室里格外清脆，指尖偶尔相触。",
+      "choices": []
+    },
+    {
+      "id": 72,
+      "characterName": "澪澪",
+      "text": "班上有人问我，我是不是有喜欢的人了……",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 73,
+      "characterName": "夏晴",
+      "text": "我也听到了！那你怎么回答的？",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 74,
+      "characterName": "旁白",
+      "text": "澪澪没说话，只是悄悄看了你一眼，又迅速低下头。",
+      "choices": []
+    },
+    {
+      "id": 75,
+      "characterName": "夏晴",
+      "text": "文化祭要不要一起开摊位？抓娃娃机怎么样？我技术超好！",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 76,
+      "characterName": "澪澪",
+      "text": "那我负责设计海报！一定抓到超大只的熊给你！",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 77,
+      "characterName": "旁白",
+      "text": "两人兴奋得抱住对方手臂摇啊摇，像已经看到文化祭那天了。",
+      "choices": []
+    },
+    {
+      "id": 78,
+      "characterName": "澪澪",
+      "text": "下雨天留在教室听雨声，其实也挺浪漫的吧。",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 79,
+      "characterName": "夏晴",
+      "text": "嗯……可以聊很多平时不敢说的话。",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 80,
+      "characterName": "旁白",
+      "text": "窗外不知何时乌云密布，远处传来第一声闷雷。",
+      "choices": []
+    },
+    {
+      "id": 81,
+      "characterName": "夏晴",
+      "text": "……那个保险柜的密码，你应该已经全部集齐了吧？",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 82,
+      "characterName": "澪澪",
+      "text": "373520……对吧？",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 83,
+      "characterName": "旁白",
+      "text": "她的声音越来越小，最后几乎听不见，脸却红得像熟透的苹果。",
+      "choices": []
+    },
+    {
+      "id": 84,
+      "characterName": "夏晴 & 澪澪",
+      "text": "要不要……现在一起去社团室开它？",
+      "choices": [{ "text": "走吧", "nextIndex": 85 }],
+      "activeCharacters": ["xiaqing", "linglei"]
+    },
+    {
+      "id": 85,
+      "characterName": "旁白",
+      "text": "社团活动室里光线昏暗，老旧的电子保险柜静静立在角落。",
+      "choices": []
+    },
+    {
+      "id": 86,
+      "characterName": "旁白",
+      "text": "输入 373520",
+      "choices": []
+    },
+    {
+      "id": 87,
+      "characterName": "旁白",
+      "text": "「滴——」锁开了。",
+      "choices": []
+    },
+    {
+      "id": 88,
+      "characterName": "旁白",
+      "text": "柜子里放着两封折成心形的信，和三张下周游乐园的门票。",
+      "choices": []
+    },
+    {
+      "id": 89,
+      "characterName": "夏晴",
+      "text": "……被你这么快就找到了，好没成就感哦。",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 90,
+      "characterName": "澪澪",
+      "text": "但是……真的好开心。",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 91,
+      "characterName": "旁白",
+      "text": "夏晴慢慢伸手，拉住你的一只手；澪澪红着脸，拉住另一只。",
+      "choices": []
+    },
+    {
+      "id": 92,
+      "characterName": "夏晴",
+      "text": "下周游乐园……一起去，好不好？",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 93,
+      "characterName": "澪澪",
+      "text": "就我们三个人。",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 94,
+      "characterName": "旁白",
+      "text": "社团室的灯微微晃动，把三个人的影子重叠在一起，像再也分不开。",
+      "choices": []
+    },
+    {
+      "id": 95,
+      "characterName": "夏晴",
+      "text": "这个秘密，只有我们三个知道。",
+      "choices": [],
+      "activeCharacters": ["xiaqing"]
+    },
+    {
+      "id": 96,
+      "characterName": "澪澪",
+      "text": "以后也请……多多关照哦。",
+      "choices": [],
+      "activeCharacters": ["linglei"]
+    },
+    {
+      "id": 97,
+      "characterName": "旁白",
+      "text": "窗外开始下雨，雨点敲在玻璃上，像在为这一刻伴奏。",
+      "choices": []
+    },
+    {
+      "id": 98,
+      "characterName": "旁白",
+      "text": "夜色里，校园的一切既像谜题也像约定。你轻握她们的手，感觉到未来还会有更多未知的线索和甜蜜的瞬间等着你们去解。",
+      "choices": [],
+      "activeCharacters": ["xiaqing", "linglei"]
+    },
+    {
+      "id": 99,
+      "characterName": "旁白",
+      "text": "教室的灯一盏盏熄灭，只剩你们三个人的心跳声，在雨里轻轻回荡。",
+      "choices": [{ "text": "结束", "nextIndex": -1 }]
     }
   ]
 }
