@@ -270,7 +270,7 @@
                 submitAnswer();
             }
         }
-
+        var redirect = '';
         async function submitAnswer() {
             const val = document.getElementById('answer').value.trim();
             if (!val) {
@@ -293,6 +293,9 @@
                 
                 if (result.success) {
                     showModal("回答正确", "没错，它们是一样的！", true);
+                    if (result.redirect) {
+                        redirect = result.redirect;
+                    }
                 } else {
                     showModal("不对哦，再仔细看看。", "虽然不知道怎么回事,但还是不能让你过去", false);
                 }
@@ -320,8 +323,10 @@
         }
 
         function nextLevel() {
-            alert("即将前往下一关...");
-            // window.location.href = '/level/last/safe.html';
+            if (redirect) {
+                window.location.href = redirect;
+                return;
+            }
         }
 
         function showDetail(type) {

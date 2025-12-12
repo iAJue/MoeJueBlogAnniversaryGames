@@ -1,7 +1,6 @@
 <?php
 header('Content-Type: application/json');
 
-// 获取 POST 数据
 $input = file_get_contents('php://input');
 $data = json_decode($input, true);
 
@@ -16,7 +15,8 @@ if($data['answer'] == $md5){
     $response = [
         'success' => true,
         'message' => '验证通过！完美匹配！',
-        'data' => $data
+        'data' => $data,
+        'redirect' => '/level/six/artwork.php'
     ];
 }else{
     $response = [
