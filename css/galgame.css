@@ -132,8 +132,8 @@ body {
 .start-screen-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(9, 1, 16, 0.95) 0%, rgba(25, 3, 32, 0.35) 100%);
-    backdrop-filter: blur(3px);
+    background: linear-gradient(135deg, rgba(9, 1, 16, 0.25) 0%, rgba(25, 3, 32, 0.15) 100%);
+    /* backdrop-filter: blur(3px); */
     z-index: 1;
 }
 
@@ -313,23 +313,20 @@ body.showing-start-screen #endingScreen {
 /* ========== 角色立绘 ========== */
 .character-container {
     position: absolute;
-    top: 60px;
+    bottom: -20px;
     left: 0;
     width: 100%;
-    height: calc(100% - 60px - 400px);
+    height: 100%;
     z-index: 5;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-end;
-    padding: 0 40px 20px 40px;
-    gap: 24px;
+    padding: 0 30% 0px 30%;
 }
 
 .character-sprite {
     height: 100%;
-    width: 32%;
-    min-width: 220px;
-    max-width: 420px;
+    width: 100%;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom center;
@@ -364,7 +361,7 @@ body.showing-start-screen #endingScreen {
 }
 
 .character-sprite.active {
-    filter: brightness(1.08) saturate(1.05) drop-shadow(0 16px 32px rgba(0, 0, 0, 0.55));
+    filter: brightness(1.02) saturate(1.05) drop-shadow(0 16px 32px rgba(0, 0, 0, 0.55));
 }
 
 .character-sprite.talk-bounce {
@@ -804,16 +801,6 @@ body.showing-start-screen #endingScreen {
         right: 10px;
         width: calc(100% - 20px);
         height: 150px;
-    }
-
-    .character-container {
-        height: calc(100% - 60px - 180px);
-    }
-
-    .character-sprite {
-        width: 42%;
-        max-width: none;
-        min-width: 140px;
     }
 
     .dialog-content {
