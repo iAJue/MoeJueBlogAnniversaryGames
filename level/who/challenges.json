@@ -1,0 +1,22 @@
+[
+  {
+    "id": "reimu",
+    "file": "0.png",
+    "answers": ["博丽灵梦", "灵梦", "Reimu", "HakureiReimu", "Hakurei Reimu"]
+  },
+  {
+    "id": "cirno",
+    "file": "1.png",
+    "answers": ["琪露诺", "チルノ", "Cirno"]
+  },
+  {
+    "id": "miku",
+    "file": "2.png",
+    "answers": ["初音未来", "初音ミク", "HatsuneMiku", "Hatsune Miku", "Miku"]
+  },
+  {
+    "id": "miku",
+    "file": "3.png",
+    "answers": ["初音未来", "初音ミク", "HatsuneMiku", "Hatsune Miku", "Miku"]
+  }
+]

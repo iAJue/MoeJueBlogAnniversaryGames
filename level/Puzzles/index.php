@@ -127,7 +127,7 @@ if ($rows !== $expected['rows'] || $cols !== $expected['cols']) {
 }
 
 if (!hash_equals(implode("\n", $expected['hashes']), implode("\n", $normalized))) {
-    send_json(403, ['ok' => false, 'message' => '验证失败']);
+    send_json(403, ['ok' => false, 'message' => '拼错了,再试试吧！']);
 }
 
 http_response_code(303);
