@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>拆弹专家  -  阿珏酱Blog十周年庆解密游戏</title>
+    <meta name="description" content="阿珏酱Blog十周年庆解密游戏，参与解密游戏，赢取神秘大奖！">
+    <meta name="keywords" content="阿珏酱Blog十周年庆解密游戏, 解密游戏, 神秘大奖">
+    <link rel="stylesheet" href="/level/bomb/style.css" />
+    <script src="/level/bomb/game.js" defer></script>
+  </head>
+  <body class="armed">
+    <canvas id="fx"></canvas>
+
+    <div id="scissorCursor" aria-hidden="true">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#f4f7ff" />
+            <stop offset="0.55" stop-color="#b7c2d6" />
+            <stop offset="1" stop-color="#e9eefc" />
+          </linearGradient>
+        </defs>
+        <g transform="rotate(-120 32 32)">
+          <g fill="none" stroke="rgba(0,0,0,0.65)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="16" cy="24" r="8.6" />
+            <circle cx="16" cy="40" r="8.6" />
+            <path d="M24.5 24 L32 32 L60 18" />
+            <path d="M24.5 40 L32 32 L60 46" />
+          </g>
+          <g fill="none" stroke="url(#steel)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="16" cy="24" r="8.6" />
+            <circle cx="16" cy="40" r="8.6" />
+            <path d="M24.5 24 L32 32 L60 18" />
+            <path d="M24.5 40 L32 32 L60 46" />
+          </g>
+          <circle cx="32" cy="32" r="4.2" fill="rgba(0,0,0,0.35)" stroke="rgba(0,0,0,0.55)" stroke-width="1.2" />
+          <circle cx="32" cy="32" r="2.3" fill="rgba(255,255,255,0.7)" opacity="0.65" />
+        </g>
+      </svg>
+    </div>
+
+    <main id="stage">
+      <section class="device" aria-label="拆弹装置">
+        <div class="device-header">
+          <div class="display" aria-live="polite">
+            <div class="display-row">
+              <span class="label">倒计时</span>
+              <span id="timer" class="timer">00:45</span>
+            </div>
+          </div>
+          <div class="leds" aria-hidden="true">
+            <div class="led led-red"></div>
+            <div class="led led-green"></div>
+          </div>
+          <div class="hazard" aria-hidden="true">
+            <div class="hazard-title">DANGER</div>
+            <div class="hazard-sub">HIGH EXPLOSIVE</div>
+          </div>
+        </div>
+
+        <div class="device-body">
+          <div class="wirebay" aria-label="线束区">
+            <svg id="wiresSvg" viewBox="0 0 920 280" xmlns="http://www.w3.org/2000/svg" role="img">
+              <defs>
+                <filter id="wireShadow" x="-30%" y="-30%" width="160%" height="160%">
+                  <feDropShadow dx="0" dy="2" stdDeviation="1.4" flood-color="rgba(0,0,0,0.55)" />
+                </filter>
+                <filter id="wireShadowStrong" x="-40%" y="-40%" width="180%" height="180%">
+                  <feDropShadow dx="0" dy="3" stdDeviation="2.2" flood-color="rgba(0,0,0,0.65)" />
+                </filter>
+
+                <linearGradient id="gRed" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#6b0c10" />
+                  <stop offset="0.35" stop-color="#d42a2a" />
+                  <stop offset="0.65" stop-color="#a91519" />
+                  <stop offset="1" stop-color="#5d0a0d" />
+                </linearGradient>
+                <linearGradient id="gBlue" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#0b2b54" />
+                  <stop offset="0.35" stop-color="#2a7bd6" />
+                  <stop offset="0.65" stop-color="#1a4f9a" />
+                  <stop offset="1" stop-color="#061a33" />
+                </linearGradient>
+                <linearGradient id="gYellow" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#4f3f07" />
+                  <stop offset="0.35" stop-color="#f1d14a" />
+                  <stop offset="0.65" stop-color="#c5a61e" />
+                  <stop offset="1" stop-color="#3b2f06" />
+                </linearGradient>
+                <linearGradient id="gGreen" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#0a3a26" />
+                  <stop offset="0.35" stop-color="#35d18a" />
+                  <stop offset="0.65" stop-color="#178759" />
+                  <stop offset="1" stop-color="#052316" />
+                </linearGradient>
+              </defs>
+
+              <g opacity="0.95">
+                <rect x="56" y="40" width="120" height="200" rx="12" fill="rgba(0,0,0,0.55)" stroke="rgba(255,255,255,0.12)" />
+                <rect x="64" y="52" width="104" height="176" rx="10" fill="rgba(25,27,33,0.75)" stroke="rgba(255,255,255,0.08)" />
+                <circle cx="74" cy="62" r="5.5" fill="rgba(0,0,0,0.5)" stroke="rgba(255,255,255,0.12)" />
+                <circle cx="162" cy="62" r="5.5" fill="rgba(0,0,0,0.5)" stroke="rgba(255,255,255,0.12)" />
+                <circle cx="74" cy="218" r="5.5" fill="rgba(0,0,0,0.5)" stroke="rgba(255,255,255,0.12)" />
+                <circle cx="162" cy="218" r="5.5" fill="rgba(0,0,0,0.5)" stroke="rgba(255,255,255,0.12)" />
+
+                <g>
+                  <circle cx="170" cy="72" r="10.2" fill="rgba(0,0,0,0.65)" stroke="rgba(255,255,255,0.12)" />
+                  <circle cx="170" cy="132" r="10.2" fill="rgba(0,0,0,0.65)" stroke="rgba(255,255,255,0.12)" />
+                  <circle cx="170" cy="192" r="10.2" fill="rgba(0,0,0,0.65)" stroke="rgba(255,255,255,0.12)" />
+                  <circle cx="170" cy="252" r="10.2" fill="rgba(0,0,0,0.65)" stroke="rgba(255,255,255,0.12)" />
+                </g>
+              </g>
+
+              <g opacity="0.95">
+                <rect x="740" y="40" width="124" height="200" rx="12" fill="rgba(0,0,0,0.55)" stroke="rgba(255,255,255,0.12)" />
+                <rect x="748" y="52" width="108" height="176" rx="10" fill="rgba(25,27,33,0.75)" stroke="rgba(255,255,255,0.08)" />
+
+                <g>
+                  <rect x="764" y="58" width="76" height="40" rx="10" fill="rgba(0,0,0,0.55)" stroke="rgba(255,255,255,0.10)" />
+                  <rect x="764" y="108" width="76" height="40" rx="10" fill="rgba(0,0,0,0.55)" stroke="rgba(255,255,255,0.10)" />
+                  <rect x="764" y="158" width="76" height="40" rx="10" fill="rgba(0,0,0,0.55)" stroke="rgba(255,255,255,0.10)" />
+                  <rect x="764" y="208" width="76" height="40" rx="10" fill="rgba(0,0,0,0.55)" stroke="rgba(255,255,255,0.10)" />
+                </g>
+
+                <g>
+                </g>
+              </g>
+
+              <g class="wire-group" data-name="红线">
+                <path class="wire wire-red" stroke="url(#gRed)" d="M170 72 C 310 30 440 120 740 78" />
+                <path class="wire-highlight" stroke="rgba(255,255,255,0.85)" d="M170 72 C 310 30 440 120 740 78" />
+                <circle class="cut-end" r="5.2" fill="rgba(255,235,225,0.85)" stroke="rgba(0,0,0,0.35)" />
+                <circle class="cut-end" r="5.2" fill="rgba(255,235,225,0.85)" stroke="rgba(0,0,0,0.35)" />
+              </g>
+
+              <g class="wire-group" data-name="蓝线">
+                <path class="wire wire-blue" stroke="url(#gBlue)" d="M170 132 C 320 160 420 52 740 128" />
+                <path class="wire-highlight" stroke="rgba(255,255,255,0.80)" d="M170 132 C 320 160 420 52 740 128" />
+                <circle class="cut-end" r="5.2" fill="rgba(225,245,255,0.85)" stroke="rgba(0,0,0,0.35)" />
+                <circle class="cut-end" r="5.2" fill="rgba(225,245,255,0.85)" stroke="rgba(0,0,0,0.35)" />
+              </g>
+
+              <g class="wire-group" data-name="黄线">
+                <path class="wire wire-yellow" stroke="url(#gYellow)" d="M170 192 C 330 160 460 250 740 178" />
+                <path class="wire-highlight" stroke="rgba(255,255,255,0.80)" d="M170 192 C 330 160 460 250 740 178" />
+                <circle class="cut-end" r="5.2" fill="rgba(255,250,220,0.85)" stroke="rgba(0,0,0,0.35)" />
+                <circle class="cut-end" r="5.2" fill="rgba(255,250,220,0.85)" stroke="rgba(0,0,0,0.35)" />
+              </g>
+
+              <g class="wire-group" data-name="绿线">
+                <path class="wire wire-green" stroke="url(#gGreen)" d="M170 252 C 340 282 430 170 740 228" />
+                <path class="wire-highlight" stroke="rgba(255,255,255,0.78)" d="M170 252 C 340 282 430 170 740 228" />
+                <circle class="cut-end" r="5.2" fill="rgba(230,255,240,0.85)" stroke="rgba(0,0,0,0.35)" />
+                <circle class="cut-end" r="5.2" fill="rgba(230,255,240,0.85)" stroke="rgba(0,0,0,0.35)" />
+              </g>
+            </svg>
+          </div>
+
+          <aside class="note" aria-label="现场便条">
+            <div class="note-title">现场便条</div>
+            <div class="note-body">
+              <img style="width: 100%;border-radius: 10px;" src="/level/bomb/732b0fbe6376464b6c45d951.jpg">
+            </div>
+            <div class="note-footer">— 只许一次，别抖</div>
+          </aside>
+        </div>
+
+        <div class="device-footer">
+          <div id="status" class="status">移动剪刀，剪去正确的引线。</div>
+          <div class="meta" aria-hidden="true">
+            <span id="serial"></span>
+            <span class="sep">•</span>
+            <span id="checksum"></span>
+          </div>
+        </div>
+
+        <p class="sr" id="srHint">点击剪线会爆炸。</p>
+      </section>
+    </main>
+  </body>
+</html>
