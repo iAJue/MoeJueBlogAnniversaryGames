@@ -5,7 +5,7 @@
 应了小杰的要求,今年**尽可能**在浏览器端完成全部的闯关.
 
 游戏域名: AGX.MoeJue.cn
-AGX（A 表示周年 G 表示游戏 X 表示纪念、特别版那种感觉）
+AGX（A 表示周年 G 表示游戏 X 表示十周年纪念）
 
 解密文章地址:
 
@@ -60,8 +60,11 @@ PDF文件藏压缩包 `copy /b demo.pdf + data.zip result.pdf`
 - 考验观察能力是否仔细,辨真伪
 
 ## PDF压缩包
+- https://AGX.MoeJue.cn/level/three/start.html
+- pdf藏匿zip压缩包,下一关的地址在压缩包中
+- 为了减少难度,会在PDF中给出提示
+- 论文参考文献合集
 
-论文参考文献合集
 ## 第三关
 - three/start.html 
 - 先弹出一个咨询用户是否满18周岁的界面,类似18+游戏那种
@@ -84,10 +87,12 @@ PDF文件藏压缩包 `copy /b demo.pdf + data.zip result.pdf`
 ## 第六关
 - level/six/artwork.php
 - 一个白色加黑色制作成的透明图片,需要在切换暗黑和浅色模式会显示不同的图案,显示不同的信息
+- 句一：「我不住在服务器，也不住在你心里。」
+- 句二：「你关掉我之前，我一直陪着你。」
 - 在cookies里面返回下一关地址
 
 ## 第七关
-- level/Puzzles/index.php  index.html
+- level/puzzles/index.php  index.html
 - 拼图小游戏,在整个游戏过程中寻找拼图的碎片
 - 算是第二个主线任务
 
