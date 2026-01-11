@@ -10,13 +10,33 @@
     "answers": ["琪露诺", "チルノ", "Cirno"]
   },
   {
-    "id": "miku",
+    "id": "mococo",
     "file": "2.png",
-    "answers": ["初音未来", "初音ミク", "HatsuneMiku", "Hatsune Miku", "Miku"]
+    "answers": ["茸茸·阿比斯加德", "モココ・アビスガード", "Mococo Abyssgard", "Abyssgard"]
   },
   {
     "id": "miku",
     "file": "3.png",
     "answers": ["初音未来", "初音ミク", "HatsuneMiku", "Hatsune Miku", "Miku"]
+  },
+  {
+    "id": "shiroko",
+    "file": "4.png",
+    "answers": ["砂狼白子", "Sunaookami Shiroko", "すなおおかみ シロコ", "砂狼 シロコ", "Shiroko"]
+  },
+  {
+    "id": "maki",
+    "file": "5.png",
+    "answers": ["小涂真纪", "小塗真紀", "Kozeki Maki", "こぜき まき", "Maki"]
+  },
+  {
+    "id": "kirisaki",
+    "file": "6.png",
+    "answers": ["桐崎千棘", "きりさき ちとげ", "Chitoge Kirisaki", "Kirisaki"]
+  },
+  {
+    "id": "herta",
+    "file": "7.png",
+    "answers": ["黑塔", "ヘルタ", "Herta"]
   }
 ]

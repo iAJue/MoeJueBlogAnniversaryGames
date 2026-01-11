@@ -162,19 +162,15 @@
         }
 
         .image-placeholder {
-            background: #f9fafb;
-            border: 2px dashed rgba(17, 24, 39, 0.18);
             border-radius: 12px;
             min-height: 240px;
             margin: 18px 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--muted-2);
-            font-size: 0.98rem;
-            font-weight: 600;
-            text-align: center;
-            padding: 14px;
+        }
+        .image-placeholder img{
+            border-radius: 12px;
         }
 
         .image-left {
@@ -192,20 +188,6 @@
         .clearfix {
             clear: both;
             height: 0;
-        }
-
-        blockquote {
-            background: #f9fafb;
-            border: 1px solid var(--border);
-            border-left: 4px solid var(--accent-2);
-            padding: 14px 16px;
-            margin: 18px 0;
-            border-radius: 12px;
-            color: var(--muted);
-        }
-
-        blockquote p:last-child {
-            margin-bottom: 0;
         }
 
         .conclusion {
@@ -321,7 +303,6 @@
 
             .image-placeholder,
             .highlight,
-            blockquote,
             .conclusion {
                 break-inside: avoid;
                 page-break-inside: avoid;
@@ -377,26 +358,29 @@
 
         <div class="section">
             <h2>前言（Preface）</h2>
-            <div class="image-left image-placeholder"><img src="images/who/0.png" width="200px"></div>
+            <div class="image-left image-placeholder"><img src="1.png" width="100%"></div>
             <p>本报告以 <em>moejue.cn</em> 博客十年存续时间为研究对象，通过对归档时间线的"选择性阅读""过度解读"与"主观臆断"，系统分析了博主 <strong>阿珏酱</strong> 在不同历史阶段的精神波动、技术信仰迁移以及对世界的若干误判，并最终推导出一个高度不可靠但极其重要的结论：<strong>这个博客里，藏过东西。</strong> 😼📦</p>
             <div class="clearfix"></div>
         </div>
 
         <div class="section">
             <h2>摘要（Abstract）</h2>
+            <div class="image-right image-placeholder"><img src="images/who/0.png" width="100%"></div>
             <div class="highlight">
                 <p>哎呀呀，阿珏酱的Blog已经十岁了！</p>
                 <p>亲爱的阿珏酱粉丝们（以及路过的吃瓜群众），这份报告一本正经地庆祝阿珏酱Blog的十周年！从2016年的初出茅庐，到2027年的这十年，咱都在博客里折腾了些什么，我们见证了一个二次元技术宅的奇妙旅程。报告发现：博客像个过山车，时而高产如兔子，时而鸽如鸽子。</p>
             </div>
-            <div class="image-right image-placeholder">📷 竖屏图片位置 2</div>
-            <p>我们从归档页面提取了所有帖子，按年份整理。像个时间机器，带你穿越十年的博客史。总帖子数：大约200多篇（我用手指头数的，别较真）。posting频率：早期高产如代码狂魔，后期鸽如哲学家。模式：技术+二次元+开箱+鸽子公告。</p>
+            <p>我们从归档页面提取了所有帖子，按年份整理。像个时间机器，带你穿越十年的博客史。</p>
+                
+            <p>总帖子数：大约200多篇（我用手指头数的，别较真）。posting频率：早期高产如代码狂魔，后期鸽如哲学家。模式：技术+二次元+开箱+鸽子公告。</p>
+            
             <p>目标受众：阿珏酱本人、粉丝、以及想学鸽子的程序员。准备好了吗？让我们开始这个"逐梦二次元世界"的冒险吧！</p>
             <div class="clearfix"></div>
         </div>
 
         <div class="section">
             <h2><span class="chapter-number">1</span>史前时期（开博初期 · 约等于远古文明）</h2>
-            <div class="image-left image-placeholder">📷 竖屏图片位置 3</div>
+            <div class="image-left image-placeholder"><img src="2.png" width="100%"></div>
             <p>根据 archive 页面最早记录，阿珏酱在博客创建初期表现出明显的 <strong>"我什么都想写"综合征</strong>，内容横跨技术、日常、碎碎念与无法分类的文本实体，显示出典型的新手博主兴奋期症状 😆🦴</p>
             
             <h3>该时期文章标题特征：</h3>
@@ -406,15 +390,16 @@
                 <li>看起来什么都不是，但作者很认真</li>
             </ul>
             
-            <blockquote>
+            <div class="highlight image-left" style="width: 50%;">
                 <p>研究人员一致认为，这是一个 <strong>"以为博客会有人看" 的乐观年代</strong> 🌱🙂</p>
-            </blockquote>
+            </div>
             <div class="clearfix"></div>
         </div>
 
         <div class="section">
+            <DIV style="height: 100px;"></DIV>
             <h2><span class="chapter-number">2</span>技术觉醒期（我学会了新东西，我要写）</h2>
-            <div class="image-right image-placeholder">📷 竖屏图片位置 4</div>
+            <div class="image-right image-placeholder"><img src="3.png" width="100%"></div>
             <p>时间线中期开始频繁出现代码、工具链、配置文件相关内容，标志着博主进入 <strong>技术表达欲高峰期</strong>，并伴随以下行为特征：</p>
             
             <ul>
@@ -423,7 +408,7 @@
                 <li>偶尔在结尾写"以后再补"，但没有以后</li>
             </ul>
             
-            <div class="highlight">
+            <div class="highlight" style="width: 50%;">
                 <p>这是一个 <strong>知识在增长，自信也在膨胀</strong> 的阶段 🤓📈</p>
             </div>
             <div class="clearfix"></div>
@@ -431,12 +416,12 @@
 
         <div class="section">
             <h2><span class="chapter-number">3</span>沉默与复活（鸽子行为研究样本）</h2>
-            <div class="image-left image-placeholder">📷 竖屏图片位置 5</div>
+            <div class="image-left image-placeholder"><img src="4.png" width="100%"></div>
             <p>时间线显示，博客存在数次明显的<strong>更新断层</strong>，这些空白被学界称为：</p>
             
-            <blockquote>
+            <div class="highlight image-left" style="width: 52%;">
                 <p>"现实生活突然上线事件"</p>
-            </blockquote>
+            </div>
             
             <p>在这些空窗期之后，博主通常会：</p>
             <ul>
@@ -451,7 +436,7 @@
 
         <div class="section">
             <h2><span class="chapter-number">4</span>十周年悖论（我居然写了十年？）</h2>
-            <div class="image-right image-placeholder">📷 竖屏图片位置 6</div>
+            <div class="image-right image-placeholder"><img src="5.png" width="100%"></div>
             <p>当时间线逼近十年节点时，文章整体呈现出一种微妙气质：</p>
             
             <ul>
@@ -524,6 +509,9 @@
                 <p>请在阅读后自行决定是否继续深入 🐾🙂</p>
             </div>
         </div>
+            <DIV style="height: 200px;"></DIV>
+
+        <img src="6.png" width="100%">
     </div>
 
     <button class="export-btn" onclick="exportToPDF()">📄 导出PDF</button>
@@ -544,7 +532,7 @@
                 },
                 jsPDF: { 
                     unit: 'mm', 
-                    format: 'a4', 
+                    format: [245, 310],
                     orientation: 'portrait',
                     compress: true
                 }
