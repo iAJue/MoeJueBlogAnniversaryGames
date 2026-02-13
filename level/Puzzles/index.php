@@ -50,9 +50,6 @@ function load_expected_solution(): array {
 function normalize_expected_solution(array $solution): array {
     $rows = isset($solution['rows']) ? (int)$solution['rows'] : 0;
     $cols = isset($solution['cols']) ? (int)$solution['cols'] : 0;
-    $redirect = isset($solution['redirect']) && is_string($solution['redirect']) && $solution['redirect'] !== ''
-        ? $solution['redirect']
-        : '../last/safe.html';
 
     $hashesRaw = $solution['hashes'] ?? null;
     if (!is_array($hashesRaw)) {
@@ -77,7 +74,7 @@ function normalize_expected_solution(array $solution): array {
         send_json(500, ['ok' => false, 'message' => '服务器拼图答案格式错误：hashes 数量必须等于 rows*cols']);
     }
 
-    return ['rows' => $rows, 'cols' => $cols, 'hashes' => $hashes, 'redirect' => $redirect];
+    return ['rows' => $rows, 'cols' => $cols, 'hashes' => $hashes, 'redirect' => '../last/safe.html'];
 }
 
 if (($_SERVER['REQUEST_METHOD'] ?? '') === 'OPTIONS') {
@@ -131,5 +128,5 @@ if (!hash_equals(implode("\n", $expected['hashes']), implode("\n", $normalized))
 }
 
 http_response_code(303);
-header('Location: ' . $expected['redirect']);
+header('Location: ' . '../last/safe.html');
 exit;

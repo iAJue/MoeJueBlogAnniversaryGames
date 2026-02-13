@@ -60,7 +60,6 @@ PDF文件藏压缩包 `copy /b demo.pdf + data.zip result.pdf`
 - 考验观察能力是否仔细,辨真伪
 
 ## PDF压缩包
-- https://AGX.MoeJue.cn/level/three/start.html
 - pdf藏匿zip压缩包,下一关的地址在压缩包中
 - 为了减少难度,会在PDF中给出提示
 - 论文参考文献合集

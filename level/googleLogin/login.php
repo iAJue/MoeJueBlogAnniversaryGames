@@ -83,7 +83,6 @@ try {
         $_SESSION['user_logged_in'] = true;
         $_SESSION['login_time'] = time();
         $_SESSION['fingerprint'] = $fingerprint; // 保存浏览器指纹
-        $_SESSION['username'] = $username; // 保存用户名
         // 截取浏览器指纹最后两个数字作为密码储存起来
         preg_match('/(\d{2})\D*$/', $fingerprint, $m);
         $result = $m[1] ?? '00';
