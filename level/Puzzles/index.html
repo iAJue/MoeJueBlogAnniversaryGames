@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -167,6 +167,195 @@
       transform: translateY(0);
     }
 
+    .completion-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(12, 24, 40, 0.78);
+      backdrop-filter: blur(2px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 30;
+      padding: 16px;
+    }
+
+    .completion-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .completion-overlay::after {
+      content: "";
+      position: absolute;
+      inset: -20% -40%;
+      background: linear-gradient(108deg,
+          transparent 34%,
+          rgba(255, 255, 255, 0.04) 44%,
+          rgba(255, 255, 255, 0.78) 50%,
+          rgba(255, 255, 255, 0.1) 56%,
+          transparent 66%);
+      transform: translateX(-65%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 31;
+      mix-blend-mode: screen;
+    }
+
+    .completion-overlay.show.has-preview::after {
+      animation: overlay-sweep 1.15s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .completion-card {
+      width: min(640px, 92vw);
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+      border: 1px solid #dbe6f5;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .completion-card h2 {
+      margin: 2px 0 10px;
+      font-size: 18px;
+      color: #0f1c2e;
+    }
+
+    .completion-preview {
+      position: relative;
+      margin: 0 auto;
+      border-radius: 12px;
+      isolation: isolate;
+    }
+
+    .completion-card img {
+      display: block;
+      width: 100%;
+      max-height: 58vh;
+      object-fit: contain;
+      border-radius: 10px;
+      border: 1px solid #dbe6f5;
+      background: #f4f8ff;
+      position: relative;
+      z-index: 1;
+    }
+
+    .preview-sparkle {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.48) 52%, transparent 74%);
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 18px rgba(140, 220, 255, 0.9));
+      opacity: 0;
+      pointer-events: none;
+      z-index: 2;
+      mix-blend-mode: screen;
+    }
+
+    .preview-sparkle::before,
+    .preview-sparkle::after {
+      content: "";
+      position: absolute;
+      inset: -11px 7px;
+      background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 1), transparent);
+      border-radius: 10px;
+    }
+
+    .preview-sparkle::after {
+      inset: 7px -11px;
+      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 1), transparent);
+    }
+
+    .preview-sparkle.s1 {
+      top: 9%;
+      left: 12%;
+    }
+
+    .preview-sparkle.s2 {
+      top: 16%;
+      right: 14%;
+    }
+
+    .preview-sparkle.s3 {
+      bottom: 18%;
+      left: 18%;
+    }
+
+    .preview-sparkle.s4 {
+      bottom: 10%;
+      right: 22%;
+    }
+
+    .completion-overlay.show .completion-preview.has-preview .preview-sparkle.s1 {
+      animation: preview-twinkle 1.1s ease-in-out infinite;
+    }
+
+    .completion-overlay.show .completion-preview.has-preview .preview-sparkle.s2 {
+      animation: preview-twinkle 1.35s ease-in-out 0.2s infinite;
+    }
+
+    .completion-overlay.show .completion-preview.has-preview .preview-sparkle.s3 {
+      animation: preview-twinkle 1.25s ease-in-out 0.45s infinite;
+    }
+
+    .completion-overlay.show .completion-preview.has-preview .preview-sparkle.s4 {
+      animation: preview-twinkle 1.15s ease-in-out 0.65s infinite;
+    }
+
+    @keyframes overlay-sweep {
+      0% {
+        transform: translateX(-65%);
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 0.96;
+      }
+
+      82% {
+        opacity: 0.96;
+      }
+
+      100% {
+        transform: translateX(65%);
+        opacity: 0;
+      }
+    }
+
+    @keyframes preview-twinkle {
+      0%,
+      100% {
+        opacity: 0.04;
+        transform: scale(0.32) rotate(0deg);
+      }
+
+      40% {
+        opacity: 1;
+        transform: scale(1.75) rotate(16deg);
+      }
+
+      60% {
+        opacity: 0.4;
+        transform: scale(0.86) rotate(-8deg);
+      }
+    }
+
+    .completion-card p {
+      margin: 10px 0 0;
+      color: #3e4f68;
+      font-size: 14px;
+    }
+
+    .completion-actions {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+    }
+
     .github-corner svg {
       fill: var(--accent);
       color: #fff;
@@ -264,6 +453,22 @@
     <div id="stage">
       <div id="board"></div>
       <div class="toast" id="toast"></div>
+      <div id="completionOverlay" class="completion-overlay" hidden>
+        <div class="completion-card">
+          <h2>拼图完成</h2>
+          <div id="completionPreview" class="completion-preview">
+            <img id="completionImage" alt="拼图完成预览" hidden>
+            <span class="preview-sparkle s1" aria-hidden="true"></span>
+            <span class="preview-sparkle s2" aria-hidden="true"></span>
+            <span class="preview-sparkle s3" aria-hidden="true"></span>
+            <span class="preview-sparkle s4" aria-hidden="true"></span>
+          </div>
+          <p id="completionText">请点击继续进入下一关</p>
+          <div class="completion-actions">
+            <button id="continueBtn" type="button">继续</button>
+          </div>
+        </div>
+      </div>
     </div>
     <footer>
       © <a href="https://moejue.cn/" target="_blank">阿珏Blog</a>
@@ -279,6 +484,11 @@
     const toast = document.getElementById("toast");
     const shuffleBtn = document.getElementById("shuffleBtn");
     const verifyBtn = document.getElementById("verifyBtn");
+    const completionOverlay = document.getElementById("completionOverlay");
+    const completionPreview = document.getElementById("completionPreview");
+    const completionImage = document.getElementById("completionImage");
+    const completionText = document.getElementById("completionText");
+    const continueBtn = document.getElementById("continueBtn");
     const hintEl = document.querySelector("header .hint");
     const defaultHintText = hintEl ? hintEl.textContent : "";
 
@@ -291,20 +501,61 @@
     let cellW = 120;
     let cellH = 120;
     const sizeScale = 0.5; // 缩小板单元和部件渲染尺寸
-    const gridTightnessX = 0.62; // <1 使左右更紧密（减小列间距）
+    const gridTightnessX = 0.60; // <1 使左右更紧密（减小列间距）
     const gridTightnessY = 0.54; // <1 使上下更紧密（减小行间距）
-    const colGap = 2; // 每一列额外间距（px）：让“下一张”整体往右偏移
+    const colGap = 4; // 每一列额外间距（px）：让“下一张”整体往右偏移
     const rowGap = 0; // 每一行额外间距（px）
     const snapOffsetX = 0; // 吸附后额外偏移（px），例如 -2/+2
     const snapOffsetY = 0; // 吸附后额外偏移（px），例如 -2/+2
     let boardRect = null;
     let dragState = null;
+    let pendingRedirect = "";
 
     function showToast(msg) {
       toast.textContent = msg;
       toast.classList.add("show");
       clearTimeout(showToast._timer);
       showToast._timer = setTimeout(() => toast.classList.remove("show"), 1600);
+    }
+
+    function showCompletionOverlay({ redirect = "", preview = "", message = "" } = {}) {
+      const safeRedirect = typeof redirect === "string" ? redirect.trim() : "";
+      const safePreview = (typeof preview === "string") ? preview.trim() : "";
+      const safeMessage = (typeof message === "string" && message.trim()) ? message.trim() : "请点击继续进入下一关";
+
+      pendingRedirect = safeRedirect;
+
+      if (completionImage) {
+        if (safePreview) {
+          completionImage.src = safePreview;
+          completionImage.hidden = false;
+          completionPreview?.classList.add("has-preview");
+          completionOverlay?.classList.add("has-preview");
+        } else {
+          completionImage.removeAttribute("src");
+          completionImage.hidden = true;
+          completionPreview?.classList.remove("has-preview");
+          completionOverlay?.classList.remove("has-preview");
+        }
+      }
+      if (completionText) completionText.textContent = safeMessage;
+      if (continueBtn) continueBtn.disabled = !pendingRedirect;
+      if (!completionOverlay) {
+        if (pendingRedirect) window.location.href = pendingRedirect;
+        return;
+      }
+
+      completionOverlay.hidden = false;
+      requestAnimationFrame(() => completionOverlay.classList.add("show"));
+    }
+
+    function hideCompletionOverlay() {
+      pendingRedirect = "";
+      if (!completionOverlay) return;
+      completionOverlay.classList.remove("show");
+      completionOverlay.classList.remove("has-preview");
+      completionOverlay.hidden = true;
+      completionPreview?.classList.remove("has-preview");
     }
 
     function bufferToHex(buffer) {
@@ -409,6 +660,10 @@
 
     shuffleBtn.addEventListener("click", () => scatterPieces());
     verifyBtn.addEventListener("click", () => submitPuzzle());
+    continueBtn?.addEventListener("click", () => {
+      if (!pendingRedirect) return;
+      window.location.href = pendingRedirect;
+    });
 
     function parseGridFromNames(files) {
       let maxR = -1, maxC = -1, count = 0;
@@ -438,6 +693,7 @@
     }
 
     function spawnPieces(data) {
+      hideCompletionOverlay();
       stage.querySelectorAll(".piece").forEach(el => el.remove());
       pieces = [];
       pieceFiles = data.map(item => item.file);
@@ -663,17 +919,23 @@
           payload = null;
         }
 
-        if (payload && typeof payload.redirect === "string" && payload.redirect) {
-          window.location.href = payload.redirect;
-          return;
-        }
-
         const msg = (payload && typeof payload.message === "string" && payload.message.trim())
           ? payload.message.trim()
           : (response.ok ? "已提交" : `请求失败 (${response.status})`);
 
         if (!response.ok) {
           showToast(msg);
+          return;
+        }
+
+        const redirectUrl = (payload && typeof payload.redirect === "string") ? payload.redirect.trim() : "";
+        const previewUrl = (payload && typeof payload.preview === "string") ? payload.preview.trim() : "";
+        if (redirectUrl) {
+          showCompletionOverlay({
+            redirect: redirectUrl,
+            preview: previewUrl,
+            message: msg,
+          });
           return;
         }
 

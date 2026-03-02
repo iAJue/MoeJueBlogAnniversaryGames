@@ -74,7 +74,13 @@ function normalize_expected_solution(array $solution): array {
         send_json(500, ['ok' => false, 'message' => '服务器拼图答案格式错误：hashes 数量必须等于 rows*cols']);
     }
 
-    return ['rows' => $rows, 'cols' => $cols, 'hashes' => $hashes, 'redirect' => '../last/safe.html'];
+    return [
+        'rows' => $rows,
+        'cols' => $cols,
+        'hashes' => $hashes,
+        'redirect' => '../last/safe.html',
+        'preview' => '/level/bomb/732b0fbe6376464b6c45d951.jpg',
+    ];
 }
 
 if (($_SERVER['REQUEST_METHOD'] ?? '') === 'OPTIONS') {
@@ -127,6 +133,9 @@ if (!hash_equals(implode("\n", $expected['hashes']), implode("\n", $normalized))
     send_json(403, ['ok' => false, 'message' => '拼错了,再试试吧！']);
 }
 
-http_response_code(303);
-header('Location: ' . '../last/safe.html');
-exit;
+send_json(200, [
+    'ok' => true,
+    'message' => '点击按钮进入最后一关',
+    'redirect' => $expected['redirect'],
+    'preview' => $expected['preview'],
+]);
