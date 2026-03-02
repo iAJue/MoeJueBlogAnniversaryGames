@@ -463,7 +463,7 @@
             <span class="preview-sparkle s3" aria-hidden="true"></span>
             <span class="preview-sparkle s4" aria-hidden="true"></span>
           </div>
-          <p id="completionText">请点击继续进入下一关</p>
+          <p>点击按钮进入最后一关</p>
           <div class="completion-actions">
             <button id="continueBtn" type="button">继续</button>
           </div>
@@ -487,7 +487,6 @@
     const completionOverlay = document.getElementById("completionOverlay");
     const completionPreview = document.getElementById("completionPreview");
     const completionImage = document.getElementById("completionImage");
-    const completionText = document.getElementById("completionText");
     const continueBtn = document.getElementById("continueBtn");
     const hintEl = document.querySelector("header .hint");
     const defaultHintText = hintEl ? hintEl.textContent : "";
@@ -538,7 +537,6 @@
           completionOverlay?.classList.remove("has-preview");
         }
       }
-      if (completionText) completionText.textContent = safeMessage;
       if (continueBtn) continueBtn.disabled = !pendingRedirect;
       if (!completionOverlay) {
         if (pendingRedirect) window.location.href = pendingRedirect;
