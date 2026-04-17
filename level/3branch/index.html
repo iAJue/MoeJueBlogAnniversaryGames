@@ -231,6 +231,23 @@
         }
       }
 
+      function saveToServer(number) {
+        fetch('./save.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ number })
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (!data.success) {
+            console.error('保存失败:', data.message);
+          }
+        })
+        .catch(error => console.error('保存错误:', error));
+      }
+
       function handleGuess(event) {
         event.preventDefault();
         const guessValue = Number(select.value);
@@ -252,6 +269,8 @@
             attempts,
             timestamp: Date.now(),
           });
+          // 保存到服务器
+          saveToServer(answer);
           return;
         }
 
