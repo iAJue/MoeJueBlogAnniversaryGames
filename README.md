@@ -28,7 +28,7 @@ AGX（A 表示周年 G 表示游戏 X 表示十周年纪念）
 增加一个拼图游戏,碎片在游戏的过程中,找其并拼对了才会出现最终的保险箱
 增加一个猜猜我是谁的关卡, 黑色人物图片（剪影 / 轮廓图）
 可能增加一个拆弹专家
-PDF文件藏压缩包 `copy /b demo.pdf + data.zip result.pdf`
+PDF文件藏压缩包 `copy /b 阿珏酱Blog十周年研究报告.pdf + 阿珏酱Blog十周年研究报告.zip result.pdf`
 
 ## 第0关
 - level\bomb\index.html

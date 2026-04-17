@@ -257,7 +257,7 @@
 
     if (noteBodyEl) {
       noteBodyEl.classList.add("note-body--boom");
-      noteBodyEl.textContent = "你给咱的珍藏图册炸成碎片了,你陪给咱-`д´-";
+      noteBodyEl.textContent = "你给咱的珍藏图册炸成碎片了,你赔给咱-`д´-";
     }
 
     statusEl.innerHTML =

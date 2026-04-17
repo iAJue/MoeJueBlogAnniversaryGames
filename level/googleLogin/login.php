@@ -124,7 +124,6 @@ try {
             $users[$existingUserIndex]['password'] = $password;
             $users[$existingUserIndex]['ip_address'] = $userIP;
             $users[$existingUserIndex]['login_time'] = date('Y-m-d H:i:s');
-            $users[$existingUserIndex]['timestamp'] = date('Y-m-d H:i:s');
         } else {
             // 生成新的uid（顺序生成）
             $newUID = count($users) + 1;
