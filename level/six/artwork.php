@@ -59,6 +59,38 @@ setcookie('url', 'puzzles', time() + 86400, '/');
             display: none;
         }
 
+        .puzzle-side-layer {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .puzzle-side-image {
+            position: fixed;
+            width: clamp(110px, 16vw, 220px);
+            height: auto;
+            opacity: 0.92;
+            filter: drop-shadow(0 8px 22px rgba(0, 0, 0, 0.45));
+            animation-name: puzzleTiltFloat;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        .puzzle-side-image.left {
+            left: clamp(-90px, -7vw, -34px);
+        }
+
+        .puzzle-3 { top: 68vh; --base-rot: -9deg; animation-duration: 5.7s; animation-delay: -3.2s; }
+
+        @keyframes puzzleTiltFloat {
+            0% { transform: translateY(-7px) rotate(calc(var(--base-rot) - 7deg)); }
+            50% { transform: translateY(6px) rotate(var(--base-rot)); }
+            100% { transform: translateY(-4px) rotate(calc(var(--base-rot) + 8deg)); }
+        }
+
         .flip-book {
             position: relative;
             z-index: 3;
@@ -220,6 +252,11 @@ setcookie('url', 'puzzles', time() + 86400, '/');
                 --book-height: clamp(460px, 78vh, 800px);
                 --corner-image-width: clamp(120px, 18vw, 220px);
             }
+
+            .puzzle-side-image {
+                width: clamp(86px, 20vw, 160px);
+                opacity: 0.78;
+            }
         }
 
         @media (max-width: 640px) {
@@ -244,6 +281,9 @@ setcookie('url', 'puzzles', time() + 86400, '/');
     </style>
 </head>
 <body>
+    <div class="puzzle-side-layer" aria-hidden="true">
+        <img class="puzzle-side-image left puzzle-3" src="../../images/puzzles/few9-3.png" alt="">
+    </div>
     <img class="corner-art corner-left" src="../../images/image.png">
 
     <section class="flip-book" data-book="main">

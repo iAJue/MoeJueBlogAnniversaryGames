@@ -217,9 +217,39 @@
         
         .close-btn:hover { border-color: #4ecca3; color: #4ecca3; }
 
+        .puzzle-side-layer {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .puzzle-side-image {
+            position: fixed;
+            width: clamp(110px, 16vw, 220px);
+            height: auto;
+            opacity: 0.92;
+            filter: drop-shadow(0 8px 22px rgba(0, 0, 0, 0.45));
+        }
+
+        .puzzle-side-image.left {
+            left: clamp(-90px, -7vw, -34px);
+        }
+
+        .puzzle-side-image.right {
+            right: clamp(-90px, -7vw, -34px);
+        }
+
+        .puzzle-1 { top: 8vh; --base-rot: -16deg; animation-duration: 5.3s; animation-delay: -1.1s; }
+        .puzzle-5 { top: 44vh; --base-rot: -11deg; animation-duration: 5.5s; animation-delay: -0.6s; }
     </style>
 </head>
 <body>
+    <div class="puzzle-side-layer" aria-hidden="true">
+        <img class="puzzle-side-image left puzzle-1" src="../../images/puzzles/6.png" alt="" />
+        <img class="puzzle-side-image right puzzle-5" src="../../images/puzzles/876hf.png" alt="" />
+    </div>
     <div class="content-layer">
         <div class="hint">看,左边是一张我妹的照片,右边也有一张,她叫高坂桐乃(こうさか きりの),我很喜欢她!</div>
 

@@ -94,9 +94,44 @@
             color: #666;
             margin-top: 1rem;
         }
+
+        .puzzle-side-layer {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .puzzle-side-image {
+            position: fixed;
+            width: clamp(110px, 16vw, 220px);
+            height: auto;
+            opacity: 0.92;
+            filter: drop-shadow(0 8px 22px rgba(0, 0, 0, 0.45));
+            animation-name: puzzleTiltFloat;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        .puzzle-side-image.right {
+            right: clamp(-90px, -7vw, -34px);
+        }
+
+        .puzzle-6 { top: 74vh; --base-rot: 10deg; animation-duration: 6.8s; animation-delay: -2.7s; }
+
+        @keyframes puzzleTiltFloat {
+            0% { transform: translateY(-7px) rotate(calc(var(--base-rot) - 7deg)); }
+            50% { transform: translateY(6px) rotate(var(--base-rot)); }
+            100% { transform: translateY(-4px) rotate(calc(var(--base-rot) + 8deg)); }
+        }
     </style>
 </head>
 <body>
+    <div class="puzzle-side-layer" aria-hidden="true">
+        <img class="puzzle-side-image right puzzle-6" src="../../images/puzzles/rtrty89-.png" alt="" />
+    </div>
     <div class="age-gate-container" id="ageGate">
         <div class="age-gate-box">
             <div class="warning-icon">🔞</div>

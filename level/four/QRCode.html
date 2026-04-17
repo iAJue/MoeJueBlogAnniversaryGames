@@ -24,7 +24,7 @@
       margin: 1rem;
       font-size: 1.1rem;
     }
-    img {
+    .main-qrcode {
       width: min(300px, 70vw);
       height: auto;
       border-radius: 8px;
@@ -32,11 +32,46 @@
       background: #fff;
       padding: 12px;
     }
+    .qrcode-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .puzzle-side-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .puzzle-side-image {
+      position: fixed;
+      width: clamp(110px, 16vw, 220px);
+      height: auto;
+      opacity: 0.92;
+      filter: drop-shadow(0 8px 22px rgba(0, 0, 0, 0.35));
+    }
+    .puzzle-side-image.left {
+      left: clamp(-90px, -7vw, -34px);
+    }
+    .puzzle-side-image.right {
+      right: clamp(-90px, -7vw, -34px);
+    }
+    .puzzle-2 { top: 36vh; --base-rot: 12deg; animation-duration: 6.1s; animation-delay: -2.4s; }
+    .puzzle-4 { top: 14vh; --base-rot: 17deg; animation-duration: 6.4s; animation-delay: -1.8s; }
   </style>
 </head>
 <body>
+  <div class="puzzle-side-layer" aria-hidden="true">
+    <img class="puzzle-side-image left puzzle-2" src="../../images/puzzles/fsfds.png" alt="" />
+    <img class="puzzle-side-image right puzzle-4" src="../../images/puzzles/8686.png" alt="" />
+  </div>
+  <div class="qrcode-content">
   <p>这关来点简单的吧,扫个码就能获取下一关的地址。</p>
-  <img src="../../images/qrcode.png" />
+  <img class="main-qrcode" src="../../images/qrcode.png" />
   <p>请扫描二维码继续挑战。</p>
+  </div>
 </body>
 </html>
