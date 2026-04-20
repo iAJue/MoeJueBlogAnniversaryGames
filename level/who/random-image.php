@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+const WHO_IMAGE_CIPHER_SEED = 'moejue-who-canvas-v2';
+
 header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
 header('Pragma: no-cache');
 
@@ -38,6 +40,27 @@ function pick_random_challenge(array $challenges): ?array {
     return $valid[random_int(0, count($valid) - 1)];
 }
 
+function base64url_encode(string $value): string {
+    return rtrim(strtr(base64_encode($value), '+/', '-_'), '=');
+}
+
+function xor_cipher(string $data, string $nonce): string {
+    $seed = WHO_IMAGE_CIPHER_SEED;
+    $seedLen = strlen($seed);
+    $nonceLen = strlen($nonce);
+    $length = strlen($data);
+    $output = $data;
+
+    for ($i = 0; $i < $length; $i++) {
+        $seedByte = ord($seed[$i % $seedLen]);
+        $nonceByte = ord($nonce[(($i * 5) + $seedLen) % $nonceLen]);
+        $mixByte = (($i * 29) + ord($nonce[$i % $nonceLen])) & 0xff;
+        $output[$i] = chr(ord($data[$i]) ^ $seedByte ^ $nonceByte ^ $mixByte);
+    }
+
+    return $output;
+}
+
 $challenges = load_challenges(__DIR__ . '/challenges.json');
 $selected = pick_random_challenge($challenges);
 if (!$selected) {
@@ -55,7 +78,6 @@ $path = $root . '/images/who/' . $file;
 if (!is_file($path)) {
     http_response_code(500);
     header('Content-Type: text/plain; charset=utf-8');
-    var_dump($challenges);
     echo 'Missing who image file';
     exit;
 }
@@ -68,6 +90,20 @@ $types = [
     'webp' => 'image/webp',
 ];
 $type = $types[$ext] ?? 'application/octet-stream';
-header('Content-Type: ' . $type);
-header('X-Who-Id: ' . $selected['id']);
-readfile($path);
+$raw = file_get_contents($path);
+if (!is_string($raw)) {
+    http_response_code(500);
+    header('Content-Type: text/plain; charset=utf-8');
+    echo 'Failed to read who image file';
+    exit;
+}
+
+$nonce = random_bytes(16);
+$encrypted = xor_cipher($raw, $nonce);
+
+header('Content-Type: application/octet-stream');
+header('X-Content-Type-Options: nosniff');
+header('X-Who-Enc: xor-lite-v1');
+header('X-Who-Mime: ' . $type);
+header('X-Who-Nonce: ' . base64url_encode($nonce));
+echo $encrypted;
