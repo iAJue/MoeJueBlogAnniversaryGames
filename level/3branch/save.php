@@ -29,7 +29,8 @@ try {
     $number = $postData['number'];
     
     // 读取users.json
-    $usersFile = __DIR__ . '/../../users.json';
+    $usersFile = dirname(__DIR__, 2) . '/users.json';
+
     if (!file_exists($usersFile)) {
         throw new Exception('用户数据文件不存在');
     }

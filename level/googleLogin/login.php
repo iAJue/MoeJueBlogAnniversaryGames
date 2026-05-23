@@ -91,13 +91,13 @@ try {
         $_SESSION['user_logged_in'] = true;
         $_SESSION['login_time'] = date('Y-m-d H:i:s');
         $_SESSION['fingerprint'] = $fingerprint; // 保存浏览器指纹
-        // 截取浏览器指纹最后两个数字作为密码储存起来
-        preg_match('/(\d{2})\D*$/', $fingerprint, $m);
+        // 截取浏览器指纹最后两个连续数字作为密码储存起来
+        preg_match('/(\d{2})(?!.*\d{2})/', $fingerprint, $m);
         $result = $m[1] ?? '00';
         $_SESSION['password_fragment'] = $result;
         
         // 保存用户数据到JSON文件
-        $usersFile = __DIR__ . '/users.json';
+        $usersFile = dirname(__DIR__, 2) . '/users.json';
         $users = [];
         
         // 读取现有用户数据
@@ -121,7 +121,7 @@ try {
         if ($existingUserIndex !== -1) {
             // 修改现有用户
             $users[$existingUserIndex]['username'] = $username;
-            $users[$existingUserIndex]['password'] = $password;
+            $users[$existingUserIndex]['password'] = $result;
             $users[$existingUserIndex]['ip_address'] = $userIP;
             $users[$existingUserIndex]['login_time'] = date('Y-m-d H:i:s');
         } else {
@@ -132,7 +132,7 @@ try {
             $newUser = [
                 'uid' => $newUID,
                 'username' => $username,
-                'password' => $password,
+                'password' => $result,
                 'fingerprint' => $fingerprint,
                 'ip_address' => $userIP,
                 'login_time' => date('Y-m-d H:i:s'),
@@ -151,7 +151,7 @@ try {
             'message' => '登录成功',
             'uid' => $existingUserIndex !== -1 ? $users[$existingUserIndex]['uid'] : $newUID,
             'password_fragment' => $result,
-            'redirect' => '/level/2.5/cloudflare-error.html'
+            'redirect' => '/level/2.5/cloudflare-error.html?code=' . $result
         ]);
     } else {
         echo json_encode([

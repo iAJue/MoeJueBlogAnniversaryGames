@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
 
-define('USERS_FILE', __DIR__ . '/../../users.json');
+define('USERS_FILE', dirname(__DIR__, 2) . '/users.json');
 
 session_start();
 
@@ -67,12 +67,6 @@ function verifyUserValidity($fingerprint, $passwordFragment)
     }
 
     $user = $users[$userIndex];
-
-    // 检查密码字段的开头两位是否等于password_fragment
-    $passwordStart = substr($user['password'] ?? '', 0, 2);
-    if ($passwordStart !== $passwordFragment) {
-        throw new Exception('用户数据验证失败');
-    }
 
     return $user;
 }
@@ -143,6 +137,7 @@ try {
 
 $password = (string) $data['password'];
 
+var_dump($password , CORRECT_PASSWORD);
 // 验证密码
 if ($password !== CORRECT_PASSWORD) {
     // 密码错误
