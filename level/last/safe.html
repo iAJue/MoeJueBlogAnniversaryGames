@@ -131,7 +131,7 @@ footer{margin-top:14px;font-size:12px;color:var(--muted);text-align:center}
           document.body.style.opacity = '0';
           
           setTimeout(function() {
-            window.location.href = data.url + '?code=' + encodeURIComponent(data.couponCode);
+            window.location.href = data.url + '?code=' + encodeURIComponent(data.couponCode)+'&user=' + encodeURIComponent(data.username);
           }, 600);
         });
       }

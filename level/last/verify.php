@@ -104,8 +104,6 @@ if (!isset($_SESSION['password_fragment'])) {
     jsonResponse(false, '未检测到有效的会话，请按顺序完成关卡');
 }
 
-define('CORRECT_PASSWORD', $_SESSION['password_fragment'] . '69');
-
 // 验证请求方法
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     jsonResponse(false, '请求方法不允许', 405);
@@ -130,16 +128,15 @@ if (!isset($_SESSION['fingerprint'])) {
 }
 
 try {
-    verifyUserValidity($_SESSION['fingerprint'], $_SESSION['password_fragment']);
+    $user = verifyUserValidity($_SESSION['fingerprint'], $_SESSION['password_fragment']);
 } catch (Exception $e) {
     jsonResponse(false, '用户验证失败: ' . $e->getMessage(), 401);
 }
-
 $password = (string) $data['password'];
 
-var_dump($password , CORRECT_PASSWORD);
+
 // 验证密码
-if ($password !== CORRECT_PASSWORD) {
+if ($password !== trim($user['password'] . '69')) {
     // 密码错误
     jsonResponse(false, '密码错误，请重试', 401);
 }
@@ -157,5 +154,6 @@ try {
 
 jsonResponse(true, '密码正确！', 200, [
     'couponCode' => $couponCode,
+    'username' => $user['username'] ?? '陌生人',
     'url' => '/level/last/note.html'
 ]);

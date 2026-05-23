@@ -6,20 +6,26 @@ header('Access-Control-Allow-Headers: Content-Type');
 
 session_start();
 
-$validUsername = "blog10years";
-$validPassword = 'a4548011dd44ca756dd5c15e652d6f3b';
+$fixedInviteCode = 'blog10years';
 
 try {
     $postData = json_decode(file_get_contents('php://input'), true);
     
-    if (!isset($postData['username']) || !isset($postData['password']) || !isset($postData['captchaData']) || !isset($postData['fingerprint'])) {
+    if (!isset($postData['username']) || !isset($postData['password']) || !isset($postData['inviteCode']) || !isset($postData['captchaData']) || !isset($postData['fingerprint'])) {
         throw new Exception('请求数据不完整');
     }
     
-    $username = $postData['username'];
-    $password = $postData['password'];
+    $username = trim($postData['username']);
+    $password = trim($postData['password']);
+    $inviteCode = trim($postData['inviteCode']);
     $captchaData = $postData['captchaData'];
     $fingerprint = $postData['fingerprint'];
+
+    if ($inviteCode !== $fixedInviteCode) {
+        throw new Exception('邀请码错误');
+    }
+
+    $validPassword = hash_hmac('sha256', $username, $fixedInviteCode);
     
     // 验证指纹格式
     if (!preg_match('/^[a-f0-9]{32}$/', $fingerprint)) {
@@ -78,7 +84,7 @@ try {
     }
     
     // 验证账号密码
-    if ($password === $validPassword && $username === $validUsername) {
+    if ($password === $validPassword) {
         // 获取用户IP地址
         $userIP = $_SERVER['REMOTE_ADDR'];
         if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {

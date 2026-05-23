@@ -73,7 +73,7 @@
     }
 
     .paper-wrap {
-      width: 420px;
+      width: 441px;
       height: 260px;
       transform-style: preserve-3d;
       transform: rotateX(6deg) rotateZ(-6deg);
@@ -195,10 +195,14 @@
       margin-bottom: 10px
     }
 
+    #username {
+      font-weight: 600;
+      color: #ff6b6b;
+      margin: 0 4px;
+    }
+
     @media (max-width:520px) {
       .paper-wrap {
-        width: 320px;
-        height: 200px;
         transform: rotateX(6deg) rotateZ(-6deg) scale(0.9)
       }
 
@@ -227,7 +231,7 @@
             <div class="title">备忘便笺</div>
             <div class="meta">十周年，感谢有你</div>
             <div class="note">
-              谢谢你一直在身边陪我走过风雨与繁星的十年。<br>
+              谢谢你<span id="username"></span>一直在身边陪我走过风雨与繁星的十年。<br>
               这点小小的心意，也许不算耀眼，但希望能像一束柔光，悄悄照亮你的心。<br>
               接下来，也请继续一起前往更远、更美好的未来吧。
             </div>
@@ -243,6 +247,8 @@
       const urlParams = new URLSearchParams(window.location.search);
       const code = urlParams.get('code');
       const couponCodeEl = document.getElementById('couponCode');
+      const username = urlParams.get('user') || '陌生人';
+      document.getElementById('username').textContent = username;
       if (code) {
         couponCodeEl.textContent = code;
       } else {

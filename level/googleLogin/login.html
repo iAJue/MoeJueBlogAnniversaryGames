@@ -65,6 +65,12 @@
                         <div class="input-border"></div>
                     </div>
                 </div>
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <input type="text" id="inviteCode" placeholder="请输入邀请码">
+                        <div class="input-border"></div>
+                    </div>
+                </div>
                 <button class="login-btn" onclick="checkLogin()">进入游戏</button>
             </div>
             <div id="message" class="message"></div>
@@ -141,12 +147,22 @@
             browserFingerprint = Fingerprint2.x64hash128(values.join(''), 31);
         });
 
-        function checkLogin() {
-            const password = document.getElementById('password').value;
-            const username = document.getElementById('username').value;
+        function buildLoginHash(username, inviteCode) {
+            return CryptoJS.HmacSHA256(username, inviteCode).toString();
+        }
 
-            if (!password || !username) {
-                showMessage("请输入密码和用户名", false);
+        function checkLogin() {
+            const password = document.getElementById('password').value.trim();
+            const username = document.getElementById('username').value.trim();
+            const inviteCode = document.getElementById('inviteCode').value.trim();
+
+            if (!password || !username || !inviteCode) {
+                showMessage("请输入用户名、密码和邀请码", false);
+                return;
+            }
+            
+            if (password !== buildLoginHash(username, inviteCode)) {
+                showMessage("用户名与密码不符合", false);
                 return;
             }
 
@@ -274,20 +290,15 @@
         }
 
         async function proceedWithLogin() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+            const username = document.getElementById('username').value.trim();
+            const inviteCode = document.getElementById('inviteCode').value.trim();
 
             if (!browserFingerprint) {
                 showMessage("环境验证失败，请刷新页面重试", false);
                 return;
             }
 
-            const key = String.fromCharCode(0x1f31f) + String.fromCharCode(0x1f308) + "🍎🍌🎮💻";
-            const validNameHash = CryptoJS.SHA256(username).toString();
-            const obfuscatedKey = key.split('').map(c => String.fromCharCode(c.charCodeAt(0) ^ 42)).join('');
-            const reversedName = username.split('').reverse().join('');
-            const salted = reversedName + obfuscatedKey + validNameHash;
-            const finalHash = CryptoJS.MD5(CryptoJS.SHA256(salted).toString()).toString();
+            const finalHash = buildLoginHash(username, inviteCode);
 
             try {
                 const response = await fetch('/level/googleLogin/login.php', {
@@ -298,6 +309,7 @@
                     body: JSON.stringify({
                         username: username,
                         password: finalHash,
+                        inviteCode: inviteCode,
                         captchaData: {
                             selectedIndices: Array.from(selectedImages),
                             images: currentCaptchaData.images,
