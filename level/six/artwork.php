@@ -225,7 +225,7 @@ setcookie('url', 'puzzles', time() + 86400, '/');
         @media (prefers-color-scheme: light) {
             body {
                 color: #1d1a15;
-                background-color: #f5f5f5;
+                background-color: #fff;
             }
 
             .corner-left {

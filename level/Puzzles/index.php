@@ -79,7 +79,7 @@ function normalize_expected_solution(array $solution): array {
         'cols' => $cols,
         'hashes' => $hashes,
         'redirect' => '../last/safe.html',
-        'preview' => '/level/bomb/732b0fbe6376464b6c45d951.jpg',
+        'preview' => '/level/bomb/bg.jpg',
     ];
 }
 
