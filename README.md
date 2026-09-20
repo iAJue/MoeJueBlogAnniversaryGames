@@ -4,7 +4,7 @@
 这是一个为阿珏酱Blog十周年庆典特别制作的解密游戏页面。玩家需要发挥巨大的脑洞，一步一步解开谜题，最终获得神秘大奖。
 应了小杰的要求,今年**尽可能**在浏览器端完成全部的闯关.
 
-游戏域名: AGX.MoeJue.cn
+游戏地址: [AGX.MoeJue.cn](https://agx.moejue.cn/level/bomb/index.html)
 AGX（A 表示周年 G 表示游戏 X 表示十周年纪念）
 
 解密文章地址:
