@@ -1,4 +1,6 @@
 <?php
+session_start();
+$_SESSION['level_six_completed'] = true;
 setcookie('url', 'puzzles', time() + 86400, '/');
 ?>
 <!DOCTYPE html>

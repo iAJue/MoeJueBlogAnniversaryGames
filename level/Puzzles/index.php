@@ -94,6 +94,10 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     send_json(405, ['ok' => false, 'message' => '仅支持 POST(JSON)']);
 }
 
+if (($_SESSION['level_six_completed'] ?? false) !== true) {
+    send_json(403, ['ok' => false, 'message' => '请按顺序完成关卡']);
+}
+
 $payload = read_json_body();
 if (!$payload) {
     send_json(400, ['ok' => false, 'message' => '请求体必须为 JSON']);
