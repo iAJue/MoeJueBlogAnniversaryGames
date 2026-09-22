@@ -104,6 +104,10 @@ if (!isset($_SESSION['password_fragment'])) {
     jsonResponse(false, '未检测到有效的会话，请按顺序完成关卡');
 }
 
+if (($_SESSION['puzzle_completed'] ?? false) !== true) {
+    jsonResponse(false, '请按顺序完成关卡');
+}
+
 // 验证请求方法
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     jsonResponse(false, '请求方法不允许', 405);

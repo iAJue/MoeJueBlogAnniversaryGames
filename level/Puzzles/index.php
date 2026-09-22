@@ -4,6 +4,8 @@ declare(strict_types=1);
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
 
+session_start();
+
 function send_json(int $status, array $payload): never {
     http_response_code($status);
     echo json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
@@ -132,6 +134,8 @@ if ($rows !== $expected['rows'] || $cols !== $expected['cols']) {
 if (!hash_equals(implode("\n", $expected['hashes']), implode("\n", $normalized))) {
     send_json(403, ['ok' => false, 'message' => '拼错了,再试试吧！']);
 }
+
+$_SESSION['puzzle_completed'] = true;
 
 send_json(200, [
     'ok' => true,
