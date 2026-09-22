@@ -1,5 +1,6 @@
 <?php
 header('Content-Type: application/json');
+session_start();
 
 $input = file_get_contents('php://input');
 $data = json_decode($input, true);
@@ -12,6 +13,7 @@ if (empty($data)) {
 }
 
 if($data['answer'] == $md5){
+    $_SESSION['level_five_completed'] = true;
     $response = [
         'success' => true,
         'message' => '验证通过！完美匹配！',

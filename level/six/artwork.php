@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+if (($_SESSION['level_five_completed'] ?? false) !== true) {
+    http_response_code(403);
+    exit('请按顺序完成关卡');
+}
+
 $_SESSION['level_six_completed'] = true;
 setcookie('url', 'puzzles', time() + 86400, '/');
 ?>
